@@ -116,13 +116,83 @@ func (c *Client) GetCoinsMarket(currency string, ids []string, category string, 
 	return data, nil
 }
 
-func (c *Client) GetCoinId(id string, localization, ticker, marketData, communityData, developerData, sparkline bool) (*coins.CoinID, error) {
-	url := fmt.Sprintf("%s/%s", coinsURL, id)
+func (c *Client) GetCoinsId(id string, localization, tickers, marketData, communityData, developerData, sparkline bool) (*coins.CoinID, error) {
+	params := url.Values{}
+
+	params.Add("localization", strconv.FormatBool(localization))
+	params.Add("tickers", strconv.FormatBool(tickers))
+	params.Add("market_data", strconv.FormatBool(marketData))
+	params.Add("community_data", strconv.FormatBool(communityData))
+	params.Add("developer_data", strconv.FormatBool(developerData))
+	params.Add("sparkline", strconv.FormatBool(sparkline))
+
+	url := fmt.Sprintf("%s/%s?%s", coinsURL, id, params.Encode())
 	resp, err := c.MakeReq(url)
 	if err != nil {
 		return nil, err
 	}
 	var data *coins.CoinID
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Client) GetCoinsIdTickers(id, exchangeId, includeExchangeLogo, page, order, depth string) (*coins.Tickers, error) {
+	params := url.Values{}
+
+	params.Add("exchange_ids", exchangeId)
+	params.Add("include_exchange_logo", includeExchangeLogo)
+	params.Add("page", page)
+	params.Add("order", order)
+	params.Add("depth", depth)
+
+	url := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "tickers", params.Encode())
+	resp, err := c.MakeReq(url)
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.Tickers
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Client) GetCoinsIdHistory(id, date string, localization bool) (*coins.History, error) {
+	params := url.Values{}
+
+	params.Add("date", date)
+	params.Add("localization", strconv.FormatBool(localization))
+
+	url := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "history", params.Encode())
+	resp, err := c.MakeReq(url)
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.History
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.MarketChart, error) {
+	params := url.Values{}
+
+	params.Add("vs_currency", currency)
+	params.Add("days", days)
+	params.Add("interval", "daily")
+
+	url := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "market_chart", params.Encode())
+	resp, err := c.MakeReq(url)
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.MarketChart
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err

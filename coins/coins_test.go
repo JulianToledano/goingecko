@@ -38,9 +38,54 @@ func TestCoinsIds(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, _ := cgClient.GetCoinId("bitcoin", true, true, true, true, true, true)
+	coinData, err := cgClient.GetCoinsId("bitcoin", true, true, true, true, true, true)
+	if err != nil {
+		t.Errorf("Error: %s", err)
+	}
 	if coinData == nil {
 		t.Errorf("Error")
+	}
+
+}
+
+func TestCoinsIdsTickers(t *testing.T) {
+
+	cgClient := goingecko.NewClient(nil)
+
+	coinData, err := cgClient.GetCoinsIdTickers("bitcoin", "", "", "", "", "")
+	if coinData == nil {
+		t.Errorf("Error")
+	}
+	if err != nil {
+		t.Errorf("Error: %s", err)
+	}
+
+}
+
+func TestCoinsIdsHistory(t *testing.T) {
+
+	cgClient := goingecko.NewClient(nil)
+
+	coinData, err := cgClient.GetCoinsIdHistory("bitcoin", "30-12-17", true)
+	if coinData == nil {
+		t.Errorf("Error")
+	}
+	if err != nil {
+		t.Errorf("Error: %s", err)
+	}
+
+}
+
+func TestCoinsIdsMarketChart(t *testing.T) {
+
+	cgClient := goingecko.NewClient(nil)
+
+	coinData, err := cgClient.GetCoinsIdMarketChart("bitcoin", "usd", "10")
+	if coinData == nil {
+		t.Errorf("Error")
+	}
+	if err != nil {
+		t.Errorf("Error: %s", err)
 	}
 
 }
