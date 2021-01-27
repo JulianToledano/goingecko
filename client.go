@@ -182,7 +182,6 @@ func (c *Client) GetCoinsIdHistory(id, date string, localization bool) (*coins.H
 
 func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.MarketChart, error) {
 	params := url.Values{}
-
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
 	params.Add("interval", "daily")
@@ -193,6 +192,43 @@ func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.Market
 		return nil, err
 	}
 	var data *coins.MarketChart
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*coins.MarketChart, error) {
+	params := url.Values{}
+	params.Add("vs_currency", currency)
+	params.Add("from", from)
+	params.Add("to", to)
+
+	url := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "market_chart/range", params.Encode())
+	resp, err := c.MakeReq(url)
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.MarketChart
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Client) GetCoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
+	params := url.Values{}
+	params.Add("vs_currency", currency)
+	params.Add("days", days)
+
+	url := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "ohlc", params.Encode())
+	resp, err := c.MakeReq(url)
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.Ohlc
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err

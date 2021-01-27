@@ -87,5 +87,30 @@ func TestCoinsIdsMarketChart(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error: %s", err)
 	}
+}
 
+func TestCoinsIdsMarketChartRange(t *testing.T) {
+
+	cgClient := goingecko.NewClient(nil)
+
+	coinData, err := cgClient.GetCoinsIdMarketChartRange("bitcoin", "usd", "1392577232", "1422577232")
+	if coinData == nil {
+		t.Errorf("Error")
+	}
+	if err != nil {
+		t.Errorf("Error: %s", err)
+	}
+}
+
+func TestCoinsIdsOhlc(t *testing.T) {
+
+	cgClient := goingecko.NewClient(nil)
+
+	coinData, err := cgClient.GetCoinsOhlc("bitcoin", "usd", "7")
+	if coinData == nil {
+		t.Errorf("Error")
+	}
+	if err != nil {
+		t.Errorf("Error: %s", err)
+	}
 }
