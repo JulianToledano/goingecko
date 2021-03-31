@@ -3,13 +3,13 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/simple"
 	"net/url"
 	"strconv"
+
+	"github.com/JulianToledano/goingecko/simple"
 )
 
-// TODO: not finished
-func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (*simple.Price, error) {
+func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.Price, error) {
 	params := url.Values{}
 
 	params.Add("ids", ids)
@@ -30,7 +30,31 @@ func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, include
 	if err != nil {
 		return nil, err
 	}
-	return nil, nil
+	return data, nil
+}
+
+func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.TokenPrice, error) {
+	params := url.Values{}
+
+	params.Add("contract_addresses", contractAddresses)
+	params.Add("vs_currencies", vsCurrencies)
+	params.Add("include_market_cap", strconv.FormatBool(includeMarketCap))
+	params.Add("include_24hr_vol", strconv.FormatBool(includeDayVolume))
+	params.Add("include_24hr_change", strconv.FormatBool(includeDayChange))
+	params.Add("include_last_updated_at", strconv.FormatBool(includeLastTimeUpdated))
+
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", simpleURL, "token_price", id, params.Encode())
+	resp, err := c.MakeReq(rUrl)
+	if err != nil {
+		return nil, err
+	}
+
+	var data simple.TokenPrice
+	err = json.Unmarshal([]byte(resp), &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
 
 func (c *Client) SimpleSupportedVsCurrency() (*simple.SupportedVsCurrency, error) {
