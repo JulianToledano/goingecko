@@ -16,6 +16,6 @@ var (
 	statusUpdatesURL = fmt.Sprintf("%s/status_updates", baseURL)
 	eventsURL        = fmt.Sprintf("%s/events", baseURL)
 	exchangeRatesURL = fmt.Sprintf("%s/exchange_rates", baseURL)
-	trendingURL      = fmt.Sprintf("%s/trending", baseURL)
+	trendingURL      = fmt.Sprintf("%s/search/trending", baseURL)
 	globalURL        = fmt.Sprintf("%s/global", baseURL)
 )
