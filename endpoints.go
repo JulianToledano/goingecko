@@ -14,7 +14,7 @@ var (
 	indexesURL       = fmt.Sprintf("%s/indexes", baseURL)
 	derivativesURL   = fmt.Sprintf("%s/derivatices", baseURL)
 	statusUpdatesURL = fmt.Sprintf("%s/status_updates", baseURL)
-	eventsUpdatesURL = fmt.Sprintf("%s/events", baseURL)
+	eventsURL        = fmt.Sprintf("%s/events", baseURL)
 	exchangeRatesURL = fmt.Sprintf("%s/exchange_rates", baseURL)
 	trendingURL      = fmt.Sprintf("%s/trending", baseURL)
 	globalURL        = fmt.Sprintf("%s/global", baseURL)
