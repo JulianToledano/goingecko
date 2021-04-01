@@ -1,4 +1,4 @@
-package coins
+package types
 
 type MarketChart struct {
 	Prices       [][]float64 `json:"prices"`

@@ -1,4 +1,4 @@
-package goingecko_test
+package test
 
 import (
 	"fmt"

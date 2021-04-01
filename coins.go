@@ -3,10 +3,12 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/coins"
 	"net/url"
 	"strconv"
 	"strings"
+
+	"github.com/JulianToledano/goingecko/coins"
+	"github.com/JulianToledano/goingecko/types"
 )
 
 func (c *Client) GetCoinsList() ([]*coins.CoinInfo, error) {
@@ -117,7 +119,7 @@ func (c *Client) GetCoinsIdHistory(id, date string, localization bool) (*coins.H
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.MarketChart, error) {
+func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
@@ -128,7 +130,7 @@ func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.Market
 	if err != nil {
 		return nil, err
 	}
-	var data *coins.MarketChart
+	var data *types.MarketChart
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
@@ -136,7 +138,7 @@ func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*coins.Market
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*coins.MarketChart, error) {
+func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("from", from)
@@ -147,7 +149,7 @@ func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*coi
 	if err != nil {
 		return nil, err
 	}
-	var data *coins.MarketChart
+	var data *types.MarketChart
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err

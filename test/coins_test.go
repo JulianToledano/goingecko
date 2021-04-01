@@ -1,4 +1,4 @@
-package coins_test
+package test
 
 import (
 	"testing"
@@ -14,7 +14,6 @@ func TestCoinsList(t *testing.T) {
 	if coinData == nil {
 		t.Errorf("Error")
 	}
-
 }
 
 func TestCoinsMarket(t *testing.T) {
@@ -31,7 +30,6 @@ func TestCoinsMarket(t *testing.T) {
 	if coinData == nil {
 		t.Errorf("Error")
 	}
-
 }
 
 func TestCoinsIds(t *testing.T) {
@@ -59,7 +57,6 @@ func TestCoinsIdsTickers(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error: %s", err)
 	}
-
 }
 
 func TestCoinsIdsHistory(t *testing.T) {
@@ -73,7 +70,6 @@ func TestCoinsIdsHistory(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error: %s", err)
 	}
-
 }
 
 func TestCoinsIdsMarketChart(t *testing.T) {
