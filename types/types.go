@@ -32,7 +32,7 @@ type Links struct {
 	AnnouncementURL             []string `json:"announcement_url"`
 	TwitterScreenName           string   `json:"twitter_screen_name"`
 	FacebookUsername            string   `json:"facebook_username"`
-	BitcointalkThreadIdentifier string   `json:"bitcointalk_thread_identifier"`
+	BitcointalkThreadIdentifier float64  `json:"bitcointalk_thread_identifier"`
 	TelegramChannelIdentifier   string   `json:"telegram_channel_identifier"`
 	SubredditURL                string   `json:"subreddit_url"`
 	ReposURL                    ReposUrl `json:"repos_url"`
@@ -157,10 +157,10 @@ type MarketData struct {
 	Atl                                   PriceRates `json:"atl"`
 	AtlChangePercentage                   PriceRates `json:"atl_change_percentage"`
 	AtlDate                               DateRates  `json:"atl_date"`
-	MarketCap                             CapRates   `json:"market_cap"`
+	MarketCap                             PriceRates `json:"market_cap"`
 	MarketCapRank                         int16      `json:"market_cap_rank"`
-	FullyDilutedValuation                 CapRates   `json:"fully_diluted_valuation"`
-	TotalVolume                           CapRates   `json:"total_volume"`
+	FullyDilutedValuation                 PriceRates `json:"fully_diluted_valuation"`
+	TotalVolume                           PriceRates `json:"total_volume"`
 	High24                                PriceRates `json:"high_24h"`
 	Low24                                 PriceRates `json:"low_24h"`
 	PriceChangeDay                        float64    `json:"price_change_24h"`
