@@ -12,7 +12,7 @@ func TestCoins(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, _ := cgClient.GetCoinsId(coin, true, true, true, true, true, true)
+	coinData, _ := cgClient.CoinsId(coin, true, true, true, true, true, true)
 	fmt.Println(coinData.MarketData.CurrentPrice.Usd)
 
 }

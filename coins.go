@@ -11,7 +11,7 @@ import (
 	"github.com/JulianToledano/goingecko/types"
 )
 
-func (c *Client) GetCoinsList() ([]*coins.CoinInfo, error) {
+func (c *Client) CoinsList() ([]*coins.CoinInfo, error) {
 	rUrl := fmt.Sprintf("%s/%s", coinsURL, "list")
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
@@ -26,7 +26,7 @@ func (c *Client) GetCoinsList() ([]*coins.CoinInfo, error) {
 	return data, nil
 }
 
-func (c *Client) GetCoinsMarket(currency string, ids []string, category string, order string, perPage, page string, sparkline bool, priceChange []string) ([]*coins.Market, error) {
+func (c *Client) CoinsMarket(currency string, ids []string, category string, order string, perPage, page string, sparkline bool, priceChange []string) ([]*coins.Market, error) {
 	params := url.Values{}
 	idsParam := strings.Join(ids[:], ",")
 	pChange := strings.Join(priceChange[:], ",")
@@ -55,7 +55,7 @@ func (c *Client) GetCoinsMarket(currency string, ids []string, category string, 
 	return data, nil
 }
 
-func (c *Client) GetCoinsId(id string, localization, tickers, marketData, communityData, developerData, sparkline bool) (*coins.CoinID, error) {
+func (c *Client) CoinsId(id string, localization, tickers, marketData, communityData, developerData, sparkline bool) (*coins.CoinID, error) {
 	params := url.Values{}
 
 	params.Add("localization", strconv.FormatBool(localization))
@@ -78,7 +78,7 @@ func (c *Client) GetCoinsId(id string, localization, tickers, marketData, commun
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdTickers(id, exchangeId, includeExchangeLogo, page, order, depth string) (*coins.Tickers, error) {
+func (c *Client) CoinsIdTickers(id, exchangeId, includeExchangeLogo, page, order, depth string) (*coins.Tickers, error) {
 	params := url.Values{}
 
 	params.Add("exchange_ids", exchangeId)
@@ -100,7 +100,7 @@ func (c *Client) GetCoinsIdTickers(id, exchangeId, includeExchangeLogo, page, or
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdHistory(id, date string, localization bool) (*coins.History, error) {
+func (c *Client) CoinsIdHistory(id, date string, localization bool) (*coins.History, error) {
 	params := url.Values{}
 
 	params.Add("date", date)
@@ -119,7 +119,7 @@ func (c *Client) GetCoinsIdHistory(id, date string, localization bool) (*coins.H
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*types.MarketChart, error) {
+func (c *Client) CoinsIdMarketChart(id, currency, days string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
@@ -138,7 +138,7 @@ func (c *Client) GetCoinsIdMarketChart(id, currency, days string) (*types.Market
 	return data, nil
 }
 
-func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*types.MarketChart, error) {
+func (c *Client) CoinsIdMarketChartRange(id, currency, from, to string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("from", from)
@@ -157,7 +157,7 @@ func (c *Client) GetCoinsIdMarketChartRange(id, currency, from, to string) (*typ
 	return data, nil
 }
 
-func (c *Client) GetCoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
+func (c *Client) CoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)

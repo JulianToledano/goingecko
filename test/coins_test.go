@@ -10,7 +10,7 @@ func TestCoinsList(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, _ := cgClient.GetCoinsList()
+	coinData, _ := cgClient.CoinsList()
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -26,7 +26,7 @@ func TestCoinsMarket(t *testing.T) {
 	priceChange := make([]string, 0)
 
 	priceChange = append(priceChange, "24h")
-	coinData, _ := cgClient.GetCoinsMarket("usd", ids, "", "", "100", "1", true, priceChange)
+	coinData, _ := cgClient.CoinsMarket("usd", ids, "", "", "100", "1", true, priceChange)
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -36,7 +36,7 @@ func TestCoinsIds(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsId("bitcoin", true, true, true, true, true, true)
+	coinData, err := cgClient.CoinsId("bitcoin", true, true, true, true, true, true)
 	if err != nil {
 		t.Errorf("Error: %s", err)
 	}
@@ -50,7 +50,7 @@ func TestCoinsIdsTickers(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsIdTickers("bitcoin", "", "", "", "", "")
+	coinData, err := cgClient.CoinsIdTickers("bitcoin", "", "", "", "", "")
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -63,7 +63,7 @@ func TestCoinsIdsHistory(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsIdHistory("bitcoin", "30-12-17", true)
+	coinData, err := cgClient.CoinsIdHistory("bitcoin", "30-12-17", true)
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -76,7 +76,7 @@ func TestCoinsIdsMarketChart(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsIdMarketChart("bitcoin", "usd", "10")
+	coinData, err := cgClient.CoinsIdMarketChart("bitcoin", "usd", "10")
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -89,7 +89,7 @@ func TestCoinsIdsMarketChartRange(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsIdMarketChartRange("bitcoin", "usd", "1392577232", "1422577232")
+	coinData, err := cgClient.CoinsIdMarketChartRange("bitcoin", "usd", "1392577232", "1422577232")
 	if coinData == nil {
 		t.Errorf("Error")
 	}
@@ -102,7 +102,7 @@ func TestCoinsIdsOhlc(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	coinData, err := cgClient.GetCoinsOhlc("bitcoin", "usd", "7")
+	coinData, err := cgClient.CoinsOhlc("bitcoin", "usd", "7")
 	if coinData == nil {
 		t.Errorf("Error")
 	}

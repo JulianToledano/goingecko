@@ -3,9 +3,10 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/ping"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/JulianToledano/goingecko/ping"
 )
 
 type Client struct {
@@ -21,6 +22,10 @@ func NewClient(httpClient *http.Client) *Client {
 		httpClient: httpClient,
 		baseUrl:    baseURL,
 	}
+}
+
+func (c *Client) Close() {
+	c.httpClient.CloseIdleConnections()
 }
 
 func doReq(req *http.Request, client *http.Client) ([]byte, error) {
@@ -66,4 +71,3 @@ func (c *Client) Ping() (*ping.Ping, error) {
 	}
 	return data, nil
 }
-
