@@ -157,6 +157,20 @@ func (c *Client) CoinsIdMarketChartRange(id, currency, from, to string) (*types.
 	return data, nil
 }
 
+func (c *Client) CoinsStatusUpdates(id string) (*coins.StatusUpdates, error) {
+	rUrl := fmt.Sprintf("%s/%s/%s", coinsURL, id, "status_updates")
+	resp, err := c.MakeReq((rUrl))
+	if err != nil {
+		return nil, err
+	}
+	var data *coins.StatusUpdates
+	err = json.Unmarshal(resp, &data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
 func (c *Client) CoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
