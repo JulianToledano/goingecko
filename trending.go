@@ -2,13 +2,12 @@ package goingecko
 
 import (
 	"encoding/json"
-	"fmt"
 
 	"github.com/JulianToledano/goingecko/trending"
 )
 
 func (c *Client) Trending() (*trending.Trending, error) {
-	rUrl := fmt.Sprintf("%s", trendingURL)
+	rUrl := trendingURL
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

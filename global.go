@@ -8,7 +8,7 @@ import (
 )
 
 func (c *Client) Global() (*global.Global, error) {
-	rUrl := fmt.Sprintf("%s", globalURL)
+	rUrl := globalURL
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

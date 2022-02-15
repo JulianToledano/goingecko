@@ -22,7 +22,7 @@ Coingecko API client for golang.
 | coins/{id}/history | ✓  | CoinsIdHistory  |
 |  coins/{id}/market_chart | ✓  | CoinsIdMarketChart  |
 |  coins/{id}/market_chart/range | ✓  | CoinsIdMarketChartRange  |
-|  coins/{id}/status_updates | ✕  |   |
+|  coins/{id}/status_updates | ✓  |   |
 |  coins/{id}/ohlc | ✓  | CoinsOhlc  |
 |  /coins/{id}/contract/{contract_address} | ✓  |  ContractInfo |
 |  /coins/{id}/contract/{contract_address}/market_chart/ | ✓  | ContractMarketChart  |
