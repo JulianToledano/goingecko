@@ -115,7 +115,7 @@ func TestStatusUpdates(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil)
 
-	data, err := cgClient.CoinsStatusUpdates("bitcoin")
+	data, err := cgClient.CoinsStatusUpdates("fuse-network-token")
 	if data == nil {
 		t.Errorf("Error")
 	}
