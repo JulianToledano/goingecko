@@ -34,7 +34,9 @@ func (c *Client) CoinsMarket(currency string, ids []string, category string, ord
 
 	params.Add("vs_currency", currency)
 	params.Add("ids", idsParam)
-	params.Add("category", category)
+	if category != "" {
+		params.Add("category", category)
+	}
 	params.Add("order", order)
 	params.Add("per_page", perPage)
 	params.Add("page", page)
