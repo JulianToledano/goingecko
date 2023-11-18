@@ -15,18 +15,18 @@ Coingecko API client for golang.
 | /simple/price                                              | ✓ | SimplePrice  |
 | /simple/token_price/{id}                                   | ✓ | SimpleTokenPrice  |
 | /simple/supported_vs_currencies                            | ✓ | SimpleSupportedVsCurrency  |
-| /coins/list                                                | ✓ |  CoinsList |
+| /coins/list                                                | ✓ | CoinsList |
 | /coins/markets                                             | ✓ | CoinsMarket  |
-| /coins/{id}                                                | ✓ |  CoinsId |
-| /coins/{id}/tickers                                        | ✓ |  CoinsIdTickers |
+| /coins/{id}                                                | ✓ | CoinsId |
+| /coins/{id}/tickers                                        | ✓ | CoinsIdTickers |
 | /coins/{id}/history                                        | ✓ | CoinsIdHistory  |
 | /coins/{id}/market_chart                                   | ✓ | CoinsIdMarketChart  |
 | /coins/{id}/market_chart/range                             | ✓ | CoinsIdMarketChartRange  |
 | /coins/{id}/ohlc                                           | ✓ | CoinsOhlc  |
-| /coins/{id}/contract/{contract_address}                    | ✓ |  ContractInfo |
+| /coins/{id}/contract/{contract_address}                    | ✓ | ContractInfo |
 | /coins/{id}/contract/{contract_address}/market_chart/      | ✓ | ContractMarketChart  |
 | /coins/{id}/contract/{contract_address}/market_chart/range | ✓ | ContractMarketChartRange  |
-| /asset_platforms                                           | ✗ |   |
+| /asset_platforms                                           | ✗ | AssetPlatforms  |
 | /coins/categories/list                                     | ✗ |   |
 | /coins/categories/                                         | ✗ |   |
 | /exchanges                                                 | ✗ |   |
