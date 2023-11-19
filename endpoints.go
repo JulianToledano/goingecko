@@ -9,6 +9,7 @@ var (
 	simpleURL         = fmt.Sprintf("%s/simple", baseURL)
 	coinsURL          = fmt.Sprintf("%s/coins", baseURL)
 	assetPlatformsURL = fmt.Sprintf("%s/asset_platforms", baseURL)
+	categoriesURL     = fmt.Sprintf("%s/categories", coinsURL)
 	contractURL       = fmt.Sprintf("%s/coins", baseURL)
 	exchangeRatesURL  = fmt.Sprintf("%s/exchange_rates", baseURL)
 	trendingURL       = fmt.Sprintf("%s/search/trending", baseURL)
