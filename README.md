@@ -29,11 +29,11 @@ Coingecko API client for golang.
 | /asset_platforms                                           | ✓ | AssetPlatforms        |
 | /coins/categories/list                                     | ✓ | CategoriesList        |
 | /coins/categories/                                         | ✓ | Categories        |
-| /exchanges                                                 | ✗ |                       |
-| /exchanges/list                                            | ✗ |                       |
-| /exchanges/{id}                                            | ✗ |                       |
-| /exchanges/{id}/tickers                                    | ✗ |                       |
-| /exchanges/{id}/volume_chart                               | ✗ |                       |
+| /exchanges                                                 | ✓ | Exchanges             |
+| /exchanges/list                                            | ✓ | ExchangesList         |
+| /exchanges/{id}                                            | ✓ | ExchangesId          |
+| /exchanges/{id}/tickers                                    | ✓ | ExchangesIdTickers   |
+| /exchanges/{id}/volume_chart                               | ✓ | ExchangesIdVolumeChart |
 | /derivaties                                                | ✗ |                       |
 | /derivaties/exchanges                                      | ✗ |                       |
 | /derivaties/exchanges/{id}                                 | ✗ |                       |
