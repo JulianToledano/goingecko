@@ -38,9 +38,9 @@ Coingecko API client for golang.
 | /derivaties/exchanges                                      | ✓ | DerivativesExchanges     |
 | /derivaties/exchanges/{id}                                 | ✓ | DerivativesExchangesId   |
 | /derivaties/exchanges/list                                 | ✓ | DerivativesExchangesList |
-| /nfts/list                                                 | ✗ |                    |
-| /nfts/{id}                                                 | ✗ |                    |
-| /nfts/{asset_platform_id}/contract/{contract_address}      | ✗ |                    |
+| /nfts/list                                                 | ✓ | NftsList           |
+| /nfts/{id}                                                 | ✓ | NftsId             |
+| /nfts/{asset_platform_id}/contract/{contract_address}      | ✓ | NftsContract       |
 | /exchange_rates                                            | ✓ | ExchangeRates      |
 | /search                                                    | ✗ |                    |
 | /search/trending                                           | ✗ |                    |
