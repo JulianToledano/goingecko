@@ -13,6 +13,7 @@ var (
 	exchangesURL      = fmt.Sprintf("%s/exchanges", baseURL)
 	derivativesURL    = fmt.Sprintf("%s/derivatives", baseURL)
 	nftsURL           = fmt.Sprintf("%s/nfts", baseURL)
+	searchURL         = fmt.Sprintf("%s/search", baseURL)
 	contractURL       = fmt.Sprintf("%s/coins", baseURL)
 	exchangeRatesURL  = fmt.Sprintf("%s/exchange_rates", baseURL)
 	trendingURL       = fmt.Sprintf("%s/search/trending", baseURL)

@@ -9,47 +9,44 @@ Coingecko API client for golang.
 
 
 ## Endpoints
-| Endpoint                                                   |  Status | Function           |
-|------------------------------------------------------------|--|--------------------|
-| /ping                                                      | ✓ | Ping               |
-| /simple/price                                              | ✓ | SimplePrice        |
-| /simple/token_price/{id}                                   | ✓ | SimpleTokenPrice   |
+| Endpoint                                                   |  Status | Function                  |
+|------------------------------------------------------------|--|---------------------------|
+| /ping                                                      | ✓ | Ping                      |
+| /simple/price                                              | ✓ | SimplePrice               |
+| /simple/token_price/{id}                                   | ✓ | SimpleTokenPrice          |
 | /simple/supported_vs_currencies                            | ✓ | SimpleSupportedVsCurrency |
-| /coins/list                                                | ✓ | CoinsList          |
-| /coins/markets                                             | ✓ | CoinsMarket        |
-| /coins/{id}                                                | ✓ | CoinsId            |
-| /coins/{id}/tickers                                        | ✓ | CoinsIdTickers     |
-| /coins/{id}/history                                        | ✓ | CoinsIdHistory     |
-| /coins/{id}/market_chart                                   | ✓ | CoinsIdMarketChart |
-| /coins/{id}/market_chart/range                             | ✓ | CoinsIdMarketChartRange |
-| /coins/{id}/ohlc                                           | ✓ | CoinsOhlc          |
-| /coins/{id}/contract/{contract_address}                    | ✓ | ContractInfo       |
-| /coins/{id}/contract/{contract_address}/market_chart/      | ✓ | ContractMarketChart |
-| /coins/{id}/contract/{contract_address}/market_chart/range | ✓ | ContractMarketChartRange |
-| /asset_platforms                                           | ✓ | AssetPlatforms     |
-| /coins/categories/list                                     | ✓ | CategoriesList     |
-| /coins/categories/                                         | ✓ | Categories        |
-| /exchanges                                                 | ✓ | Exchanges          |
-| /exchanges/list                                            | ✓ | ExchangesList      |
-| /exchanges/{id}                                            | ✓ | ExchangesId        |
-| /exchanges/{id}/tickers                                    | ✓ | ExchangesIdTickers |
-| /exchanges/{id}/volume_chart                               | ✓ | ExchangesIdVolumeChart |
-| /derivaties                                                | ✓ | Derivatives        |
-| /derivaties/exchanges                                      | ✓ | DerivativesExchanges     |
-| /derivaties/exchanges/{id}                                 | ✓ | DerivativesExchangesId   |
-| /derivaties/exchanges/list                                 | ✓ | DerivativesExchangesList |
-| /nfts/list                                                 | ✓ | NftsList           |
-| /nfts/{id}                                                 | ✓ | NftsId             |
-| /nfts/{asset_platform_id}/contract/{contract_address}      | ✓ | NftsContract       |
-| /exchange_rates                                            | ✓ | ExchangeRates      |
-| /search                                                    | ✗ |                    |
-| /search/trending                                           | ✗ |                    |
-| /global                                                    | ✓ | Global             |
-| /global/decentralized_finance_defi                         | ✓ | DecentrilizedFinanceDEFI |
-| /companies/public_treasury/{coin_id}                       | ✗ |                    |
-
-### Beta endpoints
-Beta endpoins are to be implemented in a matter of time :smile:
+| /coins/list                                                | ✓ | CoinsList                 |
+| /coins/markets                                             | ✓ | CoinsMarket               |
+| /coins/{id}                                                | ✓ | CoinsId                   |
+| /coins/{id}/tickers                                        | ✓ | CoinsIdTickers            |
+| /coins/{id}/history                                        | ✓ | CoinsIdHistory            |
+| /coins/{id}/market_chart                                   | ✓ | CoinsIdMarketChart        |
+| /coins/{id}/market_chart/range                             | ✓ | CoinsIdMarketChartRange   |
+| /coins/{id}/ohlc                                           | ✓ | CoinsOhlc                 |
+| /coins/{id}/contract/{contract_address}                    | ✓ | ContractInfo              |
+| /coins/{id}/contract/{contract_address}/market_chart/      | ✓ | ContractMarketChart       |
+| /coins/{id}/contract/{contract_address}/market_chart/range | ✓ | ContractMarketChartRange  |
+| /asset_platforms                                           | ✓ | AssetPlatforms            |
+| /coins/categories/list                                     | ✓ | CategoriesList            |
+| /coins/categories/                                         | ✓ | Categories                |
+| /exchanges                                                 | ✓ | Exchanges                 |
+| /exchanges/list                                            | ✓ | ExchangesList             |
+| /exchanges/{id}                                            | ✓ | ExchangesId               |
+| /exchanges/{id}/tickers                                    | ✓ | ExchangesIdTickers        |
+| /exchanges/{id}/volume_chart                               | ✓ | ExchangesIdVolumeChart    |
+| /derivaties                                                | ✓ | Derivatives               |
+| /derivaties/exchanges                                      | ✓ | DerivativesExchanges      |
+| /derivaties/exchanges/{id}                                 | ✓ | DerivativesExchangesId    |
+| /derivaties/exchanges/list                                 | ✓ | DerivativesExchangesList  |
+| /nfts/list                                                 | ✓ | NftsList                  |
+| /nfts/{id}                                                 | ✓ | NftsId                    |
+| /nfts/{asset_platform_id}/contract/{contract_address}      | ✓ | NftsContract              |
+| /exchange_rates                                            | ✓ | ExchangeRates             |
+| /search                                                    | ✓ | Search                    |
+| /search/trending                                           | ✓ | Trending                  |
+| /global                                                    | ✓ | Global                    |
+| /global/decentralized_finance_defi                         | ✓ | DecentrilizedFinanceDEFI  |
+| /companies/public_treasury/{coin_id}                       | ✗ |                           |
 
 ## Usage
 
@@ -78,6 +75,6 @@ func main() {
 Check dir [examples](examples) for more.
 
 ## Thanks
-This repo is based some how in [superoo7/go-gecko](https://github.com/superoo7/go-gecko) work.
+This repo is based somehow in [superoo7/go-gecko](https://github.com/superoo7/go-gecko) work.
 
 Image was created with [Gophers](https://github.com/egonelbre/gophers)
