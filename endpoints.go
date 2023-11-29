@@ -18,4 +18,5 @@ var (
 	exchangeRatesURL  = fmt.Sprintf("%s/exchange_rates", baseURL)
 	trendingURL       = fmt.Sprintf("%s/search/trending", baseURL)
 	globalURL         = fmt.Sprintf("%s/global", baseURL)
+	companiesURL      = fmt.Sprintf("%s/companies", baseURL)
 )
