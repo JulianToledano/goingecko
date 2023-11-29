@@ -46,7 +46,7 @@ Coingecko API client for golang.
 | /search/trending                                           | ✓ | Trending                  |
 | /global                                                    | ✓ | Global                    |
 | /global/decentralized_finance_defi                         | ✓ | DecentrilizedFinanceDEFI  |
-| /companies/public_treasury/{coin_id}                       | ✗ |                           |
+| /companies/public_treasury/{coin_id}                       | ✓ | PublicTreasuryCoinId      |
 
 ## Usage
 
