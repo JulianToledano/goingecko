@@ -6,7 +6,7 @@ import (
 )
 
 func TestPublicTreasuryCoinId(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.PublicTreasuryCoinId("bitcoin")
 	if data == nil {
 		t.Errorf("Error")

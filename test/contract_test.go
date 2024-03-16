@@ -10,7 +10,7 @@ func TestContractInfo(t *testing.T) {
 	coin := "ethereum"
 	contract := "0x0D8775F648430679A709E98d2b0Cb6250d2887EF"
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	contractData, err := cgClient.ContractInfo(coin, contract)
 	if err != nil {
@@ -25,7 +25,7 @@ func TestContractMarketChart(t *testing.T) {
 	coin := "ethereum"
 	contract := "0x0D8775F648430679A709E98d2b0Cb6250d2887EF"
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	contractData, err := cgClient.ContractMarketChart(coin, contract, "usd", "10")
 	if err != nil {
@@ -40,7 +40,7 @@ func TestContractMarketChartRange(t *testing.T) {
 	coin := "ethereum"
 	contract := "0x0D8775F648430679A709E98d2b0Cb6250d2887EF"
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	contractData, err := cgClient.ContractMarketChartRange(coin, contract, "usd", "1392500000", "1422577232")
 	if err != nil {

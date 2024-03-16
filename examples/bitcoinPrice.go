@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	defer cgClient.Close()
 
 	data, err := cgClient.CoinsId("bitcoin", true, true, true, false, false, false)

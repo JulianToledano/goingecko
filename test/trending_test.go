@@ -8,7 +8,7 @@ import (
 
 func TestTrending(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	r, err := cgClient.Trending()
 	if r == nil {

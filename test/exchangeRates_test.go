@@ -8,7 +8,7 @@ import (
 
 func TestExchangeRates(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	r, err := cgClient.ExchangeRates()
 	if r == nil {

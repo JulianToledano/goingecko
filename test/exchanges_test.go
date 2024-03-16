@@ -7,7 +7,7 @@ import (
 
 func TestExchanges(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	data, err := cgClient.Exchanges("", "")
 	if data == nil {
@@ -19,7 +19,7 @@ func TestExchanges(t *testing.T) {
 }
 
 func TestExchangesList(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.ExchangesList()
 	if data == nil {
 		t.Errorf("Error")
@@ -30,7 +30,7 @@ func TestExchangesList(t *testing.T) {
 }
 
 func TestExchangesId(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.ExchangesId("sushiswap")
 	if data == nil {
 		t.Errorf("Error")
@@ -41,7 +41,7 @@ func TestExchangesId(t *testing.T) {
 }
 
 func TestExchangesIdTickers(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.ExchangesIdTickers("sushiswap", "", "", 0, "", "")
 	if data == nil {
 		t.Errorf("Error")
@@ -52,7 +52,7 @@ func TestExchangesIdTickers(t *testing.T) {
 }
 
 func TestExchangesIdVolumeChart(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.ExchangesIdVolumeChart("sushiswap", "1")
 	if data == nil {
 		t.Errorf("Error")
