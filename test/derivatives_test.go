@@ -6,7 +6,7 @@ import (
 )
 
 func TestDerivatives(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.Derivatives()
 	if data == nil {
 		t.Errorf("Error")
@@ -17,7 +17,7 @@ func TestDerivatives(t *testing.T) {
 }
 
 func TestDerivativesExchanges(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.DerivativesExchanges("", 0, 0)
 	if data == nil {
 		t.Errorf("Error")
@@ -28,7 +28,7 @@ func TestDerivativesExchanges(t *testing.T) {
 }
 
 func TestDerivativesExchangesId(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.DerivativesExchangesId("binance_futures", "all")
 	if data == nil {
 		t.Errorf("Error")
@@ -39,7 +39,7 @@ func TestDerivativesExchangesId(t *testing.T) {
 }
 
 func TestDerivativesExchangesList(t *testing.T) {
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	data, err := cgClient.DerivativesExchangesList()
 	if data == nil {
 		t.Errorf("Error")

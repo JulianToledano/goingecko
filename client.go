@@ -9,18 +9,22 @@ import (
 	"github.com/JulianToledano/goingecko/ping"
 )
 
+const apiHeader = "x-cg-demo-api-key"
+
 type Client struct {
 	httpClient *http.Client
 	baseUrl    string
+	apiKey     string
 }
 
-func NewClient(httpClient *http.Client) *Client {
+func NewClient(httpClient *http.Client, apiKey string) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
 	return &Client{
 		httpClient: httpClient,
 		baseUrl:    baseURL,
+		apiKey:     apiKey,
 	}
 }
 
@@ -47,6 +51,10 @@ func doReq(req *http.Request, client *http.Client) ([]byte, error) {
 // MakeReq HTTP request helper
 func (c *Client) MakeReq(url string) ([]byte, error) {
 	req, err := http.NewRequest("GET", url, nil)
+
+	if c.apiKey != "" {
+		req.Header.Add(apiHeader, c.apiKey)
+	}
 
 	if err != nil {
 		return nil, err

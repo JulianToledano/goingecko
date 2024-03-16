@@ -8,7 +8,7 @@ import (
 
 func TestCoinsList(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, _ := cgClient.CoinsList()
 	if coinData == nil {
@@ -18,7 +18,7 @@ func TestCoinsList(t *testing.T) {
 
 func TestCoinsMarket(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 	ids := []string{
 		"bitcoin",
 		"ethereum",
@@ -34,7 +34,7 @@ func TestCoinsMarket(t *testing.T) {
 
 func TestCoinsIds(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsId("bitcoin", true, true, true, true, true, true)
 	if err != nil {
@@ -48,7 +48,7 @@ func TestCoinsIds(t *testing.T) {
 
 func TestCoinsIdsTickers(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsIdTickers("bitcoin", "", "", "", "", "")
 	if coinData == nil {
@@ -61,7 +61,7 @@ func TestCoinsIdsTickers(t *testing.T) {
 
 func TestCoinsIdsHistory(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsIdHistory("bitcoin", "30-12-17", true)
 	if coinData == nil {
@@ -74,7 +74,7 @@ func TestCoinsIdsHistory(t *testing.T) {
 
 func TestCoinsIdsMarketChart(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsIdMarketChart("bitcoin", "usd", "10")
 	if coinData == nil {
@@ -87,7 +87,7 @@ func TestCoinsIdsMarketChart(t *testing.T) {
 
 func TestCoinsIdsMarketChartRange(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsIdMarketChartRange("bitcoin", "usd", "1392577232", "1422577232")
 	if coinData == nil {
@@ -100,7 +100,7 @@ func TestCoinsIdsMarketChartRange(t *testing.T) {
 
 func TestCoinsIdsOhlc(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	coinData, err := cgClient.CoinsOhlc("bitcoin", "usd", "7")
 	if coinData == nil {

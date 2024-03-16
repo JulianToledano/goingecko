@@ -7,7 +7,7 @@ import (
 
 func TestAssetPlatforms(t *testing.T) {
 
-	cgClient := goingecko.NewClient(nil)
+	cgClient := goingecko.NewClient(nil, "")
 
 	assetData, err := cgClient.AssetPlatforms("")
 	if assetData == nil {
