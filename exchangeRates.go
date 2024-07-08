@@ -8,7 +8,7 @@ import (
 )
 
 func (c *Client) ExchangeRates() (*exchangeRates.Rates, error) {
-	rUrl := fmt.Sprintf("%s", exchangeRatesURL)
+	rUrl := fmt.Sprintf("%s", c.getExchangeRatesURL())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

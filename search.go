@@ -3,8 +3,9 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/search"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/search"
 )
 
 // Search for coins, categories and markets listed on CoinGecko ordered by largest Market Cap first.
@@ -16,7 +17,7 @@ func (c *Client) Search(query string) (*search.Search, error) {
 		params.Add("query", query)
 	}
 
-	rUrl := fmt.Sprintf("%s?%s", searchURL, params.Encode())
+	rUrl := fmt.Sprintf("%s?%s", c.getSearchURL(), params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

@@ -3,8 +3,9 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/nfts"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/nfts"
 )
 
 // NftsList Use this to obtain all the NFT ids in order to make API calls, paginated to 100 items.
@@ -30,7 +31,7 @@ func (c *Client) NftsList(order, assetPlatformId string, perPage, page int32) ([
 		params.Add("page", string(page))
 	}
 
-	rUrl := fmt.Sprintf("%s/list?%s", nftsURL, params.Encode())
+	rUrl := fmt.Sprintf("%s/list?%s", c.getNftsURL(), params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -51,7 +52,7 @@ func (c *Client) NftsList(order, assetPlatformId string, perPage, page int32) ([
 // Parameters:
 // id*(string) - id of nft collection (can be obtained from /nfts/list)
 func (c *Client) NftsId(id string) (*nfts.NftId, error) {
-	rUrl := fmt.Sprintf("%s/%s", nftsURL, id)
+	rUrl := fmt.Sprintf("%s/%s", c.getNftsURL(), id)
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -68,7 +69,7 @@ func (c *Client) NftsId(id string) (*nfts.NftId, error) {
 
 // NftsContract
 func (c *Client) NftsContract(assetPlatform, contract string) (*nfts.NftId, error) {
-	rUrl := fmt.Sprintf("%s/%s/contract/%s", nftsURL, assetPlatform, contract)
+	rUrl := fmt.Sprintf("%s/%s/contract/%s", c.getNftsURL(), assetPlatform, contract)
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

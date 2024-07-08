@@ -7,8 +7,7 @@ import (
 )
 
 func (c *Client) Trending() (*trending.Trending, error) {
-	rUrl := trendingURL
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(c.getTrendingURL())
 	if err != nil {
 		return nil, err
 	}

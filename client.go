@@ -3,28 +3,41 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/ping"
 )
 
 const apiHeader = "x-cg-demo-api-key"
+const proApiHeader = "x-cg-pro-api-key"
 
 type Client struct {
 	httpClient *http.Client
 	baseUrl    string
 	apiKey     string
+	apiHeader  string
 }
 
-func NewClient(httpClient *http.Client, apiKey string) *Client {
+func NewClient(httpClient *http.Client, apiKey string, isPro ...bool) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
+
+	if isPro != nil {
+		return &Client{
+			httpClient: httpClient,
+			baseUrl:    ProBaseURL,
+			apiKey:     apiKey,
+			apiHeader:  proApiHeader,
+		}
+	}
+
 	return &Client{
 		httpClient: httpClient,
-		baseUrl:    baseURL,
+		baseUrl:    BaseURL,
 		apiKey:     apiKey,
+		apiHeader:  apiHeader,
 	}
 }
 
@@ -38,7 +51,7 @@ func doReq(req *http.Request, client *http.Client) ([]byte, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +66,7 @@ func (c *Client) MakeReq(url string) ([]byte, error) {
 	req, err := http.NewRequest("GET", url, nil)
 
 	if c.apiKey != "" {
-		req.Header.Add(apiHeader, c.apiKey)
+		req.Header.Add(c.apiHeader, c.apiKey)
 	}
 
 	if err != nil {
@@ -68,7 +81,7 @@ func (c *Client) MakeReq(url string) ([]byte, error) {
 
 // Ping /ping endpoint
 func (c *Client) Ping() (*ping.Ping, error) {
-	resp, err := c.MakeReq(pingURL)
+	resp, err := c.MakeReq(fmt.Sprintf("%s/ping", c.baseUrl))
 	if err != nil {
 		return nil, err
 	}

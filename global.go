@@ -8,8 +8,7 @@ import (
 )
 
 func (c *Client) Global() (*global.Global, error) {
-	rUrl := globalURL
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(c.getGlobalURL())
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +22,7 @@ func (c *Client) Global() (*global.Global, error) {
 }
 
 func (c *Client) DecentrilizedFinanceDEFI() (*global.Defi, error) {
-	rUrl := fmt.Sprintf("%s/decentralized_finance_defi", globalURL)
+	rUrl := fmt.Sprintf("%s/decentralized_finance_defi", c.getGlobalURL())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
