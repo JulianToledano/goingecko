@@ -12,7 +12,7 @@ import (
 )
 
 func (c *Client) CoinsList() ([]*coins.CoinInfo, error) {
-	rUrl := fmt.Sprintf("%s/%s", coinsURL, "list")
+	rUrl := fmt.Sprintf("%s/%s", c.getCoinsURL(), "list")
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -43,7 +43,7 @@ func (c *Client) CoinsMarket(currency string, ids []string, category string, ord
 	params.Add("sparkline", strconv.FormatBool(sparkline))
 	params.Add("price_change_percentage", pChange)
 
-	rUrl := fmt.Sprintf("%s/%s?%s", coinsURL, "markets", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s?%s", c.getCoinsURL(), "markets", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -67,7 +67,7 @@ func (c *Client) CoinsId(id string, localization, tickers, marketData, community
 	params.Add("developer_data", strconv.FormatBool(developerData))
 	params.Add("sparkline", strconv.FormatBool(sparkline))
 
-	rUrl := fmt.Sprintf("%s/%s?%s", coinsURL, id, params.Encode())
+	rUrl := fmt.Sprintf("%s/%s?%s", c.getCoinsURL(), id, params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ func (c *Client) CoinsIdTickers(id, exchangeId, includeExchangeLogo, page, order
 	params.Add("order", order)
 	params.Add("depth", depth)
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "tickers", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "tickers", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -108,7 +108,7 @@ func (c *Client) CoinsIdHistory(id, date string, localization bool) (*coins.Hist
 	params.Add("date", date)
 	params.Add("localization", strconv.FormatBool(localization))
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "history", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "history", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -127,7 +127,7 @@ func (c *Client) CoinsIdMarketChart(id, currency, days string) (*types.MarketCha
 	params.Add("days", days)
 	params.Add("interval", "daily")
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "market_chart", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "market_chart", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -146,7 +146,7 @@ func (c *Client) CoinsIdMarketChartRange(id, currency, from, to string) (*types.
 	params.Add("from", from)
 	params.Add("to", to)
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "market_chart/range", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "market_chart/range", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -164,7 +164,7 @@ func (c *Client) CoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", coinsURL, id, "ohlc", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "ohlc", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

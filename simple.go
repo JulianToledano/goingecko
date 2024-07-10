@@ -19,7 +19,7 @@ func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, include
 	params.Add("include_24hr_change", strconv.FormatBool(includeDayChange))
 	params.Add("include_last_updated_at", strconv.FormatBool(includeLastTimeUpdated))
 
-	rUrl := fmt.Sprintf("%s/%s?%s", simpleURL, "price", params.Encode())
+	rUrl := fmt.Sprintf("%s/%s?%s", c.getSimpleURL(), "price", params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -43,7 +43,7 @@ func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, in
 	params.Add("include_24hr_change", strconv.FormatBool(includeDayChange))
 	params.Add("include_last_updated_at", strconv.FormatBool(includeLastTimeUpdated))
 
-	rUrl := fmt.Sprintf("%s/%s/%s?%s", simpleURL, "token_price", id, params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getSimpleURL(), "token_price", id, params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -58,7 +58,7 @@ func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, in
 }
 
 func (c *Client) SimpleSupportedVsCurrency() (*simple.SupportedVsCurrency, error) {
-	rUrl := fmt.Sprintf("%s/%s", simpleURL, "supported_vs_currencies")
+	rUrl := fmt.Sprintf("%s/%s", c.getSimpleURL(), "supported_vs_currencies")
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

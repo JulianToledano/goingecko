@@ -3,8 +3,9 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/derivatives"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/derivatives"
 )
 
 // Derivatives List all derivative tickers.
@@ -12,7 +13,7 @@ import (
 // Cache / Update Frequency: every 30 seconds
 func (c *Client) Derivatives() ([]derivatives.Derivative, error) {
 
-	rUrl := fmt.Sprintf("%s", derivativesURL)
+	rUrl := fmt.Sprintf("%s", c.getDerivativesURL())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -49,7 +50,7 @@ func (c *Client) DerivativesExchanges(order string, perPage, page int32) ([]deri
 		params.Add("page", string(page))
 	}
 
-	rUrl := fmt.Sprintf("%s/exchanges?%s", derivativesURL, params.Encode())
+	rUrl := fmt.Sprintf("%s/exchanges?%s", c.getDerivativesURL(), params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -85,7 +86,7 @@ func (c *Client) DerivativesExchangesId(id, includeTickers string) (*derivatives
 		params.Add("include_tickers", includeTickers)
 	}
 
-	rUrl := fmt.Sprintf("%s/exchanges/%s?%s", derivativesURL, id, params.Encode())
+	rUrl := fmt.Sprintf("%s/exchanges/%s?%s", c.getDerivativesURL(), id, params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -104,7 +105,7 @@ func (c *Client) DerivativesExchangesId(id, includeTickers string) (*derivatives
 //
 // Cache / Update Frequency: every 5 minutes
 func (c *Client) DerivativesExchangesList() ([]derivatives.DerivativesListItem, error) {
-	rUrl := fmt.Sprintf("%s/exchanges/list", derivativesURL)
+	rUrl := fmt.Sprintf("%s/exchanges/list", c.getDerivativesURL())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

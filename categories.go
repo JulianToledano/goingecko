@@ -3,14 +3,15 @@ package goingecko
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/categories"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/categories"
 )
 
 // CategoriesList List all categories
 // Cache / Update Frequency: every 5 minutes
 func (c *Client) CategoriesList() (*categories.CategoriesList, error) {
-	rUrl := fmt.Sprintf("%s/%s", categoriesURL, "list")
+	rUrl := fmt.Sprintf("%s/%s", c.getCategoriesURL(), "list")
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -34,7 +35,7 @@ func (c *Client) Categories(order string) (*categories.CategoriesWithMarketDataL
 		params.Add("order", order)
 	}
 
-	rUrl := fmt.Sprintf("%s?%s", categoriesURL, params.Encode())
+	rUrl := fmt.Sprintf("%s?%s", c.getCategoriesURL(), params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err

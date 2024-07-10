@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/JulianToledano/goingecko/exchanges"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/exchanges"
 )
 
 // Exchanges List all exchanges
@@ -27,7 +28,7 @@ func (c *Client) Exchanges(perPage, page string) (*exchanges.ExchangesList, erro
 		params.Add("page", page)
 	}
 
-	rUrl := fmt.Sprintf("%s?%s", exchangesURL, params.Encode())
+	rUrl := fmt.Sprintf("%s?%s", c.getExchangesURL(), params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -45,7 +46,7 @@ func (c *Client) Exchanges(perPage, page string) (*exchanges.ExchangesList, erro
 // ExchangesList Use this to obtain all the markets' id in order to make API calls
 // Cache / Update Frequency: every 5 minutes
 func (c *Client) ExchangesList() ([]exchanges.ExchangeId, error) {
-	rUrl := fmt.Sprintf("%s/list", exchangesURL)
+	rUrl := fmt.Sprintf("%s/list", c.getExchangesURL())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -80,7 +81,7 @@ func (c *Client) ExchangesList() ([]exchanges.ExchangeId, error) {
 // last_fetch_at: returns the last time we call the API
 // Cache / Update Frequency: every 60 seconds
 func (c *Client) ExchangesId(id string) (*exchanges.ExchangeWithTicker, error) {
-	rUrl := fmt.Sprintf("%s/%s", exchangesURL, id)
+	rUrl := fmt.Sprintf("%s/%s", c.getExchangesURL(), id)
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -136,7 +137,7 @@ func (c *Client) ExchangesIdTickers(id, coinIds, includeExchangeLogo string, pag
 	if order != "0" {
 		params.Add("order", order)
 	}
-	rUrl := fmt.Sprintf("%s/%s/tickers?%s", exchangesURL, id, params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/tickers?%s", c.getExchangesURL(), id, params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
@@ -172,7 +173,7 @@ func (c *Client) ExchangesIdVolumeChart(id, days string) ([]exchanges.Volume, er
 	params := url.Values{}
 	params.Add("days", days)
 
-	rUrl := fmt.Sprintf("%s/%s/volume_chart?%s", exchangesURL, id, params.Encode())
+	rUrl := fmt.Sprintf("%s/%s/volume_chart?%s", c.getExchangesURL(), id, params.Encode())
 	resp, err := c.MakeReq(rUrl)
 	if err != nil {
 		return nil, err
