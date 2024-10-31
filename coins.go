@@ -121,11 +121,14 @@ func (c *Client) CoinsIdHistory(id, date string, localization bool) (*coins.Hist
 	return data, nil
 }
 
-func (c *Client) CoinsIdMarketChart(id, currency, days string) (*types.MarketChart, error) {
+func (c *Client) CoinsIdMarketChart(id, currency, days, interval string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
-	params.Add("interval", "daily")
+
+	if interval != "" {
+		params.Add("interval", interval)
+	}
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "market_chart", params.Encode())
 	resp, err := c.MakeReq(rUrl)
