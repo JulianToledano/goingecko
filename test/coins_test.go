@@ -76,7 +76,7 @@ func TestCoinsIdsMarketChart(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil, "")
 
-	coinData, err := cgClient.CoinsIdMarketChart("bitcoin", "usd", "10")
+	coinData, err := cgClient.CoinsIdMarketChart("bitcoin", "usd", "10", "daily")
 	if coinData == nil {
 		t.Errorf("Error")
 	}
