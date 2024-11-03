@@ -10,7 +10,7 @@ func main() {
 	cgClient := goingecko.NewClient(nil, "")
 	defer cgClient.Close()
 
-	data, err := cgClient.CoinsId("bitcoin", true, true, true, false, false, false)
+	data, err := cgClient.CoinsId("bitcoin")
 	if err != nil {
 		fmt.Print("Somethig went wrong...")
 		return

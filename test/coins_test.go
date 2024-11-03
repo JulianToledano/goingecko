@@ -26,7 +26,7 @@ func TestCoinsMarket(t *testing.T) {
 	priceChange := make([]string, 0)
 
 	priceChange = append(priceChange, "24h")
-	coinData, _ := cgClient.CoinsMarket("usd", ids, "", "", "100", "1", true, priceChange)
+	coinData, _ := cgClient.CoinsMarket("usd", goingecko.WithIDs(ids))
 	if coinData == nil {
 		t.Errorf("Error")
 	}

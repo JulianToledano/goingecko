@@ -9,8 +9,10 @@ import (
 	"github.com/JulianToledano/goingecko/ping"
 )
 
-const apiHeader = "x-cg-demo-api-key"
-const proApiHeader = "x-cg-pro-api-key"
+const (
+	apiHeader    = "x-cg-demo-api-key"
+	proApiHeader = "x-cg-pro-api-key"
+)
 
 type Client struct {
 	httpClient *http.Client
