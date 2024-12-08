@@ -1,14 +1,15 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 
 	"github.com/JulianToledano/goingecko/global"
 )
 
-func (c *Client) Global() (*global.Global, error) {
-	resp, err := c.MakeReq(c.getGlobalURL())
+func (c *Client) Global(ctx context.Context) (*global.Global, error) {
+	resp, err := c.MakeReq(ctx, c.getGlobalURL())
 	if err != nil {
 		return nil, err
 	}
@@ -21,9 +22,9 @@ func (c *Client) Global() (*global.Global, error) {
 	return data, nil
 }
 
-func (c *Client) DecentrilizedFinanceDEFI() (*global.Defi, error) {
+func (c *Client) DecentralizedFinanceDEFI(ctx context.Context) (*global.Defi, error) {
 	rUrl := fmt.Sprintf("%s/decentralized_finance_defi", c.getGlobalURL())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

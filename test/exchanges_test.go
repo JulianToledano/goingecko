@@ -1,6 +1,7 @@
 package test
 
 import (
+	"context"
 	"github.com/JulianToledano/goingecko"
 	"testing"
 )
@@ -9,7 +10,7 @@ func TestExchanges(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil, "")
 
-	data, err := cgClient.Exchanges("", "")
+	data, err := cgClient.Exchanges(context.Background(), "", "")
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -20,7 +21,7 @@ func TestExchanges(t *testing.T) {
 
 func TestExchangesList(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.ExchangesList()
+	data, err := cgClient.ExchangesList(context.Background())
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -31,7 +32,7 @@ func TestExchangesList(t *testing.T) {
 
 func TestExchangesId(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.ExchangesId("sushiswap")
+	data, err := cgClient.ExchangesId(context.Background(), "sushiswap")
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -42,7 +43,7 @@ func TestExchangesId(t *testing.T) {
 
 func TestExchangesIdTickers(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.ExchangesIdTickers("sushiswap", "", "", 0, "", "")
+	data, err := cgClient.ExchangesIdTickers(context.Background(), "sushiswap", "", "", 0, "", "")
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -53,7 +54,7 @@ func TestExchangesIdTickers(t *testing.T) {
 
 func TestExchangesIdVolumeChart(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.ExchangesIdVolumeChart("sushiswap", "1")
+	data, err := cgClient.ExchangesIdVolumeChart(context.Background(), "sushiswap", "1")
 	if data == nil {
 		t.Errorf("Error")
 	}

@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -9,9 +10,9 @@ import (
 	"github.com/JulianToledano/goingecko/types"
 )
 
-func (c *Client) ContractInfo(id, contractAddress string) (*contract.ContractAddressInfo, error) {
+func (c *Client) ContractInfo(ctx context.Context, id, contractAddress string) (*contract.ContractAddressInfo, error) {
 	rUrl := fmt.Sprintf("%s/%s/%s/%s", c.getContractURL(), id, "contract", contractAddress)
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -24,13 +25,13 @@ func (c *Client) ContractInfo(id, contractAddress string) (*contract.ContractAdd
 	return data, nil
 }
 
-func (c *Client) ContractMarketChart(id, contractAddress, vsCurrency, days string) (*types.MarketChart, error) {
+func (c *Client) ContractMarketChart(ctx context.Context, id, contractAddress, vsCurrency, days string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", vsCurrency)
 	params.Add("days", days)
 
 	rUrl := fmt.Sprintf("%s/%s/%s/%s/%s?%s", c.getContractURL(), id, "contract", contractAddress, "market_chart", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -43,14 +44,14 @@ func (c *Client) ContractMarketChart(id, contractAddress, vsCurrency, days strin
 	return data, nil
 }
 
-func (c *Client) ContractMarketChartRange(id, contractAddress, vsCurrency, from, to string) (*types.MarketChart, error) {
+func (c *Client) ContractMarketChartRange(ctx context.Context, id, contractAddress, vsCurrency, from, to string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", vsCurrency)
 	params.Add("from", from)
 	params.Add("to", to)
 
 	rUrl := fmt.Sprintf("%s/%s/%s/%s/%s?%s", c.getContractURL(), id, "contract", contractAddress, "market_chart/range", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

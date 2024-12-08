@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -11,10 +12,10 @@ import (
 // Derivatives List all derivative tickers.
 // Note: 'open_interest' and 'volume_24h' data are in USD
 // Cache / Update Frequency: every 30 seconds
-func (c *Client) Derivatives() ([]derivatives.Derivative, error) {
+func (c *Client) Derivatives(ctx context.Context) ([]derivatives.Derivative, error) {
 
 	rUrl := fmt.Sprintf("%s", c.getDerivativesURL())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +39,7 @@ func (c *Client) Derivatives() ([]derivatives.Derivative, error) {
 //
 // perPage(integer) - Total results per page
 // page(integer) - Page through results
-func (c *Client) DerivativesExchanges(order string, perPage, page int32) ([]derivatives.Exchange, error) {
+func (c *Client) DerivativesExchanges(ctx context.Context, order string, perPage, page int32) ([]derivatives.Exchange, error) {
 	params := url.Values{}
 	if order != "" {
 		params.Add("order", order)
@@ -51,7 +52,7 @@ func (c *Client) DerivativesExchanges(order string, perPage, page int32) ([]deri
 	}
 
 	rUrl := fmt.Sprintf("%s/exchanges?%s", c.getDerivativesURL(), params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -80,14 +81,14 @@ func (c *Client) DerivativesExchanges(order string, perPage, page int32) ([]deri
 //	id*(string) - pass the exchange id (can be obtained from derivatives/exchanges/list) eg. bitmex
 //	includeTickers(string) - ['all', 'unexpired'] - expired to show unexpired tickers, all to list all tickers,
 //							 leave blank to omit tickers data in response
-func (c *Client) DerivativesExchangesId(id, includeTickers string) (*derivatives.ExchangeId, error) {
+func (c *Client) DerivativesExchangesId(ctx context.Context, id, includeTickers string) (*derivatives.ExchangeId, error) {
 	params := url.Values{}
 	if includeTickers != "" {
 		params.Add("include_tickers", includeTickers)
 	}
 
 	rUrl := fmt.Sprintf("%s/exchanges/%s?%s", c.getDerivativesURL(), id, params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -104,9 +105,9 @@ func (c *Client) DerivativesExchangesId(id, includeTickers string) (*derivatives
 // DerivativesExchangesList List all derivative exchanges name and identifier.
 //
 // Cache / Update Frequency: every 5 minutes
-func (c *Client) DerivativesExchangesList() ([]derivatives.DerivativesListItem, error) {
+func (c *Client) DerivativesExchangesList(ctx context.Context) ([]derivatives.DerivativesListItem, error) {
 	rUrl := fmt.Sprintf("%s/exchanges/list", c.getDerivativesURL())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
