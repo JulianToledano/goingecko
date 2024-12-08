@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -19,7 +20,7 @@ import (
 //	Default value:: 100
 //
 // page (string) page through results
-func (c *Client) Exchanges(perPage, page string) (*exchanges.ExchangesList, error) {
+func (c *Client) Exchanges(ctx context.Context, perPage, page string) (*exchanges.ExchangesList, error) {
 	params := url.Values{}
 	if perPage != "" {
 		params.Add("per_page", perPage)
@@ -29,7 +30,7 @@ func (c *Client) Exchanges(perPage, page string) (*exchanges.ExchangesList, erro
 	}
 
 	rUrl := fmt.Sprintf("%s?%s", c.getExchangesURL(), params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -45,9 +46,9 @@ func (c *Client) Exchanges(perPage, page string) (*exchanges.ExchangesList, erro
 
 // ExchangesList Use this to obtain all the markets' id in order to make API calls
 // Cache / Update Frequency: every 5 minutes
-func (c *Client) ExchangesList() ([]exchanges.ExchangeId, error) {
+func (c *Client) ExchangesList(ctx context.Context) ([]exchanges.ExchangeId, error) {
 	rUrl := fmt.Sprintf("%s/list", c.getExchangesURL())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -80,9 +81,9 @@ func (c *Client) ExchangesList() ([]exchanges.ExchangeId, error) {
 // last_traded_at: returns the last time that the price has changed
 // last_fetch_at: returns the last time we call the API
 // Cache / Update Frequency: every 60 seconds
-func (c *Client) ExchangesId(id string) (*exchanges.ExchangeWithTicker, error) {
+func (c *Client) ExchangesId(ctx context.Context, id string) (*exchanges.ExchangeWithTicker, error) {
 	rUrl := fmt.Sprintf("%s/%s", c.getExchangesURL(), id)
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +121,7 @@ func (c *Client) ExchangesId(id string) (*exchanges.ExchangeWithTicker, error) {
 //	page - integer - Page through results
 //	depth - string - lag to show 2% orderbook depth. i.e., cost_to_move_up_usd and cost_to_move_down_usd. valid values: true, false
 //	order - string - valid values: trust_score_desc (default), trust_score_asc and volume_desc
-func (c *Client) ExchangesIdTickers(id, coinIds, includeExchangeLogo string, page int32, depth, order string) (*exchanges.Tickers, error) {
+func (c *Client) ExchangesIdTickers(ctx context.Context, id, coinIds, includeExchangeLogo string, page int32, depth, order string) (*exchanges.Tickers, error) {
 	params := url.Values{}
 	if coinIds != "" {
 		params.Add("coin_ids", coinIds)
@@ -138,7 +139,7 @@ func (c *Client) ExchangesIdTickers(id, coinIds, includeExchangeLogo string, pag
 		params.Add("order", order)
 	}
 	rUrl := fmt.Sprintf("%s/%s/tickers?%s", c.getExchangesURL(), id, params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -165,7 +166,7 @@ func (c *Client) ExchangesIdTickers(id, coinIds, includeExchangeLogo string, pag
 // Parameters:
 // id* - string - pass the exchange id (can be obtained from /exchanges/list) eg. binance
 // days* - string - Data up to number of days ago (1/7/14/30/90/180/365)
-func (c *Client) ExchangesIdVolumeChart(id, days string) ([]exchanges.Volume, error) {
+func (c *Client) ExchangesIdVolumeChart(ctx context.Context, id, days string) ([]exchanges.Volume, error) {
 	if _, ok := exchanges.VolumeChartValidDays[days]; !ok {
 		return nil, errors.New("not valid day")
 	}
@@ -174,7 +175,7 @@ func (c *Client) ExchangesIdVolumeChart(id, days string) ([]exchanges.Volume, er
 	params.Add("days", days)
 
 	rUrl := fmt.Sprintf("%s/%s/volume_chart?%s", c.getExchangesURL(), id, params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

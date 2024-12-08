@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -62,8 +63,8 @@ func doReq(req *http.Request, client *http.Client) ([]byte, error) {
 }
 
 // MakeReq HTTP request helper
-func (c *Client) MakeReq(url string) ([]byte, error) {
-	req, err := http.NewRequest("GET", url, nil)
+func (c *Client) MakeReq(ctx context.Context, url string) ([]byte, error) {
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 
 	if c.apiKey != "" {
 		req.Header.Add(c.apiHeader, c.apiKey)
@@ -80,8 +81,8 @@ func (c *Client) MakeReq(url string) ([]byte, error) {
 }
 
 // Ping /ping endpoint
-func (c *Client) Ping() (*ping.Ping, error) {
-	resp, err := c.MakeReq(fmt.Sprintf("%s/ping", c.baseUrl))
+func (c *Client) Ping(ctx context.Context) (*ping.Ping, error) {
+	resp, err := c.MakeReq(ctx, fmt.Sprintf("%s/ping", c.baseUrl))
 	if err != nil {
 		return nil, err
 	}

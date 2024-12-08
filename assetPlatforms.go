@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -8,7 +9,7 @@ import (
 	"github.com/JulianToledano/goingecko/assetPlatforms"
 )
 
-func (c *Client) AssetPlatforms(filter string) (*assetPlatforms.AssetPlatforms, error) {
+func (c *Client) AssetPlatforms(ctx context.Context, filter string) (*assetPlatforms.AssetPlatforms, error) {
 	params := url.Values{}
 
 	if filter != "" {
@@ -16,7 +17,7 @@ func (c *Client) AssetPlatforms(filter string) (*assetPlatforms.AssetPlatforms, 
 	}
 
 	rUrl := fmt.Sprintf("%s?%s", c.getAssetPlatformsURL(), params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
