@@ -1,15 +1,16 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 
 	"github.com/JulianToledano/goingecko/companies"
 )
 
-func (c *Client) PublicTreasuryCoinId(id string) (*companies.Treasury, error) {
+func (c *Client) PublicTreasuryCoinId(ctx context.Context, id string) (*companies.Treasury, error) {
 	rUrl := fmt.Sprintf("%s/public_treasury/%s", c.getCompaniesURL(), id)
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

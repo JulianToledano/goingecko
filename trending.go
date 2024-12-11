@@ -1,13 +1,14 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/JulianToledano/goingecko/trending"
 )
 
-func (c *Client) Trending() (*trending.Trending, error) {
-	resp, err := c.MakeReq(c.getTrendingURL())
+func (c *Client) Trending(ctx context.Context) (*trending.Trending, error) {
+	resp, err := c.MakeReq(ctx, c.getTrendingURL())
 	if err != nil {
 		return nil, err
 	}

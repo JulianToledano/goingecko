@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -16,7 +17,7 @@ import (
 // assetPlatformId(string) - The id of the platform issuing tokens (See asset_platforms endpoint for list of options)
 // per_page(integer) - Valid values: 1..250. Total results per page
 // page(integer) - Page through results
-func (c *Client) NftsList(order, assetPlatformId string, perPage, page int32) ([]nfts.Nft, error) {
+func (c *Client) NftsList(ctx context.Context, order, assetPlatformId string, perPage, page int32) ([]nfts.Nft, error) {
 	params := url.Values{}
 	if order != "" {
 		params.Add("order", order)
@@ -32,7 +33,7 @@ func (c *Client) NftsList(order, assetPlatformId string, perPage, page int32) ([
 	}
 
 	rUrl := fmt.Sprintf("%s/list?%s", c.getNftsURL(), params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -51,9 +52,9 @@ func (c *Client) NftsList(order, assetPlatformId string, perPage, page int32) ([
 // Cache / Update Frequency: every 60 seconds
 // Parameters:
 // id*(string) - id of nft collection (can be obtained from /nfts/list)
-func (c *Client) NftsId(id string) (*nfts.NftId, error) {
+func (c *Client) NftsId(ctx context.Context, id string) (*nfts.NftId, error) {
 	rUrl := fmt.Sprintf("%s/%s", c.getNftsURL(), id)
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -68,9 +69,9 @@ func (c *Client) NftsId(id string) (*nfts.NftId, error) {
 }
 
 // NftsContract
-func (c *Client) NftsContract(assetPlatform, contract string) (*nfts.NftId, error) {
+func (c *Client) NftsContract(ctx context.Context, assetPlatform, contract string) (*nfts.NftId, error) {
 	rUrl := fmt.Sprintf("%s/%s/contract/%s", c.getNftsURL(), assetPlatform, contract)
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

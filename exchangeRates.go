@@ -1,15 +1,16 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 
 	"github.com/JulianToledano/goingecko/exchangeRates"
 )
 
-func (c *Client) ExchangeRates() (*exchangeRates.Rates, error) {
+func (c *Client) ExchangeRates(ctx context.Context) (*exchangeRates.Rates, error) {
 	rUrl := fmt.Sprintf("%s", c.getExchangeRatesURL())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

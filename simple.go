@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -9,7 +10,7 @@ import (
 	"github.com/JulianToledano/goingecko/simple"
 )
 
-func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.Price, error) {
+func (c *Client) SimplePrice(ctx context.Context, ids, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.Price, error) {
 	params := url.Values{}
 
 	params.Add("ids", ids)
@@ -20,7 +21,7 @@ func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, include
 	params.Add("include_last_updated_at", strconv.FormatBool(includeLastTimeUpdated))
 
 	rUrl := fmt.Sprintf("%s/%s?%s", c.getSimpleURL(), "price", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -33,7 +34,7 @@ func (c *Client) SimplePrice(ids, vsCurrencies string, includeMarketCap, include
 	return data, nil
 }
 
-func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.TokenPrice, error) {
+func (c *Client) SimpleTokenPrice(ctx context.Context, id, contractAddresses, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.TokenPrice, error) {
 	params := url.Values{}
 
 	params.Add("contract_addresses", contractAddresses)
@@ -44,7 +45,7 @@ func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, in
 	params.Add("include_last_updated_at", strconv.FormatBool(includeLastTimeUpdated))
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getSimpleURL(), "token_price", id, params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -57,9 +58,9 @@ func (c *Client) SimpleTokenPrice(id, contractAddresses, vsCurrencies string, in
 	return data, nil
 }
 
-func (c *Client) SimpleSupportedVsCurrency() (*simple.SupportedVsCurrency, error) {
+func (c *Client) SimpleSupportedVsCurrency(ctx context.Context) (*simple.SupportedVsCurrency, error) {
 	rUrl := fmt.Sprintf("%s/%s", c.getSimpleURL(), "supported_vs_currencies")
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

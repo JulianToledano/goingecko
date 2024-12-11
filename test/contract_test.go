@@ -1,6 +1,7 @@
 package test
 
 import (
+	"context"
 	"testing"
 
 	"github.com/JulianToledano/goingecko"
@@ -12,7 +13,7 @@ func TestContractInfo(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil, "")
 
-	contractData, err := cgClient.ContractInfo(coin, contract)
+	contractData, err := cgClient.ContractInfo(context.Background(), coin, contract)
 	if err != nil {
 		t.Errorf("Error: %v", err)
 	} else if contractData.ID != "basic-attention-token" {
@@ -27,7 +28,7 @@ func TestContractMarketChart(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil, "")
 
-	contractData, err := cgClient.ContractMarketChart(coin, contract, "usd", "10")
+	contractData, err := cgClient.ContractMarketChart(context.Background(), coin, contract, "usd", "10")
 	if err != nil {
 		t.Errorf("Error: %v", err)
 	}
@@ -42,7 +43,7 @@ func TestContractMarketChartRange(t *testing.T) {
 
 	cgClient := goingecko.NewClient(nil, "")
 
-	contractData, err := cgClient.ContractMarketChartRange(coin, contract, "usd", "1392500000", "1422577232")
+	contractData, err := cgClient.ContractMarketChartRange(context.Background(), coin, contract, "usd", "1392500000", "1422577232")
 	if err != nil {
 		t.Errorf("Error: %v", err)
 	}

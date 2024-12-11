@@ -1,13 +1,14 @@
 package test
 
 import (
+	"context"
 	"github.com/JulianToledano/goingecko"
 	"testing"
 )
 
 func TestNftsList(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.NftsList("", "", 0, 0)
+	data, err := cgClient.NftsList(context.Background(), "", "", 0, 0)
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -18,7 +19,7 @@ func TestNftsList(t *testing.T) {
 
 func TestNftsId(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.NftsId("squiggly")
+	data, err := cgClient.NftsId(context.Background(), "squiggly")
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -29,7 +30,7 @@ func TestNftsId(t *testing.T) {
 
 func TestNftsContract(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.NftsContract("ethereum", "0x36F379400DE6c6BCDF4408B282F8b685c56adc60")
+	data, err := cgClient.NftsContract(context.Background(), "ethereum", "0x36F379400DE6c6BCDF4408B282F8b685c56adc60")
 	if data == nil {
 		t.Errorf("Error")
 	}

@@ -1,6 +1,7 @@
 package goingecko
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -11,9 +12,9 @@ import (
 	"github.com/JulianToledano/goingecko/types"
 )
 
-func (c *Client) CoinsList() ([]*coins.CoinInfo, error) {
+func (c *Client) CoinsList(ctx context.Context) ([]*coins.CoinInfo, error) {
 	rUrl := fmt.Sprintf("%s/%s", c.getCoinsURL(), "list")
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +73,7 @@ func WithPriceChangePercentage(intervals []string) CoinsMarketOption {
 	return priceChangePercentageOption{intervals}
 }
 
-func (c *Client) CoinsMarket(currency string, options ...CoinsMarketOption) ([]*coins.Market, error) {
+func (c *Client) CoinsMarket(ctx context.Context, currency string, options ...CoinsMarketOption) ([]*coins.Market, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 
@@ -82,7 +83,7 @@ func (c *Client) CoinsMarket(currency string, options ...CoinsMarketOption) ([]*
 	}
 
 	rUrl := fmt.Sprintf("%s/%s?%s", c.getCoinsURL(), "markets", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -147,7 +148,7 @@ func WithDeveloperData(developerData bool) CoinsIdOption {
 }
 func WithCoinSparkline(sparkline bool) CoinsIdOption { return coinSparklineOption{sparkline} }
 
-func (c *Client) CoinsId(id string, options ...CoinsIdOption) (*coins.CoinID, error) {
+func (c *Client) CoinsId(ctx context.Context, id string, options ...CoinsIdOption) (*coins.CoinID, error) {
 	params := url.Values{}
 
 	// Apply all the options
@@ -156,7 +157,7 @@ func (c *Client) CoinsId(id string, options ...CoinsIdOption) (*coins.CoinID, er
 	}
 
 	rUrl := fmt.Sprintf("%s/%s?%s", c.getCoinsURL(), id, params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -200,7 +201,7 @@ func WithIncludeExchangeLogo(includeLogo bool) CoinsIdTickersOption {
 func WithDepth(depth string) CoinsIdTickersOption           { return depthOption{depth} }
 func WithExchangeId(exchangeId string) CoinsIdTickersOption { return exchangeIdOption{exchangeId} }
 
-func (c *Client) CoinsIdTickers(id string, options ...CoinsIdTickersOption) (*coins.Tickers, error) {
+func (c *Client) CoinsIdTickers(ctx context.Context, id string, options ...CoinsIdTickersOption) (*coins.Tickers, error) {
 	params := url.Values{}
 
 	// Apply all the options
@@ -209,7 +210,7 @@ func (c *Client) CoinsIdTickers(id string, options ...CoinsIdTickersOption) (*co
 	}
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "tickers", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -221,14 +222,14 @@ func (c *Client) CoinsIdTickers(id string, options ...CoinsIdTickersOption) (*co
 	return data, nil
 }
 
-func (c *Client) CoinsIdHistory(id, date string, localization bool) (*coins.History, error) {
+func (c *Client) CoinsIdHistory(ctx context.Context, id, date string, localization bool) (*coins.History, error) {
 	params := url.Values{}
 
 	params.Add("date", date)
 	params.Add("localization", strconv.FormatBool(localization))
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "history", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -240,14 +241,14 @@ func (c *Client) CoinsIdHistory(id, date string, localization bool) (*coins.Hist
 	return data, nil
 }
 
-func (c *Client) CoinsIdMarketChart(id, currency, days string) (*types.MarketChart, error) {
+func (c *Client) CoinsIdMarketChart(ctx context.Context, id, currency, days string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
 	params.Add("interval", "daily")
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "market_chart", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -259,14 +260,14 @@ func (c *Client) CoinsIdMarketChart(id, currency, days string) (*types.MarketCha
 	return data, nil
 }
 
-func (c *Client) CoinsIdMarketChartRange(id, currency, from, to string) (*types.MarketChart, error) {
+func (c *Client) CoinsIdMarketChartRange(ctx context.Context, id, currency, from, to string) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("from", from)
 	params.Add("to", to)
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "market_chart/range", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -278,13 +279,13 @@ func (c *Client) CoinsIdMarketChartRange(id, currency, from, to string) (*types.
 	return data, nil
 }
 
-func (c *Client) CoinsOhlc(id, currency, days string) (*coins.Ohlc, error) {
+func (c *Client) CoinsOhlc(ctx context.Context, id, currency, days string) (*coins.Ohlc, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("days", days)
 
 	rUrl := fmt.Sprintf("%s/%s/%s?%s", c.getCoinsURL(), id, "ohlc", params.Encode())
-	resp, err := c.MakeReq(rUrl)
+	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {
 		return nil, err
 	}

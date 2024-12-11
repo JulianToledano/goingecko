@@ -1,13 +1,15 @@
 package test
 
 import (
-	"github.com/JulianToledano/goingecko"
+	"context"
 	"testing"
+
+	"github.com/JulianToledano/goingecko"
 )
 
 func TestDerivatives(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.Derivatives()
+	data, err := cgClient.Derivatives(context.Background())
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -18,7 +20,7 @@ func TestDerivatives(t *testing.T) {
 
 func TestDerivativesExchanges(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.DerivativesExchanges("", 0, 0)
+	data, err := cgClient.DerivativesExchanges(context.Background(), "", 0, 0)
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -29,7 +31,7 @@ func TestDerivativesExchanges(t *testing.T) {
 
 func TestDerivativesExchangesId(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.DerivativesExchangesId("binance_futures", "all")
+	data, err := cgClient.DerivativesExchangesId(context.Background(), "binance_futures", "all")
 	if data == nil {
 		t.Errorf("Error")
 	}
@@ -40,7 +42,7 @@ func TestDerivativesExchangesId(t *testing.T) {
 
 func TestDerivativesExchangesList(t *testing.T) {
 	cgClient := goingecko.NewClient(nil, "")
-	data, err := cgClient.DerivativesExchangesList()
+	data, err := cgClient.DerivativesExchangesList(context.Background())
 	if data == nil {
 		t.Errorf("Error")
 	}
