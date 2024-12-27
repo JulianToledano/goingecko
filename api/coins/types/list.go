@@ -1,4 +1,4 @@
-package coins
+package types
 
 type CoinInfo struct {
 	ID     string `json:"id"`

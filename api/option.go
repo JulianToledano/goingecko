@@ -1,10 +1,8 @@
-package goingecko
+package api
 
-import (
-	"net/url"
-)
+import "net/url"
 
 // Option is a generic option type
 type Option interface {
-	apply(*url.Values)
+	Apply(*url.Values)
 }
