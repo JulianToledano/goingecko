@@ -1,4 +1,4 @@
-package coins
+package simple
 
 import (
 	"github.com/JulianToledano/goingecko/api/internal"
@@ -9,12 +9,12 @@ type Client struct {
 	*internal.Client
 }
 
-func NewCoinsClient(c *geckohttp.Client, url string) *Client {
+func NewSimpleClient(c *geckohttp.Client, url string) *Client {
 	return &Client{
 		internal.NewClient(c, url),
 	}
 }
 
-func (c *Client) coinsUrl() string {
-	return c.URL + "/coins"
+func (c *Client) simpleUrl() string {
+	return c.URL + "/simple"
 }

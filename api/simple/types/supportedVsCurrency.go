@@ -1,3 +1,3 @@
-package simple
+package types
 
 type SupportedVsCurrency []string
