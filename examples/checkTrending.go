@@ -16,7 +16,7 @@ func main() {
 		return
 	}
 	for _, coin := range treding.Coins {
-		coinData, err := cgClient.CoinsId(coin.Item.ID, false, false, true, false, false, false)
+		coinData, err := cgClient.CoinsId(coin.Item.ID)
 		if err != nil {
 			fmt.Printf("Error: %v", err)
 		}

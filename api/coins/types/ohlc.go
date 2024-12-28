@@ -1,3 +1,3 @@
-package coins
+package types
 
 type Ohlc [][]float64
