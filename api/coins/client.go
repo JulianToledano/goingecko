@@ -5,16 +5,16 @@ import (
 	geckohttp "github.com/JulianToledano/goingecko/http"
 )
 
-type Client struct {
+type CoinsClient struct {
 	*internal.Client
 }
 
-func NewCoinsClient(c *geckohttp.Client, url string) *Client {
-	return &Client{
+func NewClient(c *geckohttp.Client, url string) *CoinsClient {
+	return &CoinsClient{
 		internal.NewClient(c, url),
 	}
 }
 
-func (c *Client) coinsUrl() string {
+func (c *CoinsClient) coinsUrl() string {
 	return c.URL + "/coins"
 }

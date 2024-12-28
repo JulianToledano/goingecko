@@ -53,7 +53,7 @@ func WithPrecisionIdMarketChart(precision string) idMarketChartOption {
 //	    Cache / Update Frequency:
 //	        every 30 seconds for all the API plans (for last data point)
 //	        The last completed UTC day (00:00) data is available 10 minutes after midnight on the next UTC day (00:10).
-func (c *Client) CoinsIdMarketChart(ctx context.Context, id, vsCurrency, days string, options ...idMarketChartOption) (*types.MarketChart, error) {
+func (c *CoinsClient) CoinsIdMarketChart(ctx context.Context, id, vsCurrency, days string, options ...idMarketChartOption) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", vsCurrency)
 	params.Add("days", days)

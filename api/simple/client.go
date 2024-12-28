@@ -5,16 +5,16 @@ import (
 	geckohttp "github.com/JulianToledano/goingecko/http"
 )
 
-type Client struct {
+type SimpleClient struct {
 	*internal.Client
 }
 
-func NewSimpleClient(c *geckohttp.Client, url string) *Client {
-	return &Client{
+func NewClient(c *geckohttp.Client, url string) *SimpleClient {
+	return &SimpleClient{
 		internal.NewClient(c, url),
 	}
 }
 
-func (c *Client) simpleUrl() string {
+func (c *SimpleClient) simpleUrl() string {
 	return c.URL + "/simple"
 }

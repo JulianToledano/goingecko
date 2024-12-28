@@ -23,7 +23,7 @@ import (
 //	    The endpoint returns the global average price of the coin that is aggregated across all active exchanges on CoinGecko
 //	    You may cross-check the price on CoinGecko and learn more about our price methodology here
 //	    Cache/Update Frequency: every 30 seconds for Pro API (Analyst, Lite, Pro, Enterprise)
-func (c *Client) SimpleTokenPrice(ctx context.Context, id, contractAddresses, vsCurrencies string, options ...priceOption) (types.TokenPrice, error) {
+func (c *SimpleClient) SimpleTokenPrice(ctx context.Context, id, contractAddresses, vsCurrencies string, options ...priceOption) (types.TokenPrice, error) {
 	params := url.Values{}
 
 	params.Add("contract_addresses", contractAddresses)

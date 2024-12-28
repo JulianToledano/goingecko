@@ -38,7 +38,7 @@ func WithStatus(status string) listOption { return statusOption{status: status} 
 // 📘 Notes
 // There is no pagination required for this endpoint
 // Cache/Update Frequency: Every 5 minutes for all the API plans
-func (c *Client) CoinsList(ctx context.Context, options ...listOption) ([]*types.CoinInfo, error) {
+func (c *CoinsClient) CoinsList(ctx context.Context, options ...listOption) ([]*types.CoinInfo, error) {
 	params := url.Values{}
 
 	// Apply all the options

@@ -40,7 +40,7 @@ func WithLocalizationIdHistoryOption(loc bool) idHistoryOption {
 //
 //	The data returned is at 00:00:00 UTC
 //	The last completed UTC day (00:00) is available 35 minutes after midnight on the next UTC day (00:35)
-func (c *Client) CoinsIdHistory(ctx context.Context, id, date string, options ...idHistoryOption) (*types.History, error) {
+func (c *CoinsClient) CoinsIdHistory(ctx context.Context, id, date string, options ...idHistoryOption) (*types.History, error) {
 	params := url.Values{}
 	params.Set("date", date)
 

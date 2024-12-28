@@ -16,7 +16,7 @@ import (
 //	📘Notes
 //
 //	    Cache/Update Frequency: every 30 seconds for Pro API (Analyst, Lite, Pro, Enterprise)
-func (c *Client) SimpleSupportedVsCurrency(ctx context.Context) (*types.SupportedVsCurrency, error) {
+func (c *SimpleClient) SimpleSupportedVsCurrency(ctx context.Context) (*types.SupportedVsCurrency, error) {
 	rUrl := fmt.Sprintf("%s/%s", c.simpleUrl(), "supported_vs_currencies")
 	resp, err := c.MakeReq(ctx, rUrl)
 	if err != nil {

@@ -53,7 +53,7 @@ func WithOhlcPrecisionOption(precision string) ohlcOption {
 //	    Exclusive daily and hourly candle interval parameter for all paid plan subscribers (interval = daily, interval=hourly)
 //	        'daily' interval is available for 1 / 7 / 14 / 30 / 90 / 180 days only.
 //	        'hourly' interval is available for 1 /7 / 14 / 30 / 90 days only.
-func (c *Client) CoinsOhlc(ctx context.Context, id, vsCurrency, days string, options ...ohlcOption) (*types.Ohlc, error) {
+func (c *CoinsClient) CoinsOhlc(ctx context.Context, id, vsCurrency, days string, options ...ohlcOption) (*types.Ohlc, error) {
 	params := url.Values{}
 	params.Add("vs_currency", vsCurrency)
 	params.Add("days", days)

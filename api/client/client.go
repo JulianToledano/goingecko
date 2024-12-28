@@ -1,6 +1,8 @@
 package client
 
 import (
+	"github.com/JulianToledano/goingecko/api/ping"
+	"github.com/JulianToledano/goingecko/api/simple"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -25,7 +27,9 @@ func demoApiHeader(apiKey string) func(r *http.Request) {
 
 // Client wraps the CoinGecko API client functionality
 type Client struct {
-	*coins.Client
+	*ping.PingClient
+	*simple.SimpleClient
+	*coins.CoinsClient
 
 	url string
 }
@@ -57,6 +61,8 @@ func NewProApiClient(apiKey string, c *http.Client) *Client {
 // newClient creates a new Client with the provided HTTP client and base URL
 func newClient(c *geckohttp.Client, url string) *Client {
 	return &Client{
-		Client: coins.NewCoinsClient(c, url),
+		PingClient:   ping.NewClient(c, url),
+		SimpleClient: simple.NewClient(c, url),
+		CoinsClient:  coins.NewClient(c, url),
 	}
 }

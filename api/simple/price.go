@@ -25,7 +25,7 @@ import (
 //
 //	    You may cross-check the price on CoinGecko and learn more about our price methodology here
 //	    Cache/Update Frequency: every 30 seconds for Pro API (Analyst, Lite, Pro, Enterprise)
-func (c *Client) SimplePrice(ctx context.Context, ids, vsCurrencies string, includeMarketCap bool, options ...priceOption) (types.Price, error) {
+func (c *SimpleClient) SimplePrice(ctx context.Context, ids, vsCurrencies string, includeMarketCap bool, options ...priceOption) (types.Price, error) {
 	params := url.Values{}
 
 	params.Add("ids", ids)

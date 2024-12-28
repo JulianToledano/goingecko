@@ -63,7 +63,7 @@ func WithCoinSparkline(sparkline bool) coinsIdOption { return coinSparklineOptio
 // Cache/Update Frequency:
 // Every 60 seconds for all the API plans
 // Community data for Twitter and Telegram will be updated on weekly basis (Reddit community data is no longer supported)
-func (c *Client) CoinsId(ctx context.Context, id string, options ...coinsIdOption) (*types.CoinID, error) {
+func (c *CoinsClient) CoinsId(ctx context.Context, id string, options ...coinsIdOption) (*types.CoinID, error) {
 	params := url.Values{}
 
 	// Apply all the options
