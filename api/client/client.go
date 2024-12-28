@@ -1,6 +1,8 @@
 package client
 
 import (
+	"github.com/JulianToledano/goingecko/api/assetPlatforms"
+	"github.com/JulianToledano/goingecko/api/contract"
 	"github.com/JulianToledano/goingecko/api/ping"
 	"github.com/JulianToledano/goingecko/api/simple"
 	"net/http"
@@ -30,6 +32,8 @@ type Client struct {
 	*ping.PingClient
 	*simple.SimpleClient
 	*coins.CoinsClient
+	*contract.ContractClient
+	*assetPlatforms.AssetPlatformsClient
 
 	url string
 }
@@ -61,8 +65,10 @@ func NewProApiClient(apiKey string, c *http.Client) *Client {
 // newClient creates a new Client with the provided HTTP client and base URL
 func newClient(c *geckohttp.Client, url string) *Client {
 	return &Client{
-		PingClient:   ping.NewClient(c, url),
-		SimpleClient: simple.NewClient(c, url),
-		CoinsClient:  coins.NewClient(c, url),
+		PingClient:           ping.NewClient(c, url),
+		SimpleClient:         simple.NewClient(c, url),
+		CoinsClient:          coins.NewClient(c, url),
+		ContractClient:       contract.NewClient(c, url),
+		AssetPlatformsClient: assetPlatforms.NewClient(c, url),
 	}
 }

@@ -1,4 +1,4 @@
-package assetPlatforms
+package types
 
 type AssetPlatforms []Asset
 
