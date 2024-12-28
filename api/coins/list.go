@@ -8,8 +8,7 @@ import (
 	"strconv"
 
 	"github.com/JulianToledano/goingecko/api"
-
-	cointypes "github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/api/coins/types"
 )
 
 // listOption is an interface that extends api.Option to provide
@@ -39,7 +38,7 @@ func WithStatus(status string) listOption { return statusOption{status: status} 
 // 📘 Notes
 // There is no pagination required for this endpoint
 // Cache/Update Frequency: Every 5 minutes for all the API plans
-func (c *Client) CoinsList(ctx context.Context, options ...listOption) ([]*cointypes.CoinInfo, error) {
+func (c *Client) CoinsList(ctx context.Context, options ...listOption) ([]*types.CoinInfo, error) {
 	params := url.Values{}
 
 	// Apply all the options
@@ -53,11 +52,12 @@ func (c *Client) CoinsList(ctx context.Context, options ...listOption) ([]*coint
 		return nil, err
 	}
 
-	var data []*cointypes.CoinInfo
+	var data []*types.CoinInfo
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}
+
 	return data, nil
 }
 

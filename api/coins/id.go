@@ -8,47 +8,48 @@ import (
 	"strconv"
 
 	"github.com/JulianToledano/goingecko/api"
-	cointypes "github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/api/coins/types"
 )
 
-// CoinsIdOption is specific to the CoinsId function
-type CoinsIdOption interface {
+// coinsIdOption is specific to the CoinsId function
+type coinsIdOption interface {
 	api.Option
 	isCoinsIdOption()
 }
 
 // WithLocalization includes localized data in the response if true.
 // Default: true
-func WithLocalization(localization bool) CoinsIdOption { return localizationOption{localization} }
+func WithLocalization(localization bool) coinsIdOption { return localizationOption{localization} }
 
 // WithTickers includes tickers data in the response if true.
 // Default: true
-func WithTickers(tickers bool) CoinsIdOption { return tickersOption{tickers} }
+func WithTickers(tickers bool) coinsIdOption { return tickersOption{tickers} }
 
 // WithMarketData includes market data in the response if true.
 // Default: true
-func WithMarketData(marketData bool) CoinsIdOption { return marketDataOption{marketData} }
+func WithMarketData(marketData bool) coinsIdOption { return marketDataOption{marketData} }
 
 // WithCommunityData includes community data in the response if true.
 // Default: true
-func WithCommunityData(communityData bool) CoinsIdOption {
+func WithCommunityData(communityData bool) coinsIdOption {
 	return communityDataOption{communityData}
 }
 
 // WithDeveloperData includes developer data in the response if true.
 // Default: true
-func WithDeveloperData(developerData bool) CoinsIdOption {
+func WithDeveloperData(developerData bool) coinsIdOption {
 	return developerDataOption{developerData}
 }
 
 // WithCoinSparkline includes sparkline data in the response if true.
 // Default: false
-func WithCoinSparkline(sparkline bool) CoinsIdOption { return coinSparklineOption{sparkline} }
+func WithCoinSparkline(sparkline bool) coinsIdOption { return coinSparklineOption{sparkline} }
 
 // CoinsId allows you to query all the coin data of a coin (name, price, market .... including exchange tickers) on
 // CoinGecko coin page based on a particular coin id.
 //
 // 👍 Tips
+//
 // You may obtain the coin id (api id) via several ways:
 // refers to respective coin page and find ‘api id’
 // refers to /coins/list endpoint
@@ -57,11 +58,12 @@ func WithCoinSparkline(sparkline bool) CoinsIdOption { return coinSparklineOptio
 // You may refer to last_updated in the endpoint response to check whether the price is stale
 //
 // 📘 Notes
+//
 // Tickers are limited to 100 items, to get more tickers, please go to /coins/{id}/tickers
 // Cache/Update Frequency:
 // Every 60 seconds for all the API plans
 // Community data for Twitter and Telegram will be updated on weekly basis (Reddit community data is no longer supported)
-func (c *Client) CoinsId(ctx context.Context, id string, options ...CoinsIdOption) (*cointypes.CoinID, error) {
+func (c *Client) CoinsId(ctx context.Context, id string, options ...coinsIdOption) (*types.CoinID, error) {
 	params := url.Values{}
 
 	// Apply all the options
@@ -74,11 +76,13 @@ func (c *Client) CoinsId(ctx context.Context, id string, options ...CoinsIdOptio
 	if err != nil {
 		return nil, err
 	}
-	var data *cointypes.CoinID
+
+	var data *types.CoinID
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}
+
 	return data, nil
 }
 

@@ -8,13 +8,13 @@ import (
 	"strconv"
 
 	"github.com/JulianToledano/goingecko/api"
-	cointypes "github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/api/coins/types"
 )
 
-// IdTickersOption is an interface that extends api.Option to provide
+// idTickersOption is an interface that extends api.Option to provide
 // specific options for the CoinsIdTickers endpoint. It includes a marker
 // method isCoinsIdTickersOption() to ensure type safety for tickers-specific options.
-type IdTickersOption interface {
+type idTickersOption interface {
 	api.Option
 	isCoinsIdTickersOption()
 }
@@ -22,29 +22,30 @@ type IdTickersOption interface {
 // WithExchangeId filters tickers by exchange id.
 // Multiple exchange ids can be provided as a comma-separated string.
 // Refers to /exchanges/list.
-func WithExchangeId(exchangeIds string) IdTickersOption { return exchangeIdsOption{exchangeIds} }
+func WithExchangeId(exchangeIds string) idTickersOption { return exchangeIdsOption{exchangeIds} }
 
 // WithIncludeExchangeLogo includes exchange logo URLs in the response if true.
 // Default: false
-func WithIncludeExchangeLogo(includeLogo bool) IdTickersOption {
+func WithIncludeExchangeLogo(includeLogo bool) idTickersOption {
 	return includeExchangeLogoOption{includeLogo}
 }
 
 // WithIdTickersPage specifies which page of results to return.
-func WithIdTickersPage(page int64) IdTickersOption { return pageIdTickersOption{page} }
+func WithIdTickersPage(page int64) idTickersOption { return pageIdTickersOption{page} }
 
 // WithIdTickersOrder specifies the ordering of results.
 // Valid values: "trust_score_desc", "trust_score_asc", "volume_desc", "volume_asc
-func WithIdTickersOrder(order string) IdTickersOption { return orderIdTickersOption{order} }
+func WithIdTickersOrder(order string) idTickersOption { return orderIdTickersOption{order} }
 
 // WithDepth includes 2% orderbook depth info if "cost_to_move_up_usd" or "cost_to_move_down_usd".
 // Valid values: "", "cost_to_move_up_usd", "cost_to_move_down_usd"
-func WithDepth(depth string) IdTickersOption { return depthOption{depth} }
+func WithDepth(depth string) idTickersOption { return depthOption{depth} }
 
 // CoinsIdTickers allows you to query the coin tickers on both centralized exchange (cex) and decentralized exchange
 // (dex) based on a particular coin id.
 //
 // 👍 Tips
+//
 // You may obtain the coin id (api id) via several ways:
 // refers to respective coin page and find ‘api id’
 // refers to /coins/list endpoint
@@ -54,10 +55,11 @@ func WithDepth(depth string) IdTickersOption { return depthOption{depth} }
 // You may also flag to include more data such as exchange logo and depth
 //
 // 📘 Notes
+//
 // The tickers are paginated to 100 items
 // Cache / Update Frequency: every 2 minutes for all the API plans
 // When order is sorted by 'volume', converted_volume will be used instead of volume
-func (c *Client) CoinsIdTickers(ctx context.Context, id string, options ...IdTickersOption) (*cointypes.Tickers, error) {
+func (c *Client) CoinsIdTickers(ctx context.Context, id string, options ...idTickersOption) (*types.Tickers, error) {
 	params := url.Values{}
 
 	// Apply all the options
@@ -70,11 +72,13 @@ func (c *Client) CoinsIdTickers(ctx context.Context, id string, options ...IdTic
 	if err != nil {
 		return nil, err
 	}
-	var data *cointypes.Tickers
+
+	var data *types.Tickers
 	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}
+
 	return data, nil
 }
 
