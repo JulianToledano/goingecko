@@ -1,4 +1,4 @@
-package categories
+package types
 
 type CategoriesList []Category
 

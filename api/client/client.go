@@ -2,6 +2,7 @@ package client
 
 import (
 	"github.com/JulianToledano/goingecko/api/assetPlatforms"
+	"github.com/JulianToledano/goingecko/api/categories"
 	"github.com/JulianToledano/goingecko/api/contract"
 	"github.com/JulianToledano/goingecko/api/ping"
 	"github.com/JulianToledano/goingecko/api/simple"
@@ -34,6 +35,7 @@ type Client struct {
 	*coins.CoinsClient
 	*contract.ContractClient
 	*assetPlatforms.AssetPlatformsClient
+	*categories.CategoriesClient
 
 	url string
 }
@@ -70,5 +72,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		CoinsClient:          coins.NewClient(c, url),
 		ContractClient:       contract.NewClient(c, url),
 		AssetPlatformsClient: assetPlatforms.NewClient(c, url),
+		CategoriesClient:     categories.NewClient(c, url),
 	}
 }
