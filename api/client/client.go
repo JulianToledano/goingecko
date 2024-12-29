@@ -1,6 +1,7 @@
 package client
 
 import (
+	"github.com/JulianToledano/goingecko/api/derivatives"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -37,6 +38,7 @@ type Client struct {
 	*assetPlatforms.AssetPlatformsClient
 	*categories.CategoriesClient
 	*exchanges.ExchangesClient
+	*derivatives.DerivativesClient
 
 	url string
 }
@@ -75,5 +77,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		AssetPlatformsClient: assetPlatforms.NewClient(c, url),
 		CategoriesClient:     categories.NewClient(c, url),
 		ExchangesClient:      exchanges.NewClient(c, url),
+		DerivativesClient:    derivatives.NewClient(c, url),
 	}
 }

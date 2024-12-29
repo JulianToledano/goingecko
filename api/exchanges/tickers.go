@@ -50,7 +50,12 @@ func WithOrderTickers(order string) tickersOption {
 	return orderTickersOption{order}
 }
 
-// ExchangesIdTickers Get
+// ExchangesIdTickers allows you to query exchange's tickers based on exchange’s id.
+//
+//	📘 Notes
+//
+//	    Responses are paginated and limited to 100 tickers per page. You may specify the page number using the page params to retrieve the tickers accordingly
+//	    Cache / Update Frequency: every 60 seconds for all the API plans
 func (c *ExchangesClient) ExchangesIdTickers(ctx context.Context, id string) (*types.Tickers, error) {
 	params := url.Values{}
 

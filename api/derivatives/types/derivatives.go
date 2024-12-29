@@ -1,4 +1,4 @@
-package derivatives
+package types
 
 type Derivative struct {
 	Market                   string  `json:"market"`
