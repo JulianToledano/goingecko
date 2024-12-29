@@ -1,4 +1,4 @@
-package exchanges
+package types
 
 type Exchange struct {
 	ID                         string  `json:"id"`
