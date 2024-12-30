@@ -7,6 +7,7 @@ import (
 	"github.com/JulianToledano/goingecko/api/assetPlatforms"
 	"github.com/JulianToledano/goingecko/api/categories"
 	"github.com/JulianToledano/goingecko/api/coins"
+	"github.com/JulianToledano/goingecko/api/companies"
 	"github.com/JulianToledano/goingecko/api/contract"
 	"github.com/JulianToledano/goingecko/api/derivatives"
 	"github.com/JulianToledano/goingecko/api/exchangeRates"
@@ -49,6 +50,7 @@ type Client struct {
 	*search.SearchClient
 	*trending.TrendingClient
 	*global.GlobalClient
+	*companies.CompaniesClient
 
 	url string
 }
@@ -93,5 +95,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		SearchClient:         search.NewClient(c, url),
 		TrendingClient:       trending.NewClient(c, url),
 		GlobalClient:         global.NewClient(c, url),
+		CompaniesClient:      companies.NewClient(c, url),
 	}
 }

@@ -1,4 +1,4 @@
-package companies
+package types
 
 type Treasury struct {
 	TotalHoldings      float64     `json:"total_holdings"`
