@@ -3,7 +3,7 @@ package contract
 import (
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 )
 
 // contractOption is an interface that extends api.Option to provide

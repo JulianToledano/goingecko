@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/api/simple/types"
+	"github.com/JulianToledano/goingecko/v3/api/simple/types"
 )
 
 // SimplePrice  allows you to query the prices of one or more coins by using their unique Coin API IDs.

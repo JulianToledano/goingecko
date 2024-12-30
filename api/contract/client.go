@@ -1,8 +1,8 @@
 package contract
 
 import (
-	"github.com/JulianToledano/goingecko/api/internal"
-	geckohttp "github.com/JulianToledano/goingecko/http"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
+	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
 type ContractClient struct {

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 
-	"github.com/JulianToledano/goingecko/api/assetPlatforms/types"
+	"github.com/JulianToledano/goingecko/v3/api/assetPlatforms/types"
 )
 
 // assetPlatformsOption is an interface that extends api.Option to provide

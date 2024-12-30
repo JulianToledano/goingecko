@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/api/exchanges/types"
+	"github.com/JulianToledano/goingecko/v3/api/exchanges/types"
 )
 
 // ExchangesId endpoint allows you to query exchange’s data (name, year established, country, .... etc), exchange volume in BTC and top 100 tickers based on exchange’s id.

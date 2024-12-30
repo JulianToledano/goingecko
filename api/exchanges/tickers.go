@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 
-	"github.com/JulianToledano/goingecko/api/exchanges/types"
+	"github.com/JulianToledano/goingecko/v3/api/exchanges/types"
 )
 
 // tickersOption is an interface that extends api.Option to provide options specific to the exchange tickers endpoint.

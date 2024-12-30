@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 )
 
 // priceOption is an interface that extends api.Option with a marker method

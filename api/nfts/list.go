@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 
-	"github.com/JulianToledano/goingecko/api/nfts/types"
+	"github.com/JulianToledano/goingecko/v3/api/nfts/types"
 )
 
 // listOption is an interface that extends api.Option to provide

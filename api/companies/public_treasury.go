@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/companies/types"
+	"github.com/JulianToledano/goingecko/v3/api/companies/types"
 )
 
 func (c *CompaniesClient) PublicTreasuryCoinId(ctx context.Context, id string) (*types.Treasury, error) {

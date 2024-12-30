@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/coins/types"
 )
 
 // ohlcOption is an interface that extends api.Option to provide

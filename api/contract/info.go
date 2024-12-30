@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/contract/types"
+	"github.com/JulianToledano/goingecko/v3/api/contract/types"
 )
 
 func (c *ContractClient) ContractInfo(ctx context.Context, id, contractAddress string) (*types.ContractAddressInfo, error) {

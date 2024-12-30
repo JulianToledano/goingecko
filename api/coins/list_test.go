@@ -2,12 +2,12 @@ package coins
 
 import (
 	"context"
-	"github.com/JulianToledano/goingecko/api/internal"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 	"net/http"
 	"testing"
 
-	"github.com/JulianToledano/goingecko/api"
-	geckohttp "github.com/JulianToledano/goingecko/http"
+	"github.com/JulianToledano/goingecko/v3/api"
+	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
 func TestCoinsClient_CoinsList(t *testing.T) {

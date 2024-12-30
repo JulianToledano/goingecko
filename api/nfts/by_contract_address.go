@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/api/nfts/types"
+	"github.com/JulianToledano/goingecko/v3/api/nfts/types"
 )
 
 // NftsContract allows you to query all the NFT data (name, floor price, 24 hr volume....) based on the nft collection contract address and respective asset platform.

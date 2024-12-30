@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/coins/types"
 )
 
 // marketsOption is an interface that extends api.Option to provide

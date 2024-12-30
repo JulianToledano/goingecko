@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/global/types"
+	"github.com/JulianToledano/goingecko/v3/api/global/types"
 )
 
 // DecentralizedFinanceDEFI allows you query top 100 cryptocurrency global decentralized finance (defi) data including defi market cap, trading volume.
