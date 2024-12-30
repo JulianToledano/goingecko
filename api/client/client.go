@@ -1,10 +1,6 @@
 package client
 
 import (
-	"github.com/JulianToledano/goingecko/api/exchangeRates"
-	"github.com/JulianToledano/goingecko/api/nfts"
-	"github.com/JulianToledano/goingecko/api/search"
-	"github.com/JulianToledano/goingecko/api/trending"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -13,9 +9,14 @@ import (
 	"github.com/JulianToledano/goingecko/api/coins"
 	"github.com/JulianToledano/goingecko/api/contract"
 	"github.com/JulianToledano/goingecko/api/derivatives"
+	"github.com/JulianToledano/goingecko/api/exchangeRates"
 	"github.com/JulianToledano/goingecko/api/exchanges"
+	"github.com/JulianToledano/goingecko/api/global"
+	"github.com/JulianToledano/goingecko/api/nfts"
 	"github.com/JulianToledano/goingecko/api/ping"
+	"github.com/JulianToledano/goingecko/api/search"
 	"github.com/JulianToledano/goingecko/api/simple"
+	"github.com/JulianToledano/goingecko/api/trending"
 	geckohttp "github.com/JulianToledano/goingecko/http"
 )
 
@@ -47,6 +48,7 @@ type Client struct {
 	*exchangeRates.ExchangeRatesClient
 	*search.SearchClient
 	*trending.TrendingClient
+	*global.GlobalClient
 
 	url string
 }
@@ -90,5 +92,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		ExchangeRatesClient:  exchangeRates.NewClient(c, url),
 		SearchClient:         search.NewClient(c, url),
 		TrendingClient:       trending.NewClient(c, url),
+		GlobalClient:         global.NewClient(c, url),
 	}
 }

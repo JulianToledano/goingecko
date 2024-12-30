@@ -1,4 +1,4 @@
-package global
+package types
 
 type Defi struct {
 	Data defiInfo `json:"data"`
