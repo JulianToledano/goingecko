@@ -1,6 +1,7 @@
 package client
 
 import (
+	"github.com/JulianToledano/goingecko/api/nfts"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -39,6 +40,7 @@ type Client struct {
 	*categories.CategoriesClient
 	*exchanges.ExchangesClient
 	*derivatives.DerivativesClient
+	*nfts.NftsClient
 
 	url string
 }
@@ -78,5 +80,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		CategoriesClient:     categories.NewClient(c, url),
 		ExchangesClient:      exchanges.NewClient(c, url),
 		DerivativesClient:    derivatives.NewClient(c, url),
+		NftsClient:           nfts.NewClient(c, url),
 	}
 }

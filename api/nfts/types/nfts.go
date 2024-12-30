@@ -1,4 +1,4 @@
-package nfts
+package types
 
 type Nft struct {
 	Id              string `json:"id"`
