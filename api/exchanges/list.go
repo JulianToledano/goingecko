@@ -6,14 +6,13 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
-
 	"github.com/JulianToledano/goingecko/v3/api/exchanges/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// listOption is an interface that extends api.Option to provide options specific to the exchanges list endpoint.
+// listOption is an interface that extends internal.Option to provide options specific to the exchanges list endpoint.
 type listOption interface {
-	api.Option
+	internal.Option
 
 	isListOption()
 }

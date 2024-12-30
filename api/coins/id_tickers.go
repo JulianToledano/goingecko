@@ -7,15 +7,15 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// idTickersOption is an interface that extends api.Option to provide
+// idTickersOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdTickers endpoint. It includes a marker
 // method isCoinsIdTickersOption() to ensure type safety for tickers-specific options.
 type idTickersOption interface {
-	api.Option
+	internal.Option
 	isCoinsIdTickersOption()
 }
 

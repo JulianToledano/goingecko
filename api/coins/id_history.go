@@ -4,18 +4,18 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
 )
 
-// idHistoryOption is an interface that extends api.Option to provide
+// idHistoryOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdHistory endpoint. It includes a marker
 // method isIdHistoryOption() to ensure type safety for history-specific options.
 type idHistoryOption interface {
-	api.Option
+	internal.Option
 	isIdHistoryOption()
 }
 

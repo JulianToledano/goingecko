@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// exchangesByIdOption is an interface that extends api.Option to provide options specific to the derivatives exchanges by ID endpoint.
+// exchangesByIdOption is an interface that extends internal.Option to provide options specific to the derivatives exchanges by ID endpoint.
 type exchangesByIdOption interface {
-	api.Option
+	internal.Option
 
 	isExchangesByIdOption()
 }

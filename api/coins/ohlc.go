@@ -6,15 +6,15 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// ohlcOption is an interface that extends api.Option to provide
+// ohlcOption is an interface that extends internal.Option to provide
 // specific options for the CoinsOhlc endpoint. It includes a marker
 // method isOhlcOption() to ensure type safety for OHLC-specific options.
 type ohlcOption interface {
-	api.Option
+	internal.Option
 	isOhlcOption()
 }
 

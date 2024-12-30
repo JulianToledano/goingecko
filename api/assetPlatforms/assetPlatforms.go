@@ -6,15 +6,14 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
-
 	"github.com/JulianToledano/goingecko/v3/api/assetPlatforms/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// assetPlatformsOption is an interface that extends api.Option to provide
+// assetPlatformsOption is an interface that extends internal.Option to provide
 // asset platform-specific options
 type assetPlatformsOption interface {
-	api.Option
+	internal.Option
 
 	isAssetPlatformsOption()
 }

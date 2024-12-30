@@ -7,13 +7,13 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
 // coinsIdOption is specific to the CoinsId function
 type coinsIdOption interface {
-	api.Option
+	internal.Option
 	isCoinsIdOption()
 }
 

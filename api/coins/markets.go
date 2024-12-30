@@ -8,15 +8,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// marketsOption is an interface that extends api.Option to provide
+// marketsOption is an interface that extends internal.Option to provide
 // specific options for the CoinsMarket endpoint. It includes a marker
 // method isCoinsMarketOption() to ensure type safety for market-specific options.
 type marketsOption interface {
-	api.Option
+	internal.Option
 	isMarketsOption()
 }
 

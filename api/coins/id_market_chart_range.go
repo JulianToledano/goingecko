@@ -6,15 +6,15 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 	"github.com/JulianToledano/goingecko/v3/api/types"
 )
 
-// idMarketChartRangeOption is an interface that extends api.Option to provide
+// idMarketChartRangeOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdMarketChartRange endpoint. It includes a marker
 // method isIdMarketChartRangeOption() to ensure type safety for market chart range-specific options.
 type idMarketChartRangeOption interface {
-	api.Option
+	internal.Option
 	isIdMarketChartRangeOption()
 }
 
