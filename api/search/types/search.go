@@ -1,4 +1,4 @@
-package search
+package types
 
 type Search struct {
 	Coins []Item `json:"coins"`

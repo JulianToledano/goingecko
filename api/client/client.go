@@ -3,6 +3,7 @@ package client
 import (
 	"github.com/JulianToledano/goingecko/api/exchangeRates"
 	"github.com/JulianToledano/goingecko/api/nfts"
+	"github.com/JulianToledano/goingecko/api/search"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -43,6 +44,7 @@ type Client struct {
 	*derivatives.DerivativesClient
 	*nfts.NftsClient
 	*exchangeRates.ExchangeRatesClient
+	*search.SearchClient
 
 	url string
 }
@@ -84,5 +86,6 @@ func newClient(c *geckohttp.Client, url string) *Client {
 		DerivativesClient:    derivatives.NewClient(c, url),
 		NftsClient:           nfts.NewClient(c, url),
 		ExchangeRatesClient:  exchangeRates.NewClient(c, url),
+		SearchClient:         search.NewClient(c, url),
 	}
 }
