@@ -1,4 +1,4 @@
-package trending
+package types
 
 type Trending struct {
 	Coins []coin `json:"coins"`
