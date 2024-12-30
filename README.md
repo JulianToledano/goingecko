@@ -3,7 +3,7 @@
 Coingecko API client for golang.
 
 <p align="center">
-    <img src="images/goin.png" alt="goingecko" height="200" />
+    <img src="docs/images/goin.png" alt="goingecko" height="200" />
 </p> 
 
 
@@ -54,27 +54,30 @@ Coingecko API client for golang.
 package main
 
 import (
+	"context"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/v3"
+	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/coins"
 )
 
 func main() {
-	cgClient := goingecko.NewClient(nil, "")
-	defer cgClient.Close()
+	cgClient := api.NewDefaultClient()
 
-	data, err := cgClient.CoinsId("bitcoin", true, true, true, false, false, false)
+	data, err := cgClient.CoinsId(context.Background(), "bitcoin", coins.WithTickers(false))
 	if err != nil {
-		fmt.Print("Somethig went wrong...")
-		return
+		panic(err)
 	}
 	fmt.Printf("Bitcoin price is: %f$", data.MarketData.CurrentPrice.Usd)
 }
-
 ```
-Check dir [examples](examples) for more.
+
+Check dir [examples](docs/examples) for more.
+
+## Todo
+
+ - [ ] Implement On Chain Dex Api
 
 ## Thanks
-This repo is based somehow in [superoo7/go-gecko](https://github.com/superoo7/go-gecko) work.
 
 Image was created with [Gophers](https://github.com/egonelbre/gophers)

@@ -7,14 +7,13 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
-
 	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// exchangesOption is an interface that extends api.Option to provide options specific to the derivatives exchanges endpoint.
+// exchangesOption is an interface that extends internal.Option to provide options specific to the derivatives exchanges endpoint.
 type exchangesOption interface {
-	api.Option
+	internal.Option
 
 	isExchangesOption()
 }

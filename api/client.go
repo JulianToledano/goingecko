@@ -1,9 +1,8 @@
-package client
+package api
 
 import (
 	"net/http"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/assetPlatforms"
 	"github.com/JulianToledano/goingecko/v3/api/categories"
 	"github.com/JulianToledano/goingecko/v3/api/coins"
@@ -59,7 +58,7 @@ type Client struct {
 func NewDefaultClient() *Client {
 	return newClient(
 		geckohttp.NewClient(geckohttp.WithHttpClient(http.DefaultClient)),
-		api.BaseURL,
+		BaseURL,
 	)
 }
 
@@ -67,7 +66,7 @@ func NewDefaultClient() *Client {
 func NewDemoApiClient(apiKey string, c *http.Client) *Client {
 	return newClient(
 		geckohttp.NewClient(geckohttp.WithHttpClient(c), geckohttp.WithApiHeaderFn(demoApiHeader(apiKey))),
-		api.BaseURL,
+		BaseURL,
 	)
 }
 
@@ -75,7 +74,7 @@ func NewDemoApiClient(apiKey string, c *http.Client) *Client {
 func NewProApiClient(apiKey string, c *http.Client) *Client {
 	return newClient(
 		geckohttp.NewClient(geckohttp.WithHttpClient(c), geckohttp.WithApiHeaderFn(proApiHeader(apiKey))),
-		api.ProBaseURL,
+		ProBaseURL,
 	)
 }
 

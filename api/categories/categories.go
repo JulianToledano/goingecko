@@ -6,14 +6,14 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
 	"github.com/JulianToledano/goingecko/v3/api/categories/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// categoriesOption is an interface that extends api.Option to provide
+// categoriesOption is an interface that extends internal.Option to provide
 // category-specific options
 type categoriesOption interface {
-	api.Option
+	internal.Option
 
 	isCategoryOptions()
 }

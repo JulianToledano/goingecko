@@ -7,16 +7,15 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
-
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 	"github.com/JulianToledano/goingecko/v3/api/nfts/types"
 )
 
-// listOption is an interface that extends api.Option to provide
+// listOption is an interface that extends internal.Option to provide
 // specific options for the NftsList endpoint. It includes a marker
 // method isListOption() to ensure type safety for list-specific options.
 type listOption interface {
-	api.Option
+	internal.Option
 	isListOption()
 }
 

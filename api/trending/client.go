@@ -16,5 +16,5 @@ func NewClient(c *geckohttp.Client, url string) *TrendingClient {
 }
 
 func (c *TrendingClient) trendingUrl() string {
-	return c.URL + "/trending"
+	return c.URL + "/search/trending"
 }

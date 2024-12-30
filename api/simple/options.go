@@ -4,13 +4,13 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// priceOption is an interface that extends api.Option with a marker method
+// priceOption is an interface that extends internal.Option with a marker method
 // to ensure type safety for price-specific options
 type priceOption interface {
-	api.Option
+	internal.Option
 	isPriceOption()
 }
 

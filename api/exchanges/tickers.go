@@ -8,14 +8,13 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/JulianToledano/goingecko/v3/api"
-
 	"github.com/JulianToledano/goingecko/v3/api/exchanges/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// tickersOption is an interface that extends api.Option to provide options specific to the exchange tickers endpoint.
+// tickersOption is an interface that extends internal.Option to provide options specific to the exchange tickers endpoint.
 type tickersOption interface {
-	api.Option
+	internal.Option
 
 	isTickersOption()
 }

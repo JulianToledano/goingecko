@@ -3,13 +3,13 @@ package contract
 import (
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
-// contractOption is an interface that extends api.Option to provide
+// contractOption is an interface that extends internal.Option to provide
 // contract-specific market chart options
 type contractOption interface {
-	api.Option
+	internal.Option
 
 	isMarketChartOption()
 }
