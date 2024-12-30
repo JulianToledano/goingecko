@@ -1,6 +1,6 @@
 package types
 
-import "github.com/JulianToledano/goingecko/types"
+import "github.com/JulianToledano/goingecko/api/types"
 
 type History struct {
 	ID                  string                    `json:"id"`

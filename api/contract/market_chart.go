@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/types"
+	"github.com/JulianToledano/goingecko/api/types"
 	"net/url"
 )
 

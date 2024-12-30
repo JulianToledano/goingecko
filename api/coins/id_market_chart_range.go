@@ -7,7 +7,7 @@ import (
 	"net/url"
 
 	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/types"
+	"github.com/JulianToledano/goingecko/api/types"
 )
 
 // idMarketChartRangeOption is an interface that extends api.Option to provide
