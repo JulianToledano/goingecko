@@ -59,7 +59,7 @@ func WithDepth(depth string) idTickersOption { return depthOption{depth} }
 // The tickers are paginated to 100 items
 // Cache / Update Frequency: every 2 minutes for all the API plans
 // When order is sorted by 'volume', converted_volume will be used instead of volume
-func (c *Client) CoinsIdTickers(ctx context.Context, id string, options ...idTickersOption) (*types.Tickers, error) {
+func (c *CoinsClient) CoinsIdTickers(ctx context.Context, id string, options ...idTickersOption) (*types.Tickers, error) {
 	params := url.Values{}
 
 	// Apply all the options

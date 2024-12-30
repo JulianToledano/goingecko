@@ -60,7 +60,7 @@ func WithPriceChangePercentage(intervals []string) marketsOption {
 // 📘 Notes
 // If you provide values for both category and ids parameters, the category parameter will be prioritized over the ids parameter
 // Cache/Update Frequency: Every 45 seconds for all the API plans
-func (c *Client) CoinsMarket(ctx context.Context, currency string, options ...marketsOption) ([]*types.Market, error) {
+func (c *CoinsClient) CoinsMarket(ctx context.Context, currency string, options ...marketsOption) ([]*types.Market, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 

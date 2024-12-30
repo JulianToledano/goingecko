@@ -10,3 +10,8 @@ var (
 	// ProBaseURL is the base URL for the CoinGecko Pro API which requires authentication
 	ProBaseURL = fmt.Sprintf("https://pro-api.coingecko.com/api/%s", Version)
 )
+
+// GeckoApiVersion returns the version of the CoinGecko API client library
+func GeckoApiVersion() string {
+	return "v3.1.1"
+}

@@ -7,7 +7,7 @@ import (
 	"net/url"
 
 	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/types"
+	"github.com/JulianToledano/goingecko/api/types"
 )
 
 // idMarketChartRangeOption is an interface that extends api.Option to provide
@@ -30,7 +30,7 @@ func WithPrecisionIdMarketChartRange(precision string) idMarketChartRangeOption 
 	return precisionIdMarketChartRangeOption{precision}
 }
 
-func (c *Client) CoinsIdMarketChartRange(ctx context.Context, id, currency, from, to string, options ...idMarketChartRangeOption) (*types.MarketChart, error) {
+func (c *CoinsClient) CoinsIdMarketChartRange(ctx context.Context, id, currency, from, to string, options ...idMarketChartRangeOption) (*types.MarketChart, error) {
 	params := url.Values{}
 	params.Add("vs_currency", currency)
 	params.Add("from", from)

@@ -4,8 +4,20 @@ import (
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
-
+	"github.com/JulianToledano/goingecko/api/assetPlatforms"
+	"github.com/JulianToledano/goingecko/api/categories"
 	"github.com/JulianToledano/goingecko/api/coins"
+	"github.com/JulianToledano/goingecko/api/companies"
+	"github.com/JulianToledano/goingecko/api/contract"
+	"github.com/JulianToledano/goingecko/api/derivatives"
+	"github.com/JulianToledano/goingecko/api/exchangeRates"
+	"github.com/JulianToledano/goingecko/api/exchanges"
+	"github.com/JulianToledano/goingecko/api/global"
+	"github.com/JulianToledano/goingecko/api/nfts"
+	"github.com/JulianToledano/goingecko/api/ping"
+	"github.com/JulianToledano/goingecko/api/search"
+	"github.com/JulianToledano/goingecko/api/simple"
+	"github.com/JulianToledano/goingecko/api/trending"
 	geckohttp "github.com/JulianToledano/goingecko/http"
 )
 
@@ -25,7 +37,20 @@ func demoApiHeader(apiKey string) func(r *http.Request) {
 
 // Client wraps the CoinGecko API client functionality
 type Client struct {
-	*coins.Client
+	*ping.PingClient
+	*simple.SimpleClient
+	*coins.CoinsClient
+	*contract.ContractClient
+	*assetPlatforms.AssetPlatformsClient
+	*categories.CategoriesClient
+	*exchanges.ExchangesClient
+	*derivatives.DerivativesClient
+	*nfts.NftsClient
+	*exchangeRates.ExchangeRatesClient
+	*search.SearchClient
+	*trending.TrendingClient
+	*global.GlobalClient
+	*companies.CompaniesClient
 
 	url string
 }
@@ -57,6 +82,19 @@ func NewProApiClient(apiKey string, c *http.Client) *Client {
 // newClient creates a new Client with the provided HTTP client and base URL
 func newClient(c *geckohttp.Client, url string) *Client {
 	return &Client{
-		Client: coins.NewCoinsClient(c, url),
+		PingClient:           ping.NewClient(c, url),
+		SimpleClient:         simple.NewClient(c, url),
+		CoinsClient:          coins.NewClient(c, url),
+		ContractClient:       contract.NewClient(c, url),
+		AssetPlatformsClient: assetPlatforms.NewClient(c, url),
+		CategoriesClient:     categories.NewClient(c, url),
+		ExchangesClient:      exchanges.NewClient(c, url),
+		DerivativesClient:    derivatives.NewClient(c, url),
+		NftsClient:           nfts.NewClient(c, url),
+		ExchangeRatesClient:  exchangeRates.NewClient(c, url),
+		SearchClient:         search.NewClient(c, url),
+		TrendingClient:       trending.NewClient(c, url),
+		GlobalClient:         global.NewClient(c, url),
+		CompaniesClient:      companies.NewClient(c, url),
 	}
 }
