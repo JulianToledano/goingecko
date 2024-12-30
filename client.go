@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/JulianToledano/goingecko/ping"
+	"github.com/JulianToledano/goingecko/v2/ping"
 )
 
 const apiHeader = "x-cg-demo-api-key"

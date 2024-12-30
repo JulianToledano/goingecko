@@ -1,9 +1,10 @@
 package main
 
 import (
+	"context"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko"
+	"github.com/JulianToledano/goingecko/v2"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 		return
 	}
 	for _, coin := range treding.Coins {
-		coinData, err := cgClient.CoinsId(coin.Item.ID, false, false, true, false, false, false)
+		coinData, err := cgClient.CoinsId(context.Background(), coin.Item.ID, false, false, true, false, false, false)
 		if err != nil {
 			fmt.Printf("Error: %v", err)
 		}

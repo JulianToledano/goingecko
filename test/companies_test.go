@@ -2,8 +2,9 @@ package test
 
 import (
 	"context"
-	"github.com/JulianToledano/goingecko"
 	"testing"
+
+	"github.com/JulianToledano/goingecko/v2"
 )
 
 func TestPublicTreasuryCoinId(t *testing.T) {

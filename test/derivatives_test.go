@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/JulianToledano/goingecko"
+	"github.com/JulianToledano/goingecko/v2"
 )
 
 func TestDerivatives(t *testing.T) {

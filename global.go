@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/global"
+	"github.com/JulianToledano/goingecko/v2/global"
 )
 
 func (c *Client) Global(ctx context.Context) (*global.Global, error) {

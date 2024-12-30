@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/contract"
-	"github.com/JulianToledano/goingecko/types"
+	"github.com/JulianToledano/goingecko/v2/contract"
+	"github.com/JulianToledano/goingecko/v2/types"
 )
 
 func (c *Client) ContractInfo(ctx context.Context, id, contractAddress string) (*contract.ContractAddressInfo, error) {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/JulianToledano/goingecko/trending"
+	"github.com/JulianToledano/goingecko/v2/trending"
 )
 
 func (c *Client) Trending(ctx context.Context) (*trending.Trending, error) {

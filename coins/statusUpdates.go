@@ -1,6 +1,6 @@
 package coins
 
-import "github.com/JulianToledano/goingecko/types"
+import "github.com/JulianToledano/goingecko/v2/types"
 
 type StatusUpdates struct {
 	StatusUpdates []Status `json:"status_updates"`

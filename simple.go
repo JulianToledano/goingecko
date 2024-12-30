@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/simple"
+	"github.com/JulianToledano/goingecko/v2/simple"
 )
 
 func (c *Client) SimplePrice(ctx context.Context, ids, vsCurrencies string, includeMarketCap, includeDayVolume, includeDayChange, includeLastTimeUpdated bool) (simple.Price, error) {

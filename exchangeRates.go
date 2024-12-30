@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/exchangeRates"
+	"github.com/JulianToledano/goingecko/v2/exchangeRates"
 )
 
 func (c *Client) ExchangeRates(ctx context.Context) (*exchangeRates.Rates, error) {

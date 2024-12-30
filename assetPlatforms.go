@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/assetPlatforms"
+	"github.com/JulianToledano/goingecko/v2/assetPlatforms"
 )
 
 func (c *Client) AssetPlatforms(ctx context.Context, filter string) (*assetPlatforms.AssetPlatforms, error) {

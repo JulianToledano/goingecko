@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/JulianToledano/goingecko"
+	"github.com/JulianToledano/goingecko/v2"
 )
 
 func TestCoins(t *testing.T) {
