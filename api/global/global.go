@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/JulianToledano/goingecko/api/global/types"
+	"github.com/JulianToledano/goingecko/v3/api/global/types"
 )
 
 // Global allows you query cryptocurrency global data including active cryptocurrencies, markets, total crypto market cap and etc.

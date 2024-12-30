@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/derivatives/types"
+	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
 )
 
 // DerivativesExchangesList allows you to query all the derivatives exchanges with id and name on CoinGecko.

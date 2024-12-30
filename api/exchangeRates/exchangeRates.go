@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/exchangeRates/types"
+	"github.com/JulianToledano/goingecko/v3/api/exchangeRates/types"
 )
 
 // ExchangeRates allows you to query BTC exchange rates with other currencies.

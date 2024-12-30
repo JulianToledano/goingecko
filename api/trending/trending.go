@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/JulianToledano/goingecko/api/trending/types"
+	"github.com/JulianToledano/goingecko/v3/api/trending/types"
 )
 
 // Trending allows you query trending search coins, nfts and categories on CoinGecko in the last 24 hours.

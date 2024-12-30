@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/api"
+	"github.com/JulianToledano/goingecko/v3/api"
 
-	"github.com/JulianToledano/goingecko/api/derivatives/types"
+	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
 )
 
 // exchangesOption is an interface that extends api.Option to provide options specific to the derivatives exchanges endpoint.

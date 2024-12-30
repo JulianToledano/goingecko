@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/internal"
-	"github.com/JulianToledano/goingecko/api/ping/types"
-	geckohttp "github.com/JulianToledano/goingecko/http"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
+	"github.com/JulianToledano/goingecko/v3/api/ping/types"
+	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
 type PingClient struct {

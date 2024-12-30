@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JulianToledano/goingecko/api/derivatives/types"
+	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
 )
 
 // Derivatives allows you to query all the tickers from derivatives exchanges on CoinGecko.

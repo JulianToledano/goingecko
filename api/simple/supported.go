@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/api/simple/types"
+	"github.com/JulianToledano/goingecko/v3/api/simple/types"
 )
 
 // SimpleSupportedVsCurrency allows you to query all the supported currencies on CoinGecko.

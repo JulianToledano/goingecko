@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/api/categories/types"
+	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/categories/types"
 )
 
 // categoriesOption is an interface that extends api.Option to provide

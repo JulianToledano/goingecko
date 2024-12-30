@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/api/categories/types"
+	"github.com/JulianToledano/goingecko/v3/api/categories/types"
 )
 
 // CategoriesList allows you to query all the coins categories on CoinGecko.

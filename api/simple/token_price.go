@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api/simple/types"
+	"github.com/JulianToledano/goingecko/v3/api/simple/types"
 )
 
 // SimpleTokenPrice allows you to query a token price by using token contract address.

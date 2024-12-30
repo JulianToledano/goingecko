@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api/search/types"
+	"github.com/JulianToledano/goingecko/v3/api/search/types"
 )
 
 // Search allows you to query BTC exchange rates with other currencies.

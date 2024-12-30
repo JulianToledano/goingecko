@@ -1,6 +1,6 @@
 package internal
 
-import geckohttp "github.com/JulianToledano/goingecko/http"
+import geckohttp "github.com/JulianToledano/goingecko/v3/http"
 
 type Client struct {
 	*geckohttp.Client

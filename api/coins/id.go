@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/JulianToledano/goingecko/api"
-	"github.com/JulianToledano/goingecko/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api"
+	"github.com/JulianToledano/goingecko/v3/api/coins/types"
 )
 
 // coinsIdOption is specific to the CoinsId function

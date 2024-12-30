@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/JulianToledano/goingecko/api/exchanges/types"
+	"github.com/JulianToledano/goingecko/v3/api/exchanges/types"
 )
 
 // ExchangesIdVolumeChart allows you to query the historical volume chart data with time in UNIX and trading volume data in BTC based on exchange’s id.
