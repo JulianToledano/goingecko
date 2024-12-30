@@ -1,7 +1,6 @@
 package client
 
 import (
-	"github.com/JulianToledano/goingecko/api/derivatives"
 	"net/http"
 
 	"github.com/JulianToledano/goingecko/api"
@@ -9,6 +8,7 @@ import (
 	"github.com/JulianToledano/goingecko/api/categories"
 	"github.com/JulianToledano/goingecko/api/coins"
 	"github.com/JulianToledano/goingecko/api/contract"
+	"github.com/JulianToledano/goingecko/api/derivatives"
 	"github.com/JulianToledano/goingecko/api/exchanges"
 	"github.com/JulianToledano/goingecko/api/ping"
 	"github.com/JulianToledano/goingecko/api/simple"
