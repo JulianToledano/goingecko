@@ -1,4 +1,4 @@
-package exchangeRates
+package types
 
 type Rates struct {
 	Rates coinRates `json:"rates"`
