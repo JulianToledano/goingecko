@@ -16,7 +16,7 @@ func (c *ContractClient) ContractInfo(ctx context.Context, id, contractAddress s
 	}
 
 	var data *types.ContractAddressInfo
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

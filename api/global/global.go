@@ -19,7 +19,7 @@ func (c *GlobalClient) Global(ctx context.Context) (*types.Global, error) {
 	}
 
 	var data *types.Global
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

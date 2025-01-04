@@ -3,7 +3,6 @@ package exchangeRates
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 
 	"github.com/JulianToledano/goingecko/v3/api/exchangeRates/types"
 )
@@ -18,14 +17,13 @@ import (
 //
 //	    Cache / Update Frequency: every 5 minutes for all the API plans
 func (c *ExchangeRatesClient) ExchangeRates(ctx context.Context) (*types.Rates, error) {
-	rUrl := fmt.Sprintf("%s", c.exchangeRatesUrl())
-	resp, err := c.MakeReq(ctx, rUrl)
+	resp, err := c.MakeReq(ctx, c.exchangeRatesUrl())
 	if err != nil {
 		return nil, err
 	}
 
 	var data *types.Rates
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

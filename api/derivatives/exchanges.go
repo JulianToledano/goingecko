@@ -66,16 +66,20 @@ func (c *DerivativesClient) DerivativesExchanges(ctx context.Context, options ..
 	return data, nil
 }
 
-type orderExchangeOption struct{ order string }
-type perPageExchangeOption struct{ perPage int64 }
-type pageExchangeOption struct{ page int64 }
+type (
+	orderExchangeOption   struct{ order string }
+	perPageExchangeOption struct{ perPage int64 }
+	pageExchangeOption    struct{ page int64 }
+)
 
 func (o orderExchangeOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }
+
 func (o perPageExchangeOption) Apply(v *url.Values) {
 	v.Set("per_page", strconv.FormatInt(o.perPage, 10))
 }
+
 func (o pageExchangeOption) Apply(v *url.Values) {
 	v.Set("page", strconv.FormatInt(o.page, 10))
 }

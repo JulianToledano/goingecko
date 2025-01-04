@@ -83,14 +83,17 @@ func (c *CoinsClient) CoinsIdTickers(ctx context.Context, id string, options ...
 }
 
 // Define option types
-type exchangeIdsOption struct{ exchangeIds string }
-type includeExchangeLogoOption struct{ includeLogo bool }
-type pageIdTickersOption struct{ page int64 }
-type orderIdTickersOption struct{ order string }
-type depthOption struct{ depth string }
+type (
+	exchangeIdsOption         struct{ exchangeIds string }
+	includeExchangeLogoOption struct{ includeLogo bool }
+	pageIdTickersOption       struct{ page int64 }
+	orderIdTickersOption      struct{ order string }
+	depthOption               struct{ depth string }
+)
 
 // Implement Option interface
 func (o exchangeIdsOption) Apply(v *url.Values) { v.Set("exchange_ids", o.exchangeIds) }
+
 func (o includeExchangeLogoOption) Apply(v *url.Values) {
 	v.Set("include_exchange_logo", strconv.FormatBool(o.includeLogo))
 }

@@ -26,12 +26,15 @@ func WithPrecisionOption(precision string) contractOption {
 	return precisionContractOption{precision}
 }
 
-type intervalContractOption struct{ interval string }
-type precisionContractOption struct{ precision string }
+type (
+	intervalContractOption  struct{ interval string }
+	precisionContractOption struct{ precision string }
+)
 
 func (o intervalContractOption) Apply(v *url.Values) {
 	v.Set("interval", o.interval)
 }
+
 func (o precisionContractOption) Apply(v *url.Values) {
 	v.Set("precision", o.precision)
 }

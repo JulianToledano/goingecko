@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+
 	"github.com/JulianToledano/goingecko/v3/api/categories/types"
 )
 

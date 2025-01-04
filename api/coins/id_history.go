@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/v3/api/internal"
 	"net/url"
 	"strconv"
 
 	"github.com/JulianToledano/goingecko/v3/api/coins/types"
+	"github.com/JulianToledano/goingecko/v3/api/internal"
 )
 
 // idHistoryOption is an interface that extends internal.Option to provide

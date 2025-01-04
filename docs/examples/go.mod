@@ -6,5 +6,5 @@ require github.com/JulianToledano/goingecko/v3 v3.0.0-20241230130119-db5fd588cc6
 
 
 replace (
-	github.com/JulianToledano/goingecko/v3  => ../
+	github.com/JulianToledano/goingecko/v3  => ../..
 )

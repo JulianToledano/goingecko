@@ -73,24 +73,30 @@ func (c *ExchangesClient) ExchangesIdTickers(ctx context.Context, id string) (*t
 	return data, nil
 }
 
-type coinIdsTickersOption struct{ ids []string }
-type includeExchangeLogoTickersOption struct{ include bool }
-type pageTickersOption struct{ page int64 }
-type depthTickersOption struct{ depth bool }
-type orderTickersOption struct{ order string }
+type (
+	coinIdsTickersOption             struct{ ids []string }
+	includeExchangeLogoTickersOption struct{ include bool }
+	pageTickersOption                struct{ page int64 }
+	depthTickersOption               struct{ depth bool }
+	orderTickersOption               struct{ order string }
+)
 
 func (o coinIdsTickersOption) Apply(v *url.Values) {
 	v.Set("coin_ids", strings.Join(o.ids, ","))
 }
+
 func (o includeExchangeLogoTickersOption) Apply(v *url.Values) {
 	v.Set("include_exchange_logo", strconv.FormatBool(o.include))
 }
+
 func (o pageTickersOption) Apply(v *url.Values) {
 	v.Set("page", strconv.FormatInt(o.page, 10))
 }
+
 func (o depthTickersOption) Apply(v *url.Values) {
 	v.Set("depth", strconv.FormatBool(o.depth))
 }
+
 func (o orderTickersOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }

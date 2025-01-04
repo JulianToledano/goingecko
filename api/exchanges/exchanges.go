@@ -61,12 +61,15 @@ func (c *ExchangesClient) Exchanges(ctx context.Context, options ...exchangesOpt
 	return data, nil
 }
 
-type perPageExchangesOption struct{ perPage int64 }
-type pageExchangesOption struct{ page int64 }
+type (
+	perPageExchangesOption struct{ perPage int64 }
+	pageExchangesOption    struct{ page int64 }
+)
 
 func (o perPageExchangesOption) Apply(v *url.Values) {
 	v.Set("per_page", strconv.FormatInt(o.perPage, 10))
 }
+
 func (o pageExchangesOption) Apply(v *url.Values) {
 	v.Set("page", strconv.FormatInt(o.page, 10))
 }

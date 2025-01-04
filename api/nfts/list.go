@@ -71,9 +71,11 @@ func (c *NftsClient) NftsList(ctx context.Context, options ...listOption) ([]typ
 	return data, nil
 }
 
-type orderListOption struct{ order string }
-type perPageListOption struct{ perPage int64 }
-type pageListOption struct{ page int64 }
+type (
+	orderListOption   struct{ order string }
+	perPageListOption struct{ perPage int64 }
+	pageListOption    struct{ page int64 }
+)
 
 func (o orderListOption) Apply(v *url.Values)   { v.Set("order", o.order) }
 func (o perPageListOption) Apply(v *url.Values) { v.Set("per_page", strconv.FormatInt(o.perPage, 10)) }

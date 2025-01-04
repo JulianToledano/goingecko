@@ -1,4 +1,6 @@
 package types
 
-type Price map[string]PriceValues
-type PriceValues map[string]float64
+type (
+	Price       map[string]PriceValues
+	PriceValues map[string]float64
+)

@@ -50,8 +50,6 @@ type Client struct {
 	*trending.TrendingClient
 	*global.GlobalClient
 	*companies.CompaniesClient
-
-	url string
 }
 
 // NewDefaultClient creates a new Client using the default HTTP client and base URL
