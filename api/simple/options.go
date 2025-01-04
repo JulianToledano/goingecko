@@ -44,24 +44,30 @@ func WithPrecisionOption(precision string) priceOption {
 	return precisionOption{precision}
 }
 
-type includeMarketCapOption struct{ include bool }
-type includeDayVolumeOption struct{ include bool }
-type includeDayChangeOption struct{ include bool }
-type includeLastTimeUpdatedOption struct{ include bool }
-type precisionOption struct{ precision string }
+type (
+	includeMarketCapOption       struct{ include bool }
+	includeDayVolumeOption       struct{ include bool }
+	includeDayChangeOption       struct{ include bool }
+	includeLastTimeUpdatedOption struct{ include bool }
+	precisionOption              struct{ precision string }
+)
 
 func (o includeMarketCapOption) Apply(v *url.Values) {
 	v.Set("include_market_cap", strconv.FormatBool(o.include))
 }
+
 func (o includeDayVolumeOption) Apply(v *url.Values) {
 	v.Set("include_24hr_vol", strconv.FormatBool(o.include))
 }
+
 func (o includeDayChangeOption) Apply(v *url.Values) {
 	v.Set("include_24hr_change", strconv.FormatBool(o.include))
 }
+
 func (o includeLastTimeUpdatedOption) Apply(v *url.Values) {
 	v.Set("include_last_updated_at", strconv.FormatBool(o.include))
 }
+
 func (o precisionOption) Apply(v *url.Values) {
 	v.Set("precision", o.precision)
 }

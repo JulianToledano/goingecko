@@ -87,12 +87,14 @@ func (c *CoinsClient) CoinsId(ctx context.Context, id string, options ...coinsId
 }
 
 // Define option types
-type localizationOption struct{ localization bool }
-type tickersOption struct{ tickers bool }
-type marketDataOption struct{ marketData bool }
-type communityDataOption struct{ communityData bool }
-type developerDataOption struct{ developerData bool }
-type coinSparklineOption struct{ sparkline bool }
+type (
+	localizationOption  struct{ localization bool }
+	tickersOption       struct{ tickers bool }
+	marketDataOption    struct{ marketData bool }
+	communityDataOption struct{ communityData bool }
+	developerDataOption struct{ developerData bool }
+	coinSparklineOption struct{ sparkline bool }
+)
 
 // Implement Option interface
 func (o localizationOption) Apply(v *url.Values) {
@@ -102,12 +104,15 @@ func (o tickersOption) Apply(v *url.Values) { v.Set("tickers", strconv.FormatBoo
 func (o marketDataOption) Apply(v *url.Values) {
 	v.Set("market_data", strconv.FormatBool(o.marketData))
 }
+
 func (o communityDataOption) Apply(v *url.Values) {
 	v.Set("community_data", strconv.FormatBool(o.communityData))
 }
+
 func (o developerDataOption) Apply(v *url.Values) {
 	v.Set("developer_data", strconv.FormatBool(o.developerData))
 }
+
 func (o coinSparklineOption) Apply(v *url.Values) {
 	v.Set("sparkline", strconv.FormatBool(o.sparkline))
 }

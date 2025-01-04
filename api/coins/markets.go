@@ -85,13 +85,15 @@ func (c *CoinsClient) CoinsMarket(ctx context.Context, currency string, options 
 }
 
 // Define option types
-type idsOption struct{ ids []string }
-type categoryOption struct{ category string }
-type orderOption struct{ order string }
-type perPageOption struct{ perPage int }
-type pageOption struct{ page int }
-type sparklineOption struct{ sparkline bool }
-type priceChangePercentageOption struct{ intervals []string }
+type (
+	idsOption                   struct{ ids []string }
+	categoryOption              struct{ category string }
+	orderOption                 struct{ order string }
+	perPageOption               struct{ perPage int }
+	pageOption                  struct{ page int }
+	sparklineOption             struct{ sparkline bool }
+	priceChangePercentageOption struct{ intervals []string }
+)
 
 // Implement Option interface
 func (o idsOption) Apply(v *url.Values)       { v.Set("ids", strings.Join(o.ids, ",")) }

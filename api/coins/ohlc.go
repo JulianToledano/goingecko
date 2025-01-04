@@ -77,8 +77,10 @@ func (c *CoinsClient) CoinsOhlc(ctx context.Context, id, vsCurrency, days string
 	return data, nil
 }
 
-type intervalOhlcOption struct{ interval string }
-type precisionOhlcOption struct{ precision string }
+type (
+	intervalOhlcOption  struct{ interval string }
+	precisionOhlcOption struct{ precision string }
+)
 
 func (o intervalOhlcOption) Apply(v *url.Values)  { v.Set("interval", o.interval) }
 func (o precisionOhlcOption) Apply(v *url.Values) { v.Set("precision", o.precision) }

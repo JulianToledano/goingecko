@@ -8,7 +8,7 @@ import (
 
 type (
 	// ApiHeaderFn is a function type that sets headers on HTTP requests
-	ApiHeaderFn func(r *http.Request)
+	ApiHeaderFn func(*http.Request)
 
 	// option is a function type that configures a Client instance
 	option func(*Client) *Client

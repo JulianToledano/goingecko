@@ -43,7 +43,7 @@ func (c *SimpleClient) SimplePrice(ctx context.Context, ids, vsCurrencies string
 	}
 
 	var data types.Price
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

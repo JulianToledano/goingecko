@@ -40,7 +40,7 @@ func (c *SimpleClient) SimpleTokenPrice(ctx context.Context, id, contractAddress
 	}
 
 	var data types.TokenPrice
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

@@ -4,8 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/JulianToledano/goingecko/v3/api/types"
 	"net/url"
+
+	"github.com/JulianToledano/goingecko/v3/api/types"
 )
 
 // ContractMarketChart allows you to get the historical chart data including time in UNIX, price, market cap and 24hrs volume based on asset platform and particular token contract address.
@@ -45,7 +46,7 @@ func (c *ContractClient) ContractMarketChart(ctx context.Context, id, contractAd
 	}
 
 	var data *types.MarketChart
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +99,7 @@ func (c *ContractClient) ContractMarketChartRange(ctx context.Context, id, contr
 	}
 
 	var data *types.MarketChart
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}

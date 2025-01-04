@@ -3,7 +3,6 @@ package derivatives
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 
 	"github.com/JulianToledano/goingecko/v3/api/derivatives/types"
 )
@@ -15,9 +14,7 @@ import (
 //	    Data for open_interest and volume_24h in the endpoint responses are in USD
 //	    Cache / Update Frequency: every 30 seconds for all the API plans
 func (c *DerivativesClient) Derivatives(ctx context.Context) ([]types.Derivative, error) {
-
-	rUrl := fmt.Sprintf("%s", c.derivativesUrl())
-	resp, err := c.MakeReq(ctx, rUrl)
+	resp, err := c.MakeReq(ctx, c.derivativesUrl())
 	if err != nil {
 		return nil, err
 	}

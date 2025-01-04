@@ -55,8 +55,10 @@ func (c *CoinsClient) CoinsIdMarketChartRange(ctx context.Context, id, currency,
 	return data, nil
 }
 
-type intervalIdMarketChartRangeOption struct{ interval string }
-type precisionIdMarketChartRangeOption struct{ precision string }
+type (
+	intervalIdMarketChartRangeOption  struct{ interval string }
+	precisionIdMarketChartRangeOption struct{ precision string }
+)
 
 func (o intervalIdMarketChartRangeOption) Apply(v *url.Values)  { v.Set("interval", o.interval) }
 func (o precisionIdMarketChartRangeOption) Apply(v *url.Values) { v.Set("precision", o.precision) }

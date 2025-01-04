@@ -21,7 +21,7 @@ func (c *GlobalClient) DecentralizedFinanceDEFI(ctx context.Context) (*types.Def
 	}
 
 	var data *types.Defi
-	err = json.Unmarshal([]byte(resp), &data)
+	err = json.Unmarshal(resp, &data)
 	if err != nil {
 		return nil, err
 	}
