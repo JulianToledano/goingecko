@@ -7,7 +7,17 @@ ifneq ($(golangci_installed_version),$(golangci_version))
 	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(golangci_version)
 endif
 
+lint:
+	@echo "--> Running linter"
+	$(MAKE) lint-install
+	@./scripts/lint-all.sh
+
 lint-fix:
 	@echo "--> Running linter"
 	$(MAKE) lint-install
 	@./scripts/lint-all.sh --fix
+
+
+test:
+	@echo "--> Running tests"
+	@go test ./... -v

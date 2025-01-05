@@ -2,10 +2,6 @@ run:
   tests: true
   timeout: 15m
   allow-parallel-runners: true
-  build-tags:
-    - e2e
-    - ledger
-    - test_ledger_mock
 
 linters:
   disable-all: true
