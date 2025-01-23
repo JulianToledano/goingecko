@@ -21,14 +21,14 @@ import (
 )
 
 // proApiHeader returns a function that sets the Pro API key header on requests
-func proApiHeader(apiKey string) func(r *http.Request) {
+func proApiHeader(apiKey string) geckohttp.ApiHeaderFn {
 	return func(r *http.Request) {
 		r.Header.Set("x-cg-pro-api-key", apiKey)
 	}
 }
 
 // demoApiHeader returns a function that sets the Demo API key header on requests
-func demoApiHeader(apiKey string) func(r *http.Request) {
+func demoApiHeader(apiKey string) geckohttp.ApiHeaderFn {
 	return func(r *http.Request) {
 		r.Header.Set("x-cg-demo-api-key", apiKey)
 	}
