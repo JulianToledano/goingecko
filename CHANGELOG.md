@@ -29,7 +29,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 # Changelog
 
-## [Unreleased]
+## [v3.0.0](https://github.com/JulianToledano/goingecko/releases/tag/v3.0.0) - 2025.01-25
 
 ### Improvements
 
