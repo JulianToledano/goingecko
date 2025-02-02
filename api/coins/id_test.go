@@ -2,10 +2,11 @@ package coins
 
 import (
 	"context"
-	"github.com/JulianToledano/goingecko/v3/api/internal"
-	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 	"net/http"
 	"testing"
+
+	"github.com/JulianToledano/goingecko/v3/api/internal"
+	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
 func TestCoinsId(t *testing.T) {
