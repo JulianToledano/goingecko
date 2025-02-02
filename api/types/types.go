@@ -139,8 +139,8 @@ type DeveloperData struct {
 }
 
 type CodeStats struct {
-	Additions int16 `json:"additions"`
-	Deletions int16 `json:"deletions"`
+	Additions int64 `json:"additions"`
+	Deletions int64 `json:"deletions"`
 }
 
 type PublicInterestStats struct {
