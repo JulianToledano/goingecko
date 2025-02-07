@@ -9,7 +9,7 @@ type ContractAddressInfo struct {
 	Name               string            `json:"name"`
 	AssetPlatformId    string            `json:"asset_platform_id"`
 	Platforms          map[string]string `json:"platforms"`
-	BlockTimeInMinutes int               `json:"block_time_in_minutes"`
+	BlockTimeInMinutes int64             `json:"block_time_in_minutes"`
 	Hashing_algorithm  string            `json:"hashing_algorithm"`
 	Categories         []string          `json:"categories"`
 	// public_notice `json:"//`"
@@ -24,8 +24,8 @@ type ContractAddressInfo struct {
 	Sentiment_votes_up_percentage   float64                   `json:"sentiment_votes_up_percentage"`
 	Sentiment_votes_down_percentage float64                   `json:"sentiment_votes_down_percentage"`
 	IcoData                         IcoData                   `json:"ico_data"`
-	MarketCapRank                   int32                     `json:"market_cap_rank"`
-	CoingeckoRank                   int32                     `json:"coingecko_rank"`
+	MarketCapRank                   int64                     `json:"market_cap_rank"`
+	CoingeckoRank                   int64                     `json:"coingecko_rank"`
 	CoingeckoScore                  float64                   `json:"coingecko_score"`
 	DeveloperScore                  float64                   `json:"developer_score"`
 	CommunityScore                  float64                   `json:"community_score"`

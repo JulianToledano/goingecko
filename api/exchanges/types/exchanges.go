@@ -3,14 +3,14 @@ package types
 type Exchange struct {
 	ID                         string  `json:"id"`
 	Name                       string  `json:"name"`
-	YearEstablished            int32   `json:"year_established"`
+	YearEstablished            int64   `json:"year_established"`
 	Country                    string  `json:"country"`
 	Description                string  `json:"description"`
 	Url                        string  `json:"url"`
 	Image                      string  `json:"image"`
 	HasTradingIncentive        bool    `json:"has_trading_incentive"`
-	TrustScore                 int32   `json:"trust_score"`
-	TrustScoreRank             int32   `json:"trust_score_rank"`
+	TrustScore                 int64   `json:"trust_score"`
+	TrustScoreRank             int64   `json:"trust_score_rank"`
 	TradeVolume24h             float64 `json:"trade_volume_24h_btc"`
 	TradeVolume24jBtcNormalice float64 `json:"trade_volume_24h_btc_normalized"`
 }
@@ -24,7 +24,7 @@ type ExchangeId struct {
 
 type ExchangeWithTicker struct {
 	Name                        string          `json:"name"`
-	YearEstablished             int32           `json:"year_established"`
+	YearEstablished             int64           `json:"year_established"`
 	Country                     string          `json:"country"`
 	Description                 string          `json:"description"`
 	Url                         string          `json:"url"`
@@ -40,8 +40,8 @@ type ExchangeWithTicker struct {
 	Centralized                 bool            `json:"centralized"`
 	PublicNotice                string          `json:"public_notice"`
 	AlertNotice                 string          `json:"alert_notice"`
-	TrustScore                  int32           `json:"trust_score"`
-	TrustScoreRank              int32           `json:"trust_score_rank"`
+	TrustScore                  int64           `json:"trust_score"`
+	TrustScoreRank              int64           `json:"trust_score_rank"`
 	TradeVolume24hBtc           float64         `json:"trade_volume_24h_btc"`
 	TradeVolume24hBtcNormalized float64         `json:"trade_volume_24h_btc_normalized"`
 	Tickers                     []Ticker        `json:"tickers"`

@@ -22,10 +22,10 @@ type Exchange struct {
 	ID                     string  `json:"id"`
 	OpenInterestBtc        float64 `json:"open_interest_btc"`
 	TradeVolume24hBtc      string  `json:"trade_volume_24h_btc"`
-	NumberOfPerpetualPairs int32   `json:"number_of_perpetual_pairs"`
-	NumberOfFuturesPairs   int32   `json:"number_of_futures_pairs"`
+	NumberOfPerpetualPairs int64   `json:"number_of_perpetual_pairs"`
+	NumberOfFuturesPairs   int64   `json:"number_of_futures_pairs"`
 	Image                  string  `json:"image"`
-	YearEstablished        int32   `json:"year_established"`
+	YearEstablished        int64   `json:"year_established"`
 	Country                string  `json:"country"`
 	Description            string  `json:"description"`
 	Url                    string  `json:"url"`
@@ -38,7 +38,7 @@ type ExchangeId struct {
 	NumberOfPerpetualPairs int64    `json:"number_of_perpetual_pairs"`
 	NumberOfPuturesPairs   int64    `json:"number_of_futures_pairs"`
 	Image                  string   `json:"image"`
-	YearEstablished        int32    `json:"year_established"`
+	YearEstablished        int64    `json:"year_established"`
 	Country                string   `json:"country"`
 	Description            string   `json:"description"`
 	Url                    string   `json:"url"`
