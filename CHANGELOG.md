@@ -34,6 +34,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ### Bug Fixes
 
 * [#39](https://github.com/JulianToledano/goingecko/pull/39) Change CodeStats types from int16 to int64.
+* [#41](https://github.com/JulianToledano/goingecko/pull/41) Use int64 and float64 in all types.
 
 ## [v3.0.0](https://github.com/JulianToledano/goingecko/releases/tag/v3.0.0) - 2025.01-25
 

@@ -9,7 +9,7 @@ type Market struct {
 	Image                                      string          `json:"image"`
 	CurrentPrice                               float64         `json:"current_price"`
 	MarketCap                                  float64         `json:"market_cap"`
-	MarkeCcapRank                              int32           `json:"market_cap_rank"`
+	MarkeCcapRank                              int64           `json:"market_cap_rank"`
 	FullyDilutedValuation                      float64         `json:"fully_diluted_valuation"`
 	TotalVolume                                float64         `json:"total_volume"`
 	HighDay                                    float64         `json:"high_24h"`

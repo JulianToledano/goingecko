@@ -158,7 +158,7 @@ type MarketData struct {
 	AtlChangePercentage                   PriceRates `json:"atl_change_percentage"`
 	AtlDate                               DateRates  `json:"atl_date"`
 	MarketCap                             PriceRates `json:"market_cap"`
-	MarketCapRank                         int16      `json:"market_cap_rank"`
+	MarketCapRank                         int64      `json:"market_cap_rank"`
 	FullyDilutedValuation                 PriceRates `json:"fully_diluted_valuation"`
 	TotalVolume                           PriceRates `json:"total_volume"`
 	High24                                PriceRates `json:"high_24h"`

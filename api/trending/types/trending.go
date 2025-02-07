@@ -12,7 +12,7 @@ type item struct {
 	ID            string  `json:"id"`
 	Name          string  `json:"name"`
 	Symbol        string  `json:"symbol"`
-	MarketCapRank int32   `json:"market_cap_rank"`
+	MarketCapRank int64   `json:"market_cap_rank"`
 	Thumb         string  `json:"thumb"`
 	Large         string  `json:"large"`
 	Score         float64 `json:"score"`

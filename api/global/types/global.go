@@ -7,11 +7,11 @@ type Global struct {
 }
 
 type data struct {
-	ActiveCryptocurrencies          int32              `json:"active_cryptocurrencies"`
-	UpcomingIcos                    int32              `json:"upcoming_icos"`
-	OngoingIcos                     int32              `json:"ongoing_icos"`
-	EndedIcos                       int32              `json:"ended_icos"`
-	Markets                         int32              `json:"markets"`
+	ActiveCryptocurrencies          int64              `json:"active_cryptocurrencies"`
+	UpcomingIcos                    int64              `json:"upcoming_icos"`
+	OngoingIcos                     int64              `json:"ongoing_icos"`
+	EndedIcos                       int64              `json:"ended_icos"`
+	Markets                         int64              `json:"markets"`
 	TotalMarketCap                  types.PriceRates   `json:"total_market_cap"`
 	TotalVolume                     types.PriceRates   `json:"total_volume"`
 	MarketCapPercentage             map[string]float64 `json:"market_cap_percentage"`
