@@ -16,5 +16,5 @@ func NewClient(c *geckohttp.Client, url string) *CategoriesClient {
 }
 
 func (c *CategoriesClient) categoriesUrl() string {
-	return c.URL + "/categories"
+	return c.URL + "/coins/categories"
 }
