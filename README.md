@@ -84,8 +84,8 @@ Coingecko API client for golang.
 |-----------------------------------------|--|--------------------------|----|
 | /asset_platforms                        | ✓ | AssetPlatforms           | 🦎 |
 | /token_lists/asset_platform_id/all.json | ✗ |                          | 👑 |
-| /key                                    | ✓ | AssetPlatforms           | 🦎 |
-| /exchange_rates                         | ✗ |                          | 💼 |
+| /key                                    | ✓ | AssetPlatforms           | 💼 |
+| /exchange_rates                         | ✗ |                          | 🦎 |
 | /search                                 | ✓ | Search                   | 🦎 |
 | /search/trending                        | ✓ | Trending                 | 🦎 |
 | /global                                 | ✓ | Global                   | 🦎 |
