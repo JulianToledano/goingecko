@@ -2,6 +2,7 @@ package http
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 )
@@ -49,6 +50,16 @@ func NewClient(opts ...option) *Client {
 	return c
 }
 
+// APIError is an error returned by the client when the API returns a non-200 status code
+type APIError struct {
+	StatusCode int
+	Body       []byte
+}
+
+func (e *APIError) Error() string {
+	return fmt.Sprintf("api returned status code %d", e.StatusCode)
+}
+
 // MakeReq makes a GET request to the given URL with the configured client
 // It returns the response body as bytes or an error if the request fails
 func (c *Client) MakeReq(ctx context.Context, url string) ([]byte, error) {
@@ -61,12 +72,19 @@ func (c *Client) MakeReq(ctx context.Context, url string) ([]byte, error) {
 		c.apiHeaderSetter(req)
 	}
 
-	_, resp, err := c.do(req)
+	code, resp, err := c.do(req)
 	if err != nil {
 		return nil, err
 	}
 
-	return resp, err
+	if code != http.StatusOK {
+		return nil, &APIError{
+			StatusCode: code,
+			Body:       resp,
+		}
+	}
+
+	return resp, nil
 }
 
 // do executes an HTTP request and returns the status code, response body and any error
