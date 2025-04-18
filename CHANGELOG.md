@@ -31,6 +31,12 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## [v3.0.3](https://github.com/JulianToledano/goingecko/releases/tag/v3.0.3) - 2025-04-18
+
+### Improvements
+
+* [#44](https://github.com/JulianToledano/goingecko/pull/44) Return API errors.
+
 ## [v3.0.2](https://github.com/JulianToledano/goingecko/releases/tag/v3.0.2) - 2025-03-01
 
 ### Bug Fixes
