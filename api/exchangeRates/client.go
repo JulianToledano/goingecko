@@ -9,7 +9,7 @@ type ExchangeRatesClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *ExchangeRatesClient {
+func NewClient(c geckohttp.HttpClient, url string) *ExchangeRatesClient {
 	return &ExchangeRatesClient{
 		internal.NewClient(c, url),
 	}

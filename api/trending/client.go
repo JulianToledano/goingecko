@@ -9,7 +9,7 @@ type TrendingClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *TrendingClient {
+func NewClient(c geckohttp.HttpClient, url string) *TrendingClient {
 	return &TrendingClient{
 		internal.NewClient(c, url),
 	}

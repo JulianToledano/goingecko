@@ -15,7 +15,7 @@ type NftsClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *NftsClient {
+func NewClient(c geckohttp.HttpClient, url string) *NftsClient {
 	return &NftsClient{
 		internal.NewClient(c, url),
 	}

@@ -9,7 +9,7 @@ type SimpleClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *SimpleClient {
+func NewClient(c geckohttp.HttpClient, url string) *SimpleClient {
 	return &SimpleClient{
 		internal.NewClient(c, url),
 	}

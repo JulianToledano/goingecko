@@ -14,7 +14,7 @@ type PingClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *PingClient {
+func NewClient(c geckohttp.HttpClient, url string) *PingClient {
 	return &PingClient{
 		internal.NewClient(c, url),
 	}

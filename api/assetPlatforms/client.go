@@ -9,7 +9,7 @@ type AssetPlatformsClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *AssetPlatformsClient {
+func NewClient(c geckohttp.HttpClient, url string) *AssetPlatformsClient {
 	return &AssetPlatformsClient{
 		internal.NewClient(c, url),
 	}
