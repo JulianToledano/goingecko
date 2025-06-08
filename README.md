@@ -3,9 +3,18 @@
 Coingecko API client for golang.
 
 <p align="center">
-    <img src="docs/images/goin.png" alt="goingecko" height="200" />
+    <img src="docs/images/goingecko_logo.png" alt="goingecko" height="200" />
 </p> 
 
+Goingecko is a Go client library for the CoinGecko API that provides easy access to cryptocurrency data. It supports both the public and Pro API endpoints, with features like rate limiting and automatic retries. The library is designed to be simple to use while providing comprehensive access to CoinGecko's cryptocurrency data services.
+
+Key features:
+- Support for both public and Pro API endpoints
+- Rate limiting with configurable request limits
+- Automatic retry with exponential backoff
+- Comprehensive endpoint coverage
+- Type-safe API responses
+- Context support for request cancellation and timeouts
 
 
 ## Endpoints
@@ -126,8 +135,5 @@ Check dir [examples](docs/examples) for more.
 
 ## Todo
 
- - [ ] Implement On Chain Dex Api
-
-## Thanks
-
-Image was created with [Gophers](https://github.com/egonelbre/gophers)
+ - [ ] Implement premium API endpoints
+ - [ ] Implement On Chain Dex API
