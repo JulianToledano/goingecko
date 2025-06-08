@@ -1,16 +1,27 @@
 package internal
 
-import geckohttp "github.com/JulianToledano/goingecko/v3/http"
+import (
+	"net/http"
+
+	geckohttp "github.com/JulianToledano/goingecko/v3/http"
+)
 
 type Client struct {
-	*geckohttp.Client
+	geckohttp.HttpClient
 
 	URL string
 }
 
-func NewClient(httpClient *geckohttp.Client, url string) *Client {
+func NewClient(httpClient geckohttp.HttpClient, url string) *Client {
 	return &Client{
-		Client: httpClient,
-		URL:    url,
+		HttpClient: httpClient,
+		URL:        url,
 	}
 }
+
+// CommonTestClient is a test client for use in tests so rate limiting is not an issue
+var CommonTestClient = geckohttp.NewRateLimitedClient(
+	geckohttp.WithHttpClient[*geckohttp.RateLimitedClient](http.DefaultClient),
+	geckohttp.WithRateLimit[*geckohttp.RateLimitedClient](15),
+	geckohttp.WithRetryPolicy[*geckohttp.RateLimitedClient](5, 2),
+)

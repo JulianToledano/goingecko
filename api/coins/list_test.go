@@ -2,11 +2,9 @@ package coins
 
 import (
 	"context"
-	"net/http"
 	"testing"
 
 	"github.com/JulianToledano/goingecko/v3/api/internal"
-	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
 func TestCoinsClient_CoinsList(t *testing.T) {
@@ -21,7 +19,7 @@ func TestCoinsClient_CoinsList(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			c := &CoinsClient{
 				internal.NewClient(
-					geckohttp.NewClient(geckohttp.WithHttpClient(http.DefaultClient)),
+					internal.CommonTestClient,
 					internal.BaseURL,
 				),
 			}

@@ -11,7 +11,7 @@ type ExchangesClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *ExchangesClient {
+func NewClient(c geckohttp.HttpClient, url string) *ExchangesClient {
 	return &ExchangesClient{
 		internal.NewClient(c, url),
 	}

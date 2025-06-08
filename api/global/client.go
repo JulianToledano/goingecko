@@ -9,7 +9,7 @@ type GlobalClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *GlobalClient {
+func NewClient(c geckohttp.HttpClient, url string) *GlobalClient {
 	return &GlobalClient{
 		internal.NewClient(c, url),
 	}

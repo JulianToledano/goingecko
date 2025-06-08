@@ -9,7 +9,7 @@ type DerivativesClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *DerivativesClient {
+func NewClient(c geckohttp.HttpClient, url string) *DerivativesClient {
 	return &DerivativesClient{
 		internal.NewClient(c, url),
 	}

@@ -9,7 +9,7 @@ type CoinsClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *CoinsClient {
+func NewClient(c geckohttp.HttpClient, url string) *CoinsClient {
 	return &CoinsClient{
 		internal.NewClient(c, url),
 	}

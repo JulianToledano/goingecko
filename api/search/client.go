@@ -9,7 +9,7 @@ type SearchClient struct {
 	*internal.Client
 }
 
-func NewClient(c *geckohttp.Client, url string) *SearchClient {
+func NewClient(c geckohttp.HttpClient, url string) *SearchClient {
 	return &SearchClient{
 		internal.NewClient(c, url),
 	}
