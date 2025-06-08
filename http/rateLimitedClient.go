@@ -2,6 +2,7 @@ package http
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"time"
@@ -96,7 +97,8 @@ func (c *RateLimitedClient) MakeReq(ctx context.Context, url string) ([]byte, er
 				return resp, err
 			}
 			// Check if this is a 429 error (rate limit exceeded)
-			if apiErr, ok := err.(*APIError); ok && apiErr.StatusCode == 429 {
+			var apiErr *APIError
+			if errors.As(err, &apiErr) && apiErr.StatusCode == 429 {
 				if attempt < c.retryPolicy.maxRetries {
 					// Calculate exponential backoff delay
 					delay := c.retryPolicy.baseDelay * time.Duration(1<<attempt) // 2s, 4s, 8s, 16s, 32s
@@ -105,7 +107,7 @@ func (c *RateLimitedClient) MakeReq(ctx context.Context, url string) ([]byte, er
 					case <-time.After(delay):
 						continue // retry
 					case <-ctx.Done():
-						return nil, fmt.Errorf("context cancelled during retry wait: %w", ctx.Err())
+						return nil, fmt.Errorf("context canceled during retry wait: %w", ctx.Err())
 					}
 				}
 				// If we've exhausted retries, return the 429 error

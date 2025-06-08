@@ -64,8 +64,7 @@ func WithRateLimit[T ClientLike](requestsPerMinute int) option[T] {
 // This option only works with RateLimitedClient - it's a no-op for regular Client
 func WithRateLimiter[T ClientLike](limiter *rate.Limiter) option[T] {
 	return func(c T) T {
-		switch v := any(c).(type) {
-		case *RateLimitedClient:
+		if v, ok := any(c).(*RateLimitedClient); ok {
 			v.rateLimiter = limiter
 		}
 		return c
@@ -87,8 +86,7 @@ func WithRateLimiter[T ClientLike](limiter *rate.Limiter) option[T] {
 // - Fifth retry: 32s
 func WithRetryPolicy[T ClientLike](maxRetries int, baseDelay time.Duration) option[T] {
 	return func(c T) T {
-		switch v := any(c).(type) {
-		case *RateLimitedClient:
+		if v, ok := any(c).(*RateLimitedClient); ok {
 			v.retryPolicy = RetryPolicy{
 				maxRetries: maxRetries,
 				baseDelay:  baseDelay,
