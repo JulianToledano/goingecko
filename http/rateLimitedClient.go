@@ -19,7 +19,7 @@ type HttpRateLimitedlient interface {
 	//   - limit: The maximum number of requests allowed per second
 	//   - burst: The maximum number of requests that can be made in a single burst
 	//   - tokens: The current number of available tokens
-	GetRateLimitInfo() (limit rate.Limit, burst int, tokens int)
+	GetRateLimitInfo() (limit rate.Limit, burst, tokens int)
 }
 
 var (
@@ -125,7 +125,7 @@ func (c *RateLimitedClient) MakeReq(ctx context.Context, url string) ([]byte, er
 }
 
 // GetRateLimitInfo returns information about the current rate limiter state
-func (c *RateLimitedClient) GetRateLimitInfo() (limit rate.Limit, burst int, tokens int) {
+func (c *RateLimitedClient) GetRateLimitInfo() (limit rate.Limit, burst, tokens int) {
 	if c.rateLimiter == nil {
 		return 0, 0, 0
 	}
