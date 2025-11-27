@@ -11,3 +11,11 @@ type APIError struct {
 func (e *APIError) Error() string {
 	return fmt.Sprintf("api returned status code %d", e.StatusCode)
 }
+
+// NewAPIError returns a new APIError
+func NewAPIError(status int, body []byte) *APIError {
+	return &APIError{
+		StatusCode: status,
+		Body:       body,
+	}
+}

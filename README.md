@@ -1,7 +1,5 @@
 # Goingecko
 
-Coingecko API client for golang.
-
 <p align="center">
     <img src="docs/images/goingecko_logo.png" alt="goingecko" height="200" />
 </p> 

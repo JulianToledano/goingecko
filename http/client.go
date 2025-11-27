@@ -65,10 +65,7 @@ func (c *Client) MakeReq(ctx context.Context, url string) ([]byte, error) {
 	}
 
 	if code != http.StatusOK {
-		return nil, &APIError{
-			StatusCode: code,
-			Body:       resp,
-		}
+		return nil, NewAPIError(code, resp)
 	}
 
 	return resp, nil

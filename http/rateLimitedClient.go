@@ -98,7 +98,7 @@ func (c *RateLimitedClient) MakeReq(ctx context.Context, url string) ([]byte, er
 			}
 			// Check if this is a 429 error (rate limit exceeded)
 			var apiErr *APIError
-			if errors.As(err, &apiErr) && apiErr.StatusCode == 429 {
+			if errors.As(err, &apiErr) && apiErr.StatusCode == http.StatusTooManyRequests {
 				if attempt < c.retryPolicy.maxRetries {
 					// Calculate exponential backoff delay
 					delay := c.retryPolicy.baseDelay * time.Duration(1<<attempt) // 2s, 4s, 8s, 16s, 32s
