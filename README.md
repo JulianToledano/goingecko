@@ -8,6 +8,7 @@ Goingecko is a Go client library for the CoinGecko API that provides easy access
 
 Key features:
 - Support for both public and Pro API endpoints
+- Separate WebSocket client for paid CoinGecko plans
 - Rate limiting with configurable request limits
 - Automatic retry with exponential backoff
 - Comprehensive endpoint coverage
@@ -130,6 +131,48 @@ func main() {
 ```
 
 Check dir [examples](docs/examples) for more.
+
+### WebSocket
+
+```golang
+package main
+
+import (
+	"context"
+	"fmt"
+
+	geckows "github.com/JulianToledano/goingecko/v3/websocket"
+)
+
+func main() {
+	ctx := context.Background()
+
+	client := geckows.NewClient("YOUR_PRO_API_KEY")
+
+	conn, err := client.Connect(ctx)
+	if err != nil {
+		panic(err)
+	}
+	defer conn.Close()
+
+	if err := conn.Subscribe(ctx, geckows.ChannelCGSimplePrice); err != nil {
+		panic(err)
+	}
+
+	if err := conn.SetCGSimplePrice(ctx, []string{"bitcoin", "ethereum"}, "usd"); err != nil {
+		panic(err)
+	}
+
+	message, err := conn.Read(ctx)
+	if err != nil {
+		panic(err)
+	}
+
+	if update, ok := message.(geckows.CGSimplePriceUpdate); ok && update.Price != nil {
+		fmt.Printf("%s/%s: %f\n", update.CoinID, update.VSCurrency, update.Price.Float64())
+	}
+}
+```
 
 ## Todo
 
