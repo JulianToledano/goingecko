@@ -1,4 +1,4 @@
-golangci_version=v1.61.0
+golangci_version=v1.64.8
 golangci_installed_version=$(shell golangci-lint version --format short 2>/dev/null)
 
 lint-install:

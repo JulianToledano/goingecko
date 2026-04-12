@@ -2,6 +2,7 @@ package websocket
 
 import (
 	"encoding/json"
+	"errors"
 	"net/http"
 	"testing"
 )
@@ -110,7 +111,7 @@ func TestBuildOHLCVActionCommandValidatesIntervalAndToken(t *testing.T) {
 			Token:                OHLCVTokenBase,
 		},
 	)
-	if err != ErrInvalidOHLCVInterval {
+	if !errors.Is(err, ErrInvalidOHLCVInterval) {
 		t.Fatalf("expected ErrInvalidOHLCVInterval, got %v", err)
 	}
 
@@ -123,7 +124,7 @@ func TestBuildOHLCVActionCommandValidatesIntervalAndToken(t *testing.T) {
 			Token:                "mid",
 		},
 	)
-	if err != ErrInvalidOHLCVToken {
+	if !errors.Is(err, ErrInvalidOHLCVToken) {
 		t.Fatalf("expected ErrInvalidOHLCVToken, got %v", err)
 	}
 }
@@ -234,7 +235,6 @@ func TestParseMessage(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
