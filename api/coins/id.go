@@ -14,7 +14,7 @@ import (
 // coinsIdOption is specific to the CoinsId function
 type coinsIdOption interface {
 	internal.Option
-	isCoinsIdOption()
+	IsCoinsIdOption()
 }
 
 // WithLocalization includes localized data in the response if true.
@@ -118,9 +118,9 @@ func (o coinSparklineOption) Apply(v *url.Values) {
 }
 
 // Implement CoinsIdOption interface
-func (localizationOption) isCoinsIdOption()  {}
-func (tickersOption) isCoinsIdOption()       {}
-func (marketDataOption) isCoinsIdOption()    {}
-func (communityDataOption) isCoinsIdOption() {}
-func (developerDataOption) isCoinsIdOption() {}
-func (coinSparklineOption) isCoinsIdOption() {}
+func (localizationOption) IsCoinsIdOption()  {}
+func (tickersOption) IsCoinsIdOption()       {}
+func (marketDataOption) IsCoinsIdOption()    {}
+func (communityDataOption) IsCoinsIdOption() {}
+func (developerDataOption) IsCoinsIdOption() {}
+func (coinSparklineOption) IsCoinsIdOption() {}
