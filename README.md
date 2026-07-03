@@ -30,8 +30,8 @@ Key features:
 | Endpoint                                 |  Status | Function                | Plan |
 |------------------------------------------|--|-------------------------|----|
 | /coins/list                              | ✓ | CoinsList               | 🦎 |
-| /coins/top_gainers_losers                | ✗ |                         | 💼 |
-| /coins/list/new                          | ✗ |                         | 💼 |
+| /coins/top_gainers_losers                | ✓ | CoinsTopGainersLosers   | 💼 |
+| /coins/list/new                          | ✓ | CoinsListNew            | 💼 |
 | /coins/markets                           | ✓ | CoinsMarket             | 🦎 |
 | /coins/{id}                              | ✓ | CoinsId                 | 🦎 |
 | /coins/{id}/tickers                      | ✓ | CoinsIdTickers          | 🦎 |
@@ -39,7 +39,8 @@ Key features:
 | /coins/{id}/market_chart                 | ✓ | CoinsIdMarketChart      | 🦎 |
 | /coins/{id}/market_chart/range           | ✓ | CoinsIdMarketChartRange | 🦎 |
 | /coins/{id}/ohlc                         | ✓ | CoinsOhlc               | 🦎 | 
-| /coins/id/ohlc/range                     | ✗ |                         | 💼 |
+| /coins/{id}/supply_breakdown             | ✓ | CoinsIdSupplyBreakdown  | 💼 |
+| /coins/{id}/ohlc/range                   | ✓ | CoinsOhlcRange          | 💼 |
 | /coins/id/circulating_supply_chart       | ✗ |                         | 👑 |
 | /coins/id/circulating_supply_chart/range | ✗ |                         | 👑 |
 | /coins/id/total_supply_chart             | ✗ |                         | 👑 |
