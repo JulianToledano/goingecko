@@ -30,8 +30,8 @@ Key features:
 | Endpoint                                 |  Status | Function                | Plan |
 |------------------------------------------|--|-------------------------|----|
 | /coins/list                              | ✓ | CoinsList               | 🦎 |
-| /coins/top_gainers_losers                | ✗ |                         | 💼 |
-| /coins/list/new                          | ✗ |                         | 💼 |
+| /coins/top_gainers_losers                | ✓ | CoinsTopGainersLosers   | 💼 |
+| /coins/list/new                          | ✓ | CoinsListNew            | 💼 |
 | /coins/markets                           | ✓ | CoinsMarket             | 🦎 |
 | /coins/{id}                              | ✓ | CoinsId                 | 🦎 |
 | /coins/{id}/tickers                      | ✓ | CoinsIdTickers          | 🦎 |
@@ -39,11 +39,12 @@ Key features:
 | /coins/{id}/market_chart                 | ✓ | CoinsIdMarketChart      | 🦎 |
 | /coins/{id}/market_chart/range           | ✓ | CoinsIdMarketChartRange | 🦎 |
 | /coins/{id}/ohlc                         | ✓ | CoinsOhlc               | 🦎 | 
-| /coins/id/ohlc/range                     | ✗ |                         | 💼 |
-| /coins/id/circulating_supply_chart       | ✗ |                         | 👑 |
-| /coins/id/circulating_supply_chart/range | ✗ |                         | 👑 |
-| /coins/id/total_supply_chart             | ✗ |                         | 👑 |
-| /coins/id/total_supply_chart/range       | ✗ |                         | 👑 |
+| /coins/{id}/supply_breakdown             | ✓ | CoinsIdSupplyBreakdown  | 💼 |
+| /coins/{id}/ohlc/range                   | ✓ | CoinsOhlcRange          | 💼 |
+| /coins/{id}/circulating_supply_chart     | ✓ | CoinsIdCirculatingSupplyChart | 👑 |
+| /coins/{id}/circulating_supply_chart/range | ✓ | CoinsIdCirculatingSupplyChartRange | 👑 |
+| /coins/{id}/total_supply_chart           | ✓ | CoinsIdTotalSupplyChart | 👑 |
+| /coins/{id}/total_supply_chart/range     | ✓ | CoinsIdTotalSupplyChartRange | 👑 |
 
 ### Contract Endpoints
 | Endpoint                                                   |  Status | Function                  | Plan |
@@ -66,7 +67,7 @@ Key features:
 | /exchanges/{id}                        | ✓ | ExchangesId            | 🦎 |
 | /exchanges/{id}/tickers                | ✓ | ExchangesIdTickers     | 🦎 |
 | /exchanges/{id}/volume_chart           | ✓ | ExchangesIdVolumeChart | 🦎 |
-| /exchanges/id/volume_chart/range       | ✗ |                        | 💼 |
+| /exchanges/{id}/volume_chart/range     | ✓ | ExchangesIdVolumeChartRange | 💼 |
 
 ### Derivatives Endpoints
 | Endpoint                                                   |  Status | Function                  | Plan |
@@ -82,24 +83,32 @@ Key features:
 | /nfts/list                                                     | ✓ | NftsList     | 🦎 |
 | /nfts/{id}                                                     | ✓ | NftsId       | 🦎 |
 | /nfts/{asset_platform_id}/contract/{contract_address}          | ✓ | NftsContract | 🦎 |
-| /nfts/markets                                                  | ✗ |              | 💼 |
-| /nfts/id/market_chart                                          | ✗ |              | 💼 |
-| /nfts/asset_platform_id/contract/contract_address/market_chart | ✗ |              | 💼 |
-| /nfts/id/tickers                                               | ✗ |              | 💼 |
+| /nfts/markets                                                  | ✓ | NftsMarkets  | 💼 |
+| /nfts/{id}/market_chart                                        | ✓ | NftsIdMarketChart | 💼 |
+| /nfts/{asset_platform_id}/contract/{contract_address}/market_chart | ✓ | NftsContractMarketChart | 💼 |
+| /nfts/{id}/tickers                                             | ✓ | NftsIdTickers | 💼 |
+
+### Public Treasury Endpoints
+| Endpoint                                                       |  Status | Function     | Plan |
+|----------------------------------------------------------------|--|--------------|------|
+| /entities/list                          | ✓ | EntitiesList             | 🦎 |
+| /{entity}/public_treasury/{coin_id}      | ✓ | PublicTreasuryCoinIdByEntity | 🦎 |
+| /public_treasury/{entity_id}             | ✓ | PublicTreasuryEntity     | 🦎 |
+| /public_treasury/{entity_id}/{coin_id}/holding_chart | ✓ | PublicTreasuryHoldingChart | 🦎 |
+| /public_treasury/{entity_id}/transaction_history | ✓ | PublicTreasuryTransactionHistory | 🦎 |
 
 ### Other Endpoints
 | Endpoint                                |  Status | Function                 | Plan |
 |-----------------------------------------|--|--------------------------|----|
 | /asset_platforms                        | ✓ | AssetPlatforms           | 🦎 |
-| /token_lists/asset_platform_id/all.json | ✗ |                          | 👑 |
+| /token_lists/{asset_platform_id}/all.json | ✓ | TokenListsAll           | 🦎 |
 | /key                                    | ✓ | AssetPlatforms           | 💼 |
-| /exchange_rates                         | ✗ |                          | 🦎 |
+| /exchange_rates                         | ✓ | ExchangeRates            | 🦎 |
 | /search                                 | ✓ | Search                   | 🦎 |
 | /search/trending                        | ✓ | Trending                 | 🦎 |
 | /global                                 | ✓ | Global                   | 🦎 |
 | /global/decentralized_finance_defi      | ✓ | DecentrilizedFinanceDEFI | 🦎 |
-| /global/market_cap_chart                | ✗ |                          | 💼 |
-| /companies/public_treasury/{coin_id}    | ✓ | PublicTreasuryCoinId     | 🦎 |
+| /global/market_cap_chart                | ✓ | GlobalMarketCapChart     | 💼 |
 
 #### Legend
 * 🦎 - Free tier endpoints

@@ -23,6 +23,7 @@ type coinRates struct {
 	Link rateInfo `json:"link"`
 	Dot  rateInfo `json:"dot"`
 	Yfi  rateInfo `json:"yfi"`
+	Sol  rateInfo `json:"sol"`
 	Usd  rateInfo `json:"usd"`
 	Aed  rateInfo `json:"aed"`
 	Ars  rateInfo `json:"ars"`
@@ -38,6 +39,7 @@ type coinRates struct {
 	Czk  rateInfo `json:"czk"`
 	Dkk  rateInfo `json:"dkk"`
 	Eur  rateInfo `json:"eur"`
+	Gel  rateInfo `json:"gel"`
 	Gbp  rateInfo `json:"gbp"`
 	Hkd  rateInfo `json:"hkd"`
 	Huf  rateInfo `json:"huf"`
@@ -73,4 +75,17 @@ type coinRates struct {
 	Xau  rateInfo `json:"xau"`
 	Bits rateInfo `json:"bits"`
 	Sats rateInfo `json:"sats"`
+	Cop  rateInfo `json:"cop"`
+	Kes  rateInfo `json:"kes"`
+	Ron  rateInfo `json:"ron"`
+	Dop  rateInfo `json:"dop"`
+	Crc  rateInfo `json:"crc"`
+	Hnl  rateInfo `json:"hnl"`
+	Zmw  rateInfo `json:"zmw"`
+	Svc  rateInfo `json:"svc"`
+	Bam  rateInfo `json:"bam"`
+	Pen  rateInfo `json:"pen"`
+	Gtq  rateInfo `json:"gtq"`
+	Lbp  rateInfo `json:"lbp"`
+	Amd  rateInfo `json:"amd"`
 }
