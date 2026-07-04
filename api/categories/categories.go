@@ -15,7 +15,7 @@ import (
 type categoriesOption interface {
 	internal.Option
 
-	isCategoryOptions()
+	IsCategoryOptions()
 }
 
 // WithOrderOption returns a categoriesOption that sets the order parameter
@@ -57,4 +57,4 @@ type orderOption struct{ order string }
 func (o orderOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }
-func (o orderOption) isCategoryOptions() {}
+func (o orderOption) IsCategoryOptions() {}

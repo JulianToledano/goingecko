@@ -13,10 +13,10 @@ import (
 
 // idTickersOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdTickers endpoint. It includes a marker
-// method isCoinsIdTickersOption() to ensure type safety for tickers-specific options.
+// method IsCoinsIdTickersOption() to ensure type safety for tickers-specific options.
 type idTickersOption interface {
 	internal.Option
-	isCoinsIdTickersOption()
+	IsCoinsIdTickersOption()
 }
 
 // WithExchangeId filters tickers by exchange id.
@@ -102,8 +102,8 @@ func (o orderIdTickersOption) Apply(v *url.Values) { v.Set("order", o.order) }
 func (o depthOption) Apply(v *url.Values)          { v.Set("depth", o.depth) }
 
 // Implement CoinsIdTickersOption interface
-func (exchangeIdsOption) isCoinsIdTickersOption()         {}
-func (includeExchangeLogoOption) isCoinsIdTickersOption() {}
-func (pageIdTickersOption) isCoinsIdTickersOption()       {}
-func (orderIdTickersOption) isCoinsIdTickersOption()      {}
-func (depthOption) isCoinsIdTickersOption()               {}
+func (exchangeIdsOption) IsCoinsIdTickersOption()         {}
+func (includeExchangeLogoOption) IsCoinsIdTickersOption() {}
+func (pageIdTickersOption) IsCoinsIdTickersOption()       {}
+func (orderIdTickersOption) IsCoinsIdTickersOption()      {}
+func (depthOption) IsCoinsIdTickersOption()               {}

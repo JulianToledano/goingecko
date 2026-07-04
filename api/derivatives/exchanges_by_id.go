@@ -14,7 +14,7 @@ import (
 type exchangesByIdOption interface {
 	internal.Option
 
-	isExchangesByIdOption()
+	IsExchangesByIdOption()
 }
 
 // WithIncludeTickersExchangesById returns an exchangesByIdOption that controls inclusion of tickers data.
@@ -58,4 +58,4 @@ type includeTickersExchangesByIdOption struct{ includeTickers string }
 func (o includeTickersExchangesByIdOption) Apply(v *url.Values) {
 	v.Set("include_tickers", o.includeTickers)
 }
-func (o includeTickersExchangesByIdOption) isExchangesByIdOption() {}
+func (o includeTickersExchangesByIdOption) IsExchangesByIdOption() {}

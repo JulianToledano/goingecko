@@ -15,7 +15,7 @@ import (
 type entitiesListOption interface {
 	internal.Option
 
-	isEntitiesListOption()
+	IsEntitiesListOption()
 }
 
 // WithEntitiesEntityType returns an entitiesListOption that filters entities by type.
@@ -62,7 +62,7 @@ func (o entitiesEntityTypeOption) Apply(v *url.Values) {
 	v.Set("entity_type", o.entityType)
 }
 
-func (o entitiesEntityTypeOption) isEntitiesListOption() {}
+func (o entitiesEntityTypeOption) IsEntitiesListOption() {}
 
 type entitiesPerPageOption struct{ perPage int }
 
@@ -70,7 +70,7 @@ func (o entitiesPerPageOption) Apply(v *url.Values) {
 	v.Set("per_page", strconv.Itoa(o.perPage))
 }
 
-func (o entitiesPerPageOption) isEntitiesListOption() {}
+func (o entitiesPerPageOption) IsEntitiesListOption() {}
 
 type entitiesPageOption struct{ page int }
 
@@ -78,4 +78,4 @@ func (o entitiesPageOption) Apply(v *url.Values) {
 	v.Set("page", strconv.Itoa(o.page))
 }
 
-func (o entitiesPageOption) isEntitiesListOption() {}
+func (o entitiesPageOption) IsEntitiesListOption() {}

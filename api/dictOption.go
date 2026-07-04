@@ -19,4 +19,28 @@ func (o dictOption) Apply(v *url.Values) {
 	}
 }
 
-func (o dictOption) IsCoinsIdOption() {}
+func (o dictOption) IsAssetPlatformsOption()           {}
+func (o dictOption) IsCategoryOptions()                {}
+func (o dictOption) IsCoinsIdOption()                  {}
+func (o dictOption) IsCoinsIdTickersOption()           {}
+func (o dictOption) IsEntitiesListOption()             {}
+func (o dictOption) IsEntityOption()                   {}
+func (o dictOption) IsExchangesByIdOption()            {}
+func (o dictOption) IsExchangesOption()                {}
+func (o dictOption) IsExchangesOptions()               {}
+func (o dictOption) IsHoldingChartOption()             {}
+func (o dictOption) IsIdCirculatingSupplyChartOption() {}
+func (o dictOption) IsIdHistoryOption()                {}
+func (o dictOption) IsIdMarketChartOption()            {}
+func (o dictOption) IsIdMarketChartRangeOption()       {}
+func (o dictOption) IsIdTotalSupplyChartOption()       {}
+func (o dictOption) IsListOption()                     {}
+func (o dictOption) IsMarketCapChartOption()           {}
+func (o dictOption) IsMarketChartOption()              {}
+func (o dictOption) IsMarketsOption()                  {}
+func (o dictOption) IsOhlcOption()                     {}
+func (o dictOption) IsPriceOption()                    {}
+func (o dictOption) IsPublicTreasuryCoinIdOption()     {}
+func (o dictOption) IsTickersOption()                  {}
+func (o dictOption) IsTopGainersLosersOption()         {}
+func (o dictOption) IsTransactionHistoryOption()       {}

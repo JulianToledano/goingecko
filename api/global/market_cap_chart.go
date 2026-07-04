@@ -14,7 +14,7 @@ import (
 // specific options for the GlobalMarketCapChart endpoint.
 type marketCapChartOption interface {
 	internal.Option
-	isMarketCapChartOption()
+	IsMarketCapChartOption()
 }
 
 // WithGlobalMarketCapChartVsCurrency sets the target currency for market cap and volume values.
@@ -56,4 +56,4 @@ func (o vsCurrencyMarketCapChartOption) Apply(v *url.Values) {
 	v.Set("vs_currency", o.vsCurrency)
 }
 
-func (vsCurrencyMarketCapChartOption) isMarketCapChartOption() {}
+func (vsCurrencyMarketCapChartOption) IsMarketCapChartOption() {}

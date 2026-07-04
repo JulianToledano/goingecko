@@ -15,7 +15,7 @@ import (
 type transactionHistoryOption interface {
 	internal.Option
 
-	isTransactionHistoryOption()
+	IsTransactionHistoryOption()
 }
 
 // WithTransactionHistoryPerPage returns a transactionHistoryOption that sets the number of transactions returned per page.
@@ -65,7 +65,7 @@ func (o transactionHistoryPerPageOption) Apply(v *url.Values) {
 	v.Set("per_page", strconv.Itoa(o.perPage))
 }
 
-func (o transactionHistoryPerPageOption) isTransactionHistoryOption() {}
+func (o transactionHistoryPerPageOption) IsTransactionHistoryOption() {}
 
 type transactionHistoryPageOption struct{ page int }
 
@@ -73,7 +73,7 @@ func (o transactionHistoryPageOption) Apply(v *url.Values) {
 	v.Set("page", strconv.Itoa(o.page))
 }
 
-func (o transactionHistoryPageOption) isTransactionHistoryOption() {}
+func (o transactionHistoryPageOption) IsTransactionHistoryOption() {}
 
 type transactionHistoryOrderOption struct{ order string }
 
@@ -81,7 +81,7 @@ func (o transactionHistoryOrderOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }
 
-func (o transactionHistoryOrderOption) isTransactionHistoryOption() {}
+func (o transactionHistoryOrderOption) IsTransactionHistoryOption() {}
 
 type transactionHistoryCoinIDsOption struct{ coinIDs string }
 
@@ -89,4 +89,4 @@ func (o transactionHistoryCoinIDsOption) Apply(v *url.Values) {
 	v.Set("coin_ids", o.coinIDs)
 }
 
-func (o transactionHistoryCoinIDsOption) isTransactionHistoryOption() {}
+func (o transactionHistoryCoinIDsOption) IsTransactionHistoryOption() {}

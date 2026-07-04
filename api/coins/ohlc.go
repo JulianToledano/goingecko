@@ -12,10 +12,10 @@ import (
 
 // ohlcOption is an interface that extends internal.Option to provide
 // specific options for the CoinsOhlc endpoint. It includes a marker
-// method isOhlcOption() to ensure type safety for OHLC-specific options.
+// method IsOhlcOption() to ensure type safety for OHLC-specific options.
 type ohlcOption interface {
 	internal.Option
-	isOhlcOption()
+	IsOhlcOption()
 }
 
 // WithOhlcIntervalOption sets the interval between data points in the response.
@@ -85,5 +85,5 @@ type (
 func (o intervalOhlcOption) Apply(v *url.Values)  { v.Set("interval", o.interval) }
 func (o precisionOhlcOption) Apply(v *url.Values) { v.Set("precision", o.precision) }
 
-func (o intervalOhlcOption) isOhlcOption()  {}
-func (o precisionOhlcOption) isOhlcOption() {}
+func (o intervalOhlcOption) IsOhlcOption()  {}
+func (o precisionOhlcOption) IsOhlcOption() {}

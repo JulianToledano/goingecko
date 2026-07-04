@@ -15,7 +15,7 @@ import (
 type holdingChartOption interface {
 	internal.Option
 
-	isHoldingChartOption()
+	IsHoldingChartOption()
 }
 
 // WithHoldingChartDays returns a holdingChartOption that sets the number of days of historical data to include.
@@ -55,7 +55,7 @@ func (o holdingChartDaysOption) Apply(v *url.Values) {
 	v.Set("days", o.days)
 }
 
-func (o holdingChartDaysOption) isHoldingChartOption() {}
+func (o holdingChartDaysOption) IsHoldingChartOption() {}
 
 type holdingChartIncludeEmptyIntervalsOption struct{ includeEmptyIntervals bool }
 
@@ -63,4 +63,4 @@ func (o holdingChartIncludeEmptyIntervalsOption) Apply(v *url.Values) {
 	v.Set("include_empty_intervals", strconv.FormatBool(o.includeEmptyIntervals))
 }
 
-func (o holdingChartIncludeEmptyIntervalsOption) isHoldingChartOption() {}
+func (o holdingChartIncludeEmptyIntervalsOption) IsHoldingChartOption() {}

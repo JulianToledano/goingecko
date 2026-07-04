@@ -15,7 +15,7 @@ import (
 type exchangesOption interface {
 	internal.Option
 
-	isExchangesOption()
+	IsExchangesOption()
 }
 
 // WithOrderDerivativesExchanges returns an exchangesOption that sets the ordering of results.
@@ -84,6 +84,6 @@ func (o pageExchangeOption) Apply(v *url.Values) {
 	v.Set("page", strconv.FormatInt(o.page, 10))
 }
 
-func (o orderExchangeOption) isExchangesOption()   {}
-func (o perPageExchangeOption) isExchangesOption() {}
-func (o pageExchangeOption) isExchangesOption()    {}
+func (o orderExchangeOption) IsExchangesOption()   {}
+func (o perPageExchangeOption) IsExchangesOption() {}
+func (o pageExchangeOption) IsExchangesOption()    {}

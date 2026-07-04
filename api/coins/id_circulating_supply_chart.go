@@ -14,7 +14,7 @@ import (
 // specific options for the CoinsIdCirculatingSupplyChart endpoint.
 type idCirculatingSupplyChartOption interface {
 	internal.Option
-	isIdCirculatingSupplyChartOption()
+	IsIdCirculatingSupplyChartOption()
 }
 
 // WithIntervalIdCirculatingSupplyChart sets the interval between data points in the response.
@@ -57,4 +57,4 @@ func (o intervalIdCirculatingSupplyChartOption) Apply(v *url.Values) {
 	v.Set("interval", o.interval)
 }
 
-func (intervalIdCirculatingSupplyChartOption) isIdCirculatingSupplyChartOption() {}
+func (intervalIdCirculatingSupplyChartOption) IsIdCirculatingSupplyChartOption() {}

@@ -14,7 +14,7 @@ import (
 // specific options for the CoinsIdTotalSupplyChart endpoint.
 type idTotalSupplyChartOption interface {
 	internal.Option
-	isIdTotalSupplyChartOption()
+	IsIdTotalSupplyChartOption()
 }
 
 // WithIntervalIdTotalSupplyChart sets the interval between data points in the response.
@@ -57,4 +57,4 @@ func (o intervalIdTotalSupplyChartOption) Apply(v *url.Values) {
 	v.Set("interval", o.interval)
 }
 
-func (intervalIdTotalSupplyChartOption) isIdTotalSupplyChartOption() {}
+func (intervalIdTotalSupplyChartOption) IsIdTotalSupplyChartOption() {}

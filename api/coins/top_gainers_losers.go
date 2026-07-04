@@ -15,7 +15,7 @@ import (
 // specific options for the CoinsTopGainersLosers endpoint.
 type topGainersLosersOption interface {
 	internal.Option
-	isTopGainersLosersOption()
+	IsTopGainersLosersOption()
 }
 
 // WithTopGainersLosersDuration filters the result by time range.
@@ -80,6 +80,6 @@ func (o topCoinsOption) Apply(v *url.Values) {
 	v.Set("top_coins", o.topCoins)
 }
 
-func (topGainersLosersDurationOption) isTopGainersLosersOption()              {}
-func (topGainersLosersPriceChangePercentageOption) isTopGainersLosersOption() {}
-func (topCoinsOption) isTopGainersLosersOption()                              {}
+func (topGainersLosersDurationOption) IsTopGainersLosersOption()              {}
+func (topGainersLosersPriceChangePercentageOption) IsTopGainersLosersOption() {}
+func (topCoinsOption) IsTopGainersLosersOption()                              {}

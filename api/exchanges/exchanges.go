@@ -15,7 +15,7 @@ import (
 type exchangesOption interface {
 	internal.Option
 
-	isExchangesOptions()
+	IsExchangesOptions()
 }
 
 // WithPerPageExchagesOption returns an exchangesOption that sets the number of results per page.
@@ -74,5 +74,5 @@ func (o pageExchangesOption) Apply(v *url.Values) {
 	v.Set("page", strconv.FormatInt(o.page, 10))
 }
 
-func (o perPageExchangesOption) isExchangesOptions() {}
-func (o pageExchangesOption) isExchangesOptions()    {}
+func (o perPageExchangesOption) IsExchangesOptions() {}
+func (o pageExchangesOption) IsExchangesOptions()    {}

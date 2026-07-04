@@ -12,10 +12,10 @@ import (
 
 // idMarketChartOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdMarketChart endpoint. It includes a marker
-// method isIdMarketChartOptions() to ensure type safety for market chart-specific options.
+// method IsIdMarketChartOption() to ensure type safety for market chart-specific options.
 type idMarketChartOption interface {
 	internal.Option
-	isIdMarketChartOption()
+	IsIdMarketChartOption()
 }
 
 // WithIntervalIdMarketChart sets the interval between data points in the response.
@@ -86,5 +86,5 @@ type (
 func (o intervalIdMarketChartOptions) Apply(v *url.Values)  { v.Set("interval", o.interval) }
 func (o precisionIdMarketChartOptions) Apply(v *url.Values) { v.Set("precision", o.precision) }
 
-func (o intervalIdMarketChartOptions) isIdMarketChartOption()  {}
-func (o precisionIdMarketChartOptions) isIdMarketChartOption() {}
+func (o intervalIdMarketChartOptions) IsIdMarketChartOption()  {}
+func (o precisionIdMarketChartOptions) IsIdMarketChartOption() {}

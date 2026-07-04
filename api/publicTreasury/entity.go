@@ -14,7 +14,7 @@ import (
 type entityOption interface {
 	internal.Option
 
-	isEntityOption()
+	IsEntityOption()
 }
 
 // WithHoldingAmountChange returns an entityOption that includes holding amount changes for the specified comma-separated timeframes.
@@ -54,7 +54,7 @@ func (o holdingAmountChangeOption) Apply(v *url.Values) {
 	v.Set("holding_amount_change", o.holdingAmountChange)
 }
 
-func (o holdingAmountChangeOption) isEntityOption() {}
+func (o holdingAmountChangeOption) IsEntityOption() {}
 
 type holdingChangePercentageOption struct{ holdingChangePercentage string }
 
@@ -62,4 +62,4 @@ func (o holdingChangePercentageOption) Apply(v *url.Values) {
 	v.Set("holding_change_percentage", o.holdingChangePercentage)
 }
 
-func (o holdingChangePercentageOption) isEntityOption() {}
+func (o holdingChangePercentageOption) IsEntityOption() {}

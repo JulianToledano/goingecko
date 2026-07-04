@@ -15,7 +15,7 @@ import (
 type publicTreasuryCoinIdOption interface {
 	internal.Option
 
-	isPublicTreasuryCoinIdOption()
+	IsPublicTreasuryCoinIdOption()
 }
 
 // WithPublicTreasuryPerPage returns a publicTreasuryCoinIdOption that sets the number of treasury holdings returned per page.
@@ -67,7 +67,7 @@ func (o publicTreasuryPerPageOption) Apply(v *url.Values) {
 	v.Set("per_page", strconv.Itoa(o.perPage))
 }
 
-func (o publicTreasuryPerPageOption) isPublicTreasuryCoinIdOption() {}
+func (o publicTreasuryPerPageOption) IsPublicTreasuryCoinIdOption() {}
 
 type publicTreasuryPageOption struct{ page int }
 
@@ -75,7 +75,7 @@ func (o publicTreasuryPageOption) Apply(v *url.Values) {
 	v.Set("page", strconv.Itoa(o.page))
 }
 
-func (o publicTreasuryPageOption) isPublicTreasuryCoinIdOption() {}
+func (o publicTreasuryPageOption) IsPublicTreasuryCoinIdOption() {}
 
 type publicTreasuryOrderOption struct{ order string }
 
@@ -83,4 +83,4 @@ func (o publicTreasuryOrderOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }
 
-func (o publicTreasuryOrderOption) isPublicTreasuryCoinIdOption() {}
+func (o publicTreasuryOrderOption) IsPublicTreasuryCoinIdOption() {}

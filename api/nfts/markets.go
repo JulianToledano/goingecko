@@ -15,7 +15,7 @@ import (
 // specific options for the NftsMarkets endpoint.
 type marketsOption interface {
 	internal.Option
-	isMarketsOption()
+	IsMarketsOption()
 }
 
 // WithNftsMarketsAssetPlatformID filters results by asset platform.
@@ -82,7 +82,7 @@ func (o perPageMarketsOption) Apply(v *url.Values) {
 }
 func (o pageMarketsOption) Apply(v *url.Values) { v.Set("page", strconv.FormatInt(o.page, 10)) }
 
-func (assetPlatformIDMarketsOption) isMarketsOption() {}
-func (orderMarketsOption) isMarketsOption()           {}
-func (perPageMarketsOption) isMarketsOption()         {}
-func (pageMarketsOption) isMarketsOption()            {}
+func (assetPlatformIDMarketsOption) IsMarketsOption() {}
+func (orderMarketsOption) IsMarketsOption()           {}
+func (perPageMarketsOption) IsMarketsOption()         {}
+func (pageMarketsOption) IsMarketsOption()            {}

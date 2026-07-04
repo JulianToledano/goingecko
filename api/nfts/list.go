@@ -13,10 +13,10 @@ import (
 
 // listOption is an interface that extends internal.Option to provide
 // specific options for the NftsList endpoint. It includes a marker
-// method isListOption() to ensure type safety for list-specific options.
+// method IsListOption() to ensure type safety for list-specific options.
 type listOption interface {
 	internal.Option
-	isListOption()
+	IsListOption()
 }
 
 // WithOrder specifies the ordering of results.
@@ -81,6 +81,6 @@ func (o orderListOption) Apply(v *url.Values)   { v.Set("order", o.order) }
 func (o perPageListOption) Apply(v *url.Values) { v.Set("per_page", strconv.FormatInt(o.perPage, 10)) }
 func (o pageListOption) Apply(v *url.Values)    { v.Set("page", strconv.FormatInt(o.page, 10)) }
 
-func (o orderListOption) isListOption()   {}
-func (o perPageListOption) isListOption() {}
-func (o pageListOption) isListOption()    {}
+func (o orderListOption) IsListOption()   {}
+func (o perPageListOption) IsListOption() {}
+func (o pageListOption) IsListOption()    {}

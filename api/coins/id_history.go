@@ -13,10 +13,10 @@ import (
 
 // idHistoryOption is an interface that extends internal.Option to provide
 // specific options for the CoinsIdHistory endpoint. It includes a marker
-// method isIdHistoryOption() to ensure type safety for history-specific options.
+// method IsIdHistoryOption() to ensure type safety for history-specific options.
 type idHistoryOption interface {
 	internal.Option
-	isIdHistoryOption()
+	IsIdHistoryOption()
 }
 
 // WithLocalizationIdHistoryOption sets whether to include localized data.
@@ -69,4 +69,4 @@ type localizationIdHistoryOption struct{ localization bool }
 func (o localizationIdHistoryOption) Apply(v *url.Values) {
 	v.Set("localization", strconv.FormatBool(o.localization))
 }
-func (localizationIdHistoryOption) isIdHistoryOption() {}
+func (localizationIdHistoryOption) IsIdHistoryOption() {}

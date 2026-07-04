@@ -15,7 +15,7 @@ import (
 type assetPlatformsOption interface {
 	internal.Option
 
-	isAssetPlatformsOption()
+	IsAssetPlatformsOption()
 }
 
 // WithFilter returns an assetPlatformsOption that sets the filter parameter
@@ -58,4 +58,4 @@ func (o filterOption) Apply(v *url.Values) {
 	v.Set("filter", o.filter)
 }
 
-func (o filterOption) isAssetPlatformsOption() {}
+func (o filterOption) IsAssetPlatformsOption() {}

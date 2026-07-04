@@ -11,7 +11,7 @@ import (
 // to ensure type safety for price-specific options
 type priceOption interface {
 	internal.Option
-	isPriceOption()
+	IsPriceOption()
 }
 
 // WithIncludeMarketCapOption returns a priceOption that configures whether to include
@@ -72,8 +72,8 @@ func (o precisionOption) Apply(v *url.Values) {
 	v.Set("precision", o.precision)
 }
 
-func (o includeMarketCapOption) isPriceOption()       {}
-func (o includeDayVolumeOption) isPriceOption()       {}
-func (o includeDayChangeOption) isPriceOption()       {}
-func (o includeLastTimeUpdatedOption) isPriceOption() {}
-func (o precisionOption) isPriceOption()              {}
+func (o includeMarketCapOption) IsPriceOption()       {}
+func (o includeDayVolumeOption) IsPriceOption()       {}
+func (o includeDayChangeOption) IsPriceOption()       {}
+func (o includeLastTimeUpdatedOption) IsPriceOption() {}
+func (o precisionOption) IsPriceOption()              {}

@@ -11,7 +11,7 @@ import (
 type contractOption interface {
 	internal.Option
 
-	isMarketChartOption()
+	IsMarketChartOption()
 }
 
 // WithIntervalOption returns a contractOption that sets the interval parameter
@@ -39,5 +39,5 @@ func (o precisionContractOption) Apply(v *url.Values) {
 	v.Set("precision", o.precision)
 }
 
-func (o intervalContractOption) isMarketChartOption()  {}
-func (o precisionContractOption) isMarketChartOption() {}
+func (o intervalContractOption) IsMarketChartOption()  {}
+func (o precisionContractOption) IsMarketChartOption() {}

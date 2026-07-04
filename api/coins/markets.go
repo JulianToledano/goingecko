@@ -14,10 +14,10 @@ import (
 
 // marketsOption is an interface that extends internal.Option to provide
 // specific options for the CoinsMarket endpoint. It includes a marker
-// method isCoinsMarketOption() to ensure type safety for market-specific options.
+// method IsMarketsOption() to ensure type safety for market-specific options.
 type marketsOption interface {
 	internal.Option
-	isMarketsOption()
+	IsMarketsOption()
 }
 
 // WithIDs specifies the coin ids to filter results by.
@@ -107,10 +107,10 @@ func (o priceChangePercentageOption) Apply(v *url.Values) {
 }
 
 // Implement CoinsMarketOption interface
-func (idsOption) isMarketsOption()                   {}
-func (categoryOption) isMarketsOption()              {}
-func (orderOption) isMarketsOption()                 {}
-func (perPageOption) isMarketsOption()               {}
-func (pageOption) isMarketsOption()                  {}
-func (sparklineOption) isMarketsOption()             {}
-func (priceChangePercentageOption) isMarketsOption() {}
+func (idsOption) IsMarketsOption()                   {}
+func (categoryOption) IsMarketsOption()              {}
+func (orderOption) IsMarketsOption()                 {}
+func (perPageOption) IsMarketsOption()               {}
+func (pageOption) IsMarketsOption()                  {}
+func (sparklineOption) IsMarketsOption()             {}
+func (priceChangePercentageOption) IsMarketsOption() {}

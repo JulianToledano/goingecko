@@ -16,7 +16,7 @@ import (
 type tickersOption interface {
 	internal.Option
 
-	isTickersOption()
+	IsTickersOption()
 }
 
 // WithCoinIdsTickers returns a tickersOption that filters tickers by coin IDs.
@@ -55,8 +55,11 @@ func WithOrderTickers(order string) tickersOption {
 //
 //	    Responses are paginated and limited to 100 tickers per page. You may specify the page number using the page params to retrieve the tickers accordingly
 //	    Cache / Update Frequency: every 60 seconds for all the API plans
-func (c *ExchangesClient) ExchangesIdTickers(ctx context.Context, id string) (*types.Tickers, error) {
+func (c *ExchangesClient) ExchangesIdTickers(ctx context.Context, id string, options ...tickersOption) (*types.Tickers, error) {
 	params := url.Values{}
+	for _, opt := range options {
+		opt.Apply(&params)
+	}
 
 	rUrl := fmt.Sprintf("%s/%s/tickers?%s", c.exchangesUrl(), id, params.Encode())
 	resp, err := c.MakeReq(ctx, rUrl)
@@ -101,8 +104,8 @@ func (o orderTickersOption) Apply(v *url.Values) {
 	v.Set("order", o.order)
 }
 
-func (o coinIdsTickersOption) isTickersOption()             {}
-func (o includeExchangeLogoTickersOption) isTickersOption() {}
-func (o pageTickersOption) isTickersOption()                {}
-func (o depthTickersOption) isTickersOption()               {}
-func (o orderTickersOption) isTickersOption()               {}
+func (o coinIdsTickersOption) IsTickersOption()             {}
+func (o includeExchangeLogoTickersOption) IsTickersOption() {}
+func (o pageTickersOption) IsTickersOption()                {}
+func (o depthTickersOption) IsTickersOption()               {}
+func (o orderTickersOption) IsTickersOption()               {}

@@ -14,7 +14,7 @@ import (
 type listOption interface {
 	internal.Option
 
-	isListOption()
+	IsListOption()
 }
 
 // WithStatus returns a listOption that filters exchanges by their status.
@@ -60,4 +60,4 @@ func (o statusOption) Apply(v *url.Values) {
 	v.Set("status", o.status)
 }
 
-func (o statusOption) isListOption() {}
+func (o statusOption) IsListOption() {}
