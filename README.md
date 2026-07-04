@@ -41,10 +41,10 @@ Key features:
 | /coins/{id}/ohlc                         | ✓ | CoinsOhlc               | 🦎 | 
 | /coins/{id}/supply_breakdown             | ✓ | CoinsIdSupplyBreakdown  | 💼 |
 | /coins/{id}/ohlc/range                   | ✓ | CoinsOhlcRange          | 💼 |
-| /coins/id/circulating_supply_chart       | ✗ |                         | 👑 |
-| /coins/id/circulating_supply_chart/range | ✗ |                         | 👑 |
-| /coins/id/total_supply_chart             | ✗ |                         | 👑 |
-| /coins/id/total_supply_chart/range       | ✗ |                         | 👑 |
+| /coins/{id}/circulating_supply_chart     | ✓ | CoinsIdCirculatingSupplyChart | 👑 |
+| /coins/{id}/circulating_supply_chart/range | ✓ | CoinsIdCirculatingSupplyChartRange | 👑 |
+| /coins/{id}/total_supply_chart           | ✓ | CoinsIdTotalSupplyChart | 👑 |
+| /coins/{id}/total_supply_chart/range     | ✓ | CoinsIdTotalSupplyChartRange | 👑 |
 
 ### Contract Endpoints
 | Endpoint                                                   |  Status | Function                  | Plan |
@@ -92,9 +92,8 @@ Key features:
 | Endpoint                                |  Status | Function                 | Plan |
 |-----------------------------------------|--|--------------------------|----|
 | /asset_platforms                        | ✓ | AssetPlatforms           | 🦎 |
-| /token_lists/asset_platform_id/all.json | ✗ |                          | 👑 |
 | /key                                    | ✓ | AssetPlatforms           | 💼 |
-| /exchange_rates                         | ✗ |                          | 🦎 |
+| /exchange_rates                         | ✓ | ExchangeRates                        | 🦎 |
 | /search                                 | ✓ | Search                   | 🦎 |
 | /search/trending                        | ✓ | Trending                 | 🦎 |
 | /global                                 | ✓ | Global                   | 🦎 |
