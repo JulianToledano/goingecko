@@ -38,6 +38,10 @@ Ref: https://keepachangelog.com/en/1.0.0/
 * [55](https://github.com/JulianToledano/goingecko/pull/55) Add enterprise and analyst endpoints
 * [56](https://github.com/JulianToledano/goingecko/pull/56) Add public treasury endpoints
 
+### Improvements
+
+* [57](https://github.com/JulianToledano/goingecko/pull/57) Add common dict options for all endpoints
+
 ## [v3.1.0](https://github.com/JulianToledano/goingecko/releases/tag/v3.1.0) - 2025-11-28
 
 ### Features
