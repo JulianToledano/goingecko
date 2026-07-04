@@ -7,7 +7,6 @@ import (
 	"github.com/JulianToledano/goingecko/v3/api/assetPlatforms"
 	"github.com/JulianToledano/goingecko/v3/api/categories"
 	"github.com/JulianToledano/goingecko/v3/api/coins"
-	"github.com/JulianToledano/goingecko/v3/api/companies"
 	"github.com/JulianToledano/goingecko/v3/api/contract"
 	"github.com/JulianToledano/goingecko/v3/api/derivatives"
 	"github.com/JulianToledano/goingecko/v3/api/exchangeRates"
@@ -15,6 +14,7 @@ import (
 	"github.com/JulianToledano/goingecko/v3/api/global"
 	"github.com/JulianToledano/goingecko/v3/api/nfts"
 	"github.com/JulianToledano/goingecko/v3/api/ping"
+	"github.com/JulianToledano/goingecko/v3/api/publicTreasury"
 	"github.com/JulianToledano/goingecko/v3/api/search"
 	"github.com/JulianToledano/goingecko/v3/api/simple"
 	"github.com/JulianToledano/goingecko/v3/api/trending"
@@ -48,6 +48,7 @@ type Client struct {
 	*contract.ContractClient
 	*assetPlatforms.AssetPlatformsClient
 	*categories.CategoriesClient
+	*publicTreasury.PublicTreasuryClient
 	*exchanges.ExchangesClient
 	*derivatives.DerivativesClient
 	*nfts.NftsClient
@@ -55,7 +56,6 @@ type Client struct {
 	*search.SearchClient
 	*trending.TrendingClient
 	*global.GlobalClient
-	*companies.CompaniesClient
 }
 
 // NewClient creates a new Client with the given gecko HTTP client and base URL.
@@ -151,6 +151,7 @@ func newClient(c geckohttp.HttpClient, url string) *Client {
 		ContractClient:       contract.NewClient(c, url),
 		AssetPlatformsClient: assetPlatforms.NewClient(c, url),
 		CategoriesClient:     categories.NewClient(c, url),
+		PublicTreasuryClient: publicTreasury.NewClient(c, url),
 		ExchangesClient:      exchanges.NewClient(c, url),
 		DerivativesClient:    derivatives.NewClient(c, url),
 		NftsClient:           nfts.NewClient(c, url),
@@ -158,6 +159,5 @@ func newClient(c geckohttp.HttpClient, url string) *Client {
 		SearchClient:         search.NewClient(c, url),
 		TrendingClient:       trending.NewClient(c, url),
 		GlobalClient:         global.NewClient(c, url),
-		CompaniesClient:      companies.NewClient(c, url),
 	}
 }

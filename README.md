@@ -88,6 +88,15 @@ Key features:
 | /nfts/{asset_platform_id}/contract/{contract_address}/market_chart | ✓ | NftsContractMarketChart | 💼 |
 | /nfts/{id}/tickers                                             | ✓ | NftsIdTickers | 💼 |
 
+### Public Treasury Endpoints
+| Endpoint                                                       |  Status | Function     | Plan |
+|----------------------------------------------------------------|--|--------------|------|
+| /entities/list                          | ✓ | EntitiesList             | 🦎 |
+| /{entity}/public_treasury/{coin_id}      | ✓ | PublicTreasuryCoinIdByEntity | 🦎 |
+| /public_treasury/{entity_id}             | ✓ | PublicTreasuryEntity     | 🦎 |
+| /public_treasury/{entity_id}/{coin_id}/holding_chart | ✓ | PublicTreasuryHoldingChart | 🦎 |
+| /public_treasury/{entity_id}/transaction_history | ✓ | PublicTreasuryTransactionHistory | 🦎 |
+
 ### Other Endpoints
 | Endpoint                                |  Status | Function                 | Plan |
 |-----------------------------------------|--|--------------------------|----|
@@ -99,7 +108,6 @@ Key features:
 | /global                                 | ✓ | Global                   | 🦎 |
 | /global/decentralized_finance_defi      | ✓ | DecentrilizedFinanceDEFI | 🦎 |
 | /global/market_cap_chart                | ✓ | GlobalMarketCapChart     | 💼 |
-| /companies/public_treasury/{coin_id}    | ✓ | PublicTreasuryCoinId     | 🦎 |
 
 #### Legend
 * 🦎 - Free tier endpoints
