@@ -101,8 +101,9 @@ Key features:
 | Endpoint                                |  Status | Function                 | Plan |
 |-----------------------------------------|--|--------------------------|----|
 | /asset_platforms                        | ✓ | AssetPlatforms           | 🦎 |
+| /token_lists/{asset_platform_id}/all.json | ✓ | TokenListsAll           | 🦎 |
 | /key                                    | ✓ | AssetPlatforms           | 💼 |
-| /exchange_rates                         | ✓ | ExchangeRates                        | 🦎 |
+| /exchange_rates                         | ✓ | ExchangeRates            | 🦎 |
 | /search                                 | ✓ | Search                   | 🦎 |
 | /search/trending                        | ✓ | Trending                 | 🦎 |
 | /global                                 | ✓ | Global                   | 🦎 |

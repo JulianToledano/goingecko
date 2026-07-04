@@ -36,6 +36,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 * [53](https://github.com/JulianToledano/goingecko/pull/53) Add implementation for coingecko [websockets api](https://docs.coingecko.com/websocket)
 * [54](https://github.com/JulianToledano/goingecko/pull/54) Add coins paid endpoints
 * [55](https://github.com/JulianToledano/goingecko/pull/55) Add enterprise and analyst endpoints
+* [56](https://github.com/JulianToledano/goingecko/pull/56) Add public treasury endpoints
 
 ## [v3.1.0](https://github.com/JulianToledano/goingecko/releases/tag/v3.1.0) - 2025-11-28
 

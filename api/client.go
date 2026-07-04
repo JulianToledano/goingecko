@@ -17,6 +17,7 @@ import (
 	"github.com/JulianToledano/goingecko/v3/api/publicTreasury"
 	"github.com/JulianToledano/goingecko/v3/api/search"
 	"github.com/JulianToledano/goingecko/v3/api/simple"
+	"github.com/JulianToledano/goingecko/v3/api/tokenLists"
 	"github.com/JulianToledano/goingecko/v3/api/trending"
 	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
@@ -56,6 +57,7 @@ type Client struct {
 	*search.SearchClient
 	*trending.TrendingClient
 	*global.GlobalClient
+	*tokenLists.TokenListsClient
 }
 
 // NewClient creates a new Client with the given gecko HTTP client and base URL.
@@ -159,5 +161,6 @@ func newClient(c geckohttp.HttpClient, url string) *Client {
 		SearchClient:         search.NewClient(c, url),
 		TrendingClient:       trending.NewClient(c, url),
 		GlobalClient:         global.NewClient(c, url),
+		TokenListsClient:     tokenLists.NewClient(c, url),
 	}
 }
