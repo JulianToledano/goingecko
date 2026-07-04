@@ -5,12 +5,6 @@ import (
 	geckohttp "github.com/JulianToledano/goingecko/v3/http"
 )
 
-// TODO: to implement
-//   - https://docs.coingecko.com/reference/nfts-markets
-//   - https://docs.coingecko.com/reference/nfts-id-market-chart
-//   - https://docs.coingecko.com/reference/nfts-contract-address-market-chart
-//   - https://docs.coingecko.com/reference/nfts-id-tickers
-
 type NftsClient struct {
 	*internal.Client
 }
